@@ -1,0 +1,46 @@
+name: Verify TradeCheck
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m pytest -q --junitxml=phase-a-results.xml
+      - run: python -m scripts.evaluate --mode rules --output phase-a-evaluation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-evidence
+          path: |
+            phase-a-results.xml
+            phase-a-evaluation.json
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t tradecheck-phase-a .
+      - name: Check container startup
+        shell: bash
+        run: |
+          docker run -d --name tradecheck -p 8501:8501 tradecheck-phase-a
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8501/_stcore/health | grep -qx ok; then
+              ready=1
+              break
+            fi
+            sleep 2
+          done
+          if [ "$ready" != 1 ]; then
+            docker logs tradecheck
+            exit 1
+          fi

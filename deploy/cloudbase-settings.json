@@ -1,0 +1,21 @@
+{
+  "note": "人工核对用的参数清单，不是可直接导入的 CloudBase API 请求。",
+  "repository": "https://github.com/Roneey-ZY/new-maoshentong",
+  "branch": "main",
+  "build_directory": ".",
+  "dockerfile": "Dockerfile",
+  "container_port": 8501,
+  "cpu": 1,
+  "memory_gb": 2,
+  "running_mode": "持续运行",
+  "replicas": 1,
+  "public_https": true,
+  "health_path": "/_stcore/health",
+  "health_port": 8501,
+  "health_startup_grace_seconds": 60,
+  "log_path": "stdout",
+  "required_env_names": ["LOGIN_USERNAME", "LOGIN_SALT", "LOGIN_PASSWORD_HASH"],
+  "optional_model_env_names": ["DEEPSEEK_API_KEY", "DEEPSEEK_MODEL"],
+  "cmd_override": null,
+  "entrypoint_override": null
+}
