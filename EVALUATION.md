@@ -90,3 +90,5 @@ python -m pytest -q
 - 逐组数据 `data/evaluation-phase-a.json`。演示复核报告 `data/phase-a-case-B-reviewed.xlsx` 仍保留四项规则发现。
 - 本阶段未新增模型实网准确率实验；沿用既有真实模型调用实现。所有上述基准均为合成数据，不代表真实企业总体准确率。
 - 容器构建与公网部署结果以 GitHub Actions 和腾讯云实际验收为准；本地无 Docker 引擎，未声称本地完成镜像验证。
+
+2026-11-21 补充：提交 `e0ef0bb` 的 [GitHub Actions 运行](https://github.com/Roneey-ZY/new-maoshentong/actions/runs/44914412232) 已完成，`tests` 与 `container` 两个 job 均成功，包含 Linux 上的测试、60 组基准、Docker 镜像构建及容器健康检查。腾讯云发布与公网验收仍未完成。
