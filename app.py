@@ -69,7 +69,7 @@ def launch(files, mode, lang, progress, focus):
     STATE.pop("mapping_scan", None)
     STATE.pop("review_book", None)
     STATE.pop("evidence_open", None)
-    for name in ("task_id", "task_version", "task_title", "task_owner", "diagnostics"):
+    for name in ("task_id", "task_version", "task_title", "task_owner", "diagnostics", "_pending_creation"):
         STATE.pop(name, None)
     STATE["revision"] = STATE.get("revision", 0) + 1
     summary, error = None, None
@@ -150,6 +150,8 @@ try:
     task_store, task_actor = task_sidebar()
 except (DatabaseUnavailable, AccessDenied, ValueError):
     st.error("任务暂时无法打开，请重新登录或检查存储服务。")
+    if st.button("重试读取任务"):
+        st.rerun()
     st.stop()
 
 if task_actor and STATE.get("task_owner") and STATE["task_owner"] != task_actor:

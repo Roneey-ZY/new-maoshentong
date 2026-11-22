@@ -1,5 +1,9 @@
 # 自动评估与测试记录
 
+## 部署与恢复专项（最新）
+
+本地完整测试81通过、1跳过，38.46秒；[原始JUnit](data/recovery-test-results.xml)。新增保存回执丢失、并发、回滚、数据库不可用安全重试、SDK请求层模拟503后规则回退，以及新Python进程恢复两个版本。真实PostgreSQL与应用容器重启以本次CI实际记录为准，用户Neon和Streamlit云端重启尚待手动验收。没有新增模型识别准确率实验。见 [RECOVERY_VALIDATION.md](RECOVERY_VALIDATION.md)。
+
 ## 第三方公开合成采购数据（最新补充）
 
 Database Sample CC0 版本 1 的 8 表 492 行，来源文件均与发布方 SHA256 一致。先试 5 笔，再固定 12 笔开发、24 笔留出；36 笔订单的 1,572 个转换字段和 1,748 个来源位置无差异，规则与项目自定义独立参考一致。不是来源官方标签或模型准确率。累计核对产生 177 项业务差异、150 项复核、71 项状态说明，不能将项目与参考一致称为企业准确率100%。本地 73 项通过、1 跳过。完整口径、来源和记录见 [EXTERNAL_DATA_VALIDATION.md](EXTERNAL_DATA_VALIDATION.md)。

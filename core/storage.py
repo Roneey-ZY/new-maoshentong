@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 from core.authentication import LoginConfig, make_config
 
 # Increment when cached Store instances need refreshing after a code deployment.
-STORAGE_API_VERSION = 2
+STORAGE_API_VERSION = 3
 
 
 class AccessDenied(ValueError):
@@ -68,16 +68,17 @@ class Store:
             yield DB(conn, self.local)
             conn.commit()
         except (AccessDenied, Conflict, ValueError):
-            if conn:
-                conn.rollback()
+            rollback_quietly(conn)
             raise
         except Exception:
-            if conn:
-                conn.rollback()
-            raise DatabaseUnavailable("存储操作未完成，请检查服务端数据库配置或稍后重试。") from None
+            rollback_quietly(conn)
+            raise DatabaseUnavailable("未能确认存储操作结果，请保留页面并在连接恢复后重试。") from None
         finally:
             if conn:
-                conn.close()
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def initialize(self, bootstrap=None):
         with self.transaction(write=True) as db:
@@ -183,11 +184,12 @@ class Store:
                 f"SELECT {columns} FROM tc_tasks" + ("" if user["role"] == "admin" else " WHERE owner_id=?")
                 + " ORDER BY created_at DESC LIMIT 100", () if user["role"] == "admin" else (actor,))]
 
-    def save(self, actor, title, files, snapshot, report, *, task_id=None, expected_version=0):
+    def save(self, actor, title, files, snapshot, report, *, task_id=None, expected_version=0, creation_key=None):
         title = title.strip()
         if not title or len(title) > 100:
             raise ValueError("任务名称须为 1 至 100 个字符")
-        payload = json.dumps(snapshot, ensure_ascii=False)
+        payload = json.dumps(snapshot, ensure_ascii=False, sort_keys=True, allow_nan=False)
+        canonical_snapshot = json.loads(payload)
         if len(payload.encode()) > 10 * 1024 * 1024:
             raise ValueError("任务快照超过保存上限")
         if len(files) != 3 or {f.kind for f in files} != {"PO", "CI", "PL"}:
@@ -196,24 +198,35 @@ class Store:
             raise ValueError("原文件超过保存上限")
         if len(report) > 10 * 1024 * 1024:
             raise ValueError("报告超过保存上限")
+        if not task_id and creation_key:
+            try:
+                creation_key = str(uuid.UUID(creation_key))
+            except (ValueError, TypeError, AttributeError):
+                raise ValueError("保存请求编号无效，请重新发起保存。") from None
         with self.transaction(write=True) as db:
             self._actor(db, actor)
-            if task_id:
-                task = self._task(db, actor, task_id, write=True)
-                if task["version"] != expected_version:
-                    raise Conflict("任务已有新版本，请重新打开最新版本，或另存为新任务。")
-                stored = db.all("SELECT kind,sha256 FROM tc_files WHERE task_id=?", (task_id,))
-                actual = {f.kind: hashlib.sha256(f.data).hexdigest() for f in files}
-                if {r["kind"]: r["sha256"] for r in stored} != actual:
+            if not task_id:
+                task_id = creation_key or str(uuid.uuid4())
+                # A stable client creation key permits retry after a lost commit response.
+                # ON CONFLICT and the following row lock serialize concurrent retries.
+                db.run("INSERT INTO tc_tasks VALUES (?,?,?,?,?) ON CONFLICT(id) DO NOTHING",
+                       (task_id, actor, title, time.time(), 0))
+            task = self._task(db, actor, task_id, write=True)
+            if task["version"]:
+                stored = db.all("SELECT kind,name,sha256 FROM tc_files WHERE task_id=?", (task_id,))
+                actual = {f.kind: (f.name, hashlib.sha256(f.data).hexdigest()) for f in files}
+                if {r["kind"]: (r["name"], r["sha256"]) for r in stored} != actual:
                     raise ValueError("不能替换已保存任务的原始文件，请另存新任务。")
-                version = task["version"] + 1
+                latest = db.one("SELECT snapshot FROM tc_versions WHERE task_id=? AND version=?", (task_id, task["version"]))
+                if latest and json.loads(latest["snapshot"]) == canonical_snapshot and task["title"] == title:
+                    return task_id, task["version"]
             else:
-                task_id = str(uuid.uuid4())
-                version = 1
-                db.run("INSERT INTO tc_tasks VALUES (?,?,?,?,?)", (task_id, actor, title, time.time(), 0))
                 for f in files:
                     db.run("INSERT INTO tc_files VALUES (?,?,?,?,?)", (task_id, f.kind, f.name,
                            hashlib.sha256(f.data).hexdigest(), f.data))
+            if task["version"] != expected_version:
+                raise Conflict("任务已有新版本，请重新打开最新版本，或另存为新任务。")
+            version = task["version"] + 1
             db.run("INSERT INTO tc_versions VALUES (?,?,?,?,?,?)",
                    (task_id, version, time.time(), actor, payload, report))
             db.run("UPDATE tc_tasks SET version=?,title=? WHERE id=?", (version, title, task_id))
@@ -237,6 +250,15 @@ class Store:
 def public_user(row):
     return {"id": row["id"], "username": row["username"], "role": row["role"],
             "revision": hashlib.sha256((row["salt"] + row["digest"] + row["role"]).encode()).hexdigest()}
+
+
+def rollback_quietly(conn):
+    if conn is not None:
+        try:
+            conn.rollback()
+        except Exception:
+            # A connection loss may break rollback too; never expose driver/DSN details.
+            pass
 
 
 class DB:

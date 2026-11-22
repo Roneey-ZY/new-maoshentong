@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+import uuid
 
 from auth import get_store
 from core.storage import AccessDenied, Conflict, DatabaseUnavailable
@@ -119,7 +120,7 @@ def save_task_panel(store, actor):
     if error or run.result is None:
         return
     with st.expander("保存任务及当前版本", expanded=not bool(state.get("task_id"))):
-        st.caption("保存后可跨登录恢复。每次保存追加版本，原始文件不覆盖；未点击保存的改动只在当前会话中。")
+        st.caption("保存后可跨登录恢复。内容变化才追加版本，相同内容重复保存不新增版本，原始文件不覆盖。未保存的改动只在当前会话中。")
         with st.form("save_task"):
             title = st.text_input("任务名称", value=state.get("task_title", "单证审核任务"), max_chars=100)
             save = st.form_submit_button("保存当前版本")
@@ -129,9 +130,21 @@ def save_task_panel(store, actor):
                 snapshot = pack(state["record"], state.get("review_book"), state.get("baseline"), state.get("diagnostics"))
                 report = make_report(run.documents, run.result, run.language, MODES[run.mode][run.language == "en"],
                                      state.get("review_book"), run.files)
+                creation_key = None
+                if save_as or not state.get("task_id"):
+                    intent = "save_as" if save_as else "new"
+                    pending = state.get("_pending_creation")
+                    if not pending or pending["intent"] != intent:
+                        pending = {"id": str(uuid.uuid4()), "intent": intent}
+                        state["_pending_creation"] = pending
+                    creation_key = pending["id"]
                 task_id, version = store.save(actor, title, run.files, snapshot, report,
-                    task_id=None if save_as else state.get("task_id"), expected_version=state.get("task_version", 0))
+                    task_id=None if save_as else state.get("task_id"),
+                    expected_version=0 if save_as else state.get("task_version", 0), creation_key=creation_key)
                 state.update(task_id=task_id, task_version=version, task_title=title, task_owner=actor)
-                st.success(f"已保存第 {version} 版。重新登录后从历史任务打开。")
-            except (ValueError, DatabaseUnavailable) as exc:
+                state.pop("_pending_creation", None)
+                st.success(f"已确认保存第 {version} 版。相同内容不重复新增版本，重新登录后可从历史任务打开。")
+            except DatabaseUnavailable:
+                st.error("未能确认保存结果，请保留页面并在连接恢复后再次点击保存。同一次请求重试不会重复创建任务或版本。")
+            except ValueError as exc:
                 st.error(str(exc))

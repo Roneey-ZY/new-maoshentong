@@ -30,6 +30,35 @@ jobs:
       - run: python -m pytest tests/test_phase_b.py::test_postgres_storage_when_service_available -q
         env:
           TEST_DATABASE_URL: postgresql://postgres:ci-only-password@127.0.0.1:5432/tradecheck_test?sslmode=disable
+      - name: Create isolated recovery database
+        run: docker exec "${{ job.services.postgres.id }}" createdb -U postgres tradecheck_recovery
+      - name: Prepare saved versions in a fresh process
+        run: python -m scripts.recovery_probe --phase prepare --state recovery-state.json
+        env:
+          TEST_RECOVERY_DATABASE_URL: postgresql://postgres:ci-only-password@127.0.0.1:5432/tradecheck_recovery?sslmode=disable
+      - name: Stop isolated database and verify safe failure
+        shell: bash
+        run: |
+          docker stop "${{ job.services.postgres.id }}"
+          python -m scripts.recovery_probe --phase unavailable --state recovery-state.json
+        env:
+          TEST_RECOVERY_DATABASE_URL: postgresql://postgres:ci-only-password@127.0.0.1:5432/tradecheck_recovery?sslmode=disable
+      - name: Restart isolated database and verify persisted reports
+        shell: bash
+        run: |
+          docker start "${{ job.services.postgres.id }}"
+          ready=0
+          for attempt in $(seq 1 30); do
+            if docker exec "${{ job.services.postgres.id }}" pg_isready -U postgres; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          test "$ready" = 1
+          python -m scripts.recovery_probe --phase restore --state recovery-state.json
+        env:
+          TEST_RECOVERY_DATABASE_URL: postgresql://postgres:ci-only-password@127.0.0.1:5432/tradecheck_recovery?sslmode=disable
   tests:
     runs-on: ubuntu-latest
     steps:
@@ -64,6 +93,19 @@ jobs:
         shell: bash
         run: |
           docker run -d --name tradecheck -p 8501:8501 tradecheck-phase-a
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8501/_stcore/health | grep -qx ok; then
+              ready=1
+              break
+            fi
+            sleep 2
+          done
+          if [ "$ready" != 1 ]; then
+            docker logs tradecheck
+            exit 1
+          fi
+          docker restart tradecheck
           ready=0
           for attempt in $(seq 1 30); do
             if curl --fail --silent http://127.0.0.1:8501/_stcore/health | grep -qx ok; then

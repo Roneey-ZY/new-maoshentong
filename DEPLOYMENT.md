@@ -2,6 +2,8 @@
 
 **当前升级使用 `Roneey-ZY/new-maoshentong`，不要将新包上传旧仓库。** B 阶段的任务历史与多账号需要外部 PostgreSQL；按 [B_SETUP.md](B_SETUP.md) 创建数据库并在现有 Streamlit Secrets 顶层增加 `DATABASE_URL`。下文旧版本发布流程保留作历史参考，当前以 B 配置说明为准。
 
+已配置数据库的站点更新第五步时，无需新建数据库、修改现有Secrets或迁移表结构。部署后按 [重启恢复验收](RECOVERY_VALIDATION.md) 检查不变内容重复保存、两个版本、管理员和审核员，以及重启后报告一致性。
+
 ## 登录配置（发布前必读）
 
 当前版本默认需要账号密码登录。发布前按 [登录部署说明](LOGIN_DEPLOYMENT.md) 配置 `LOGIN_USERNAME`、`LOGIN_SALT`、`LOGIN_PASSWORD_HASH`；与原有模型密钥一并保存在服务端。未配置时页面会阻止进入工作台。比赛提交材料需提供体验账号密码。

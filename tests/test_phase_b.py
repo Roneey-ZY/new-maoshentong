@@ -325,7 +325,7 @@ def test_ui_saved_task_restores_after_new_login_and_other_account_cannot_see_it(
     task = app.session_state["task_id"]
     assert app.session_state["task_version"] == 1
     button(app, "保存当前版本").click().run(timeout=30)
-    assert app.session_state["task_version"] == 2
+    assert app.session_state["task_version"] == 1  # unchanged content is idempotent
     button(app, "退出登录").click().run()
     assert "record" not in app.session_state
     app = login("admin")
@@ -345,7 +345,7 @@ def test_database_failure_does_not_fall_back_to_legacy_login(monkeypatch):
     app = AppTest.from_file(str(Path(__file__).resolve().parents[1] / "app.py")).run(timeout=30)
     assert not app.exception
     assert any("账号服务暂时不可用" in e.value for e in app.error)
-    assert not app.button
+    assert [button.label for button in app.button] == ["重试连接"]
 
 
 def test_failed_model_keeps_actual_partial_log_and_never_proposes_changes(monkeypatch):

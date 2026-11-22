@@ -84,6 +84,9 @@ def require_login():
             return database_login(store)
     except (DatabaseUnavailable, ValueError):
         st.error("任务存储或账号服务暂时不可用，请联系管理员检查数据库配置。")
+        st.caption("未保存的改动尚未落库，请保留当前页面，连接恢复后点击重试。若持续失败，请联系管理员检查服务配置。")
+        if st.button("重试连接"):
+            st.rerun()
         st.stop()
     try:
         config = LoginConfig.load(setting)
