@@ -91,6 +91,9 @@ class Store:
             return public_user(row) if row else None
 
     def authenticate(self, username, password):
+        # Account creation already strips surrounding whitespace. Login must use
+        # the same representation, especially for names copied from a message.
+        username = username.strip()
         with self.transaction(write=True) as db:
             query = "SELECT * FROM tc_users WHERE username=?"
             if not self.local:
@@ -125,7 +128,26 @@ class Store:
     def users(self, actor):
         with self.transaction() as db:
             self._actor(db, actor, admin=True)
-            return [dict(r) for r in db.all("SELECT id,username,role,active FROM tc_users ORDER BY username")]
+            return [dict(r) for r in db.all("SELECT id,username,role,active,failures,blocked_until FROM tc_users ORDER BY username")]
+
+    def reset_reviewer_password(self, actor, uid, password):
+        """An explicit administrator action; never changes the bootstrap admin."""
+        with self.transaction(write=True) as db:
+            self._actor(db, actor, admin=True)
+            target = db.one("SELECT * FROM tc_users WHERE id=?", (uid,))
+            if not target or target["role"] != "reviewer":
+                raise ValueError("只能重置审核员密码")
+            config = make_config(target["username"], password)
+            db.run("UPDATE tc_users SET salt=?,digest=?,failures=0,blocked_until=0 WHERE id=?",
+                   (config.salt.hex(), config.digest.hex(), uid))
+
+    def unlock_reviewer(self, actor, uid):
+        with self.transaction(write=True) as db:
+            self._actor(db, actor, admin=True)
+            target = db.one("SELECT role FROM tc_users WHERE id=?", (uid,))
+            if not target or target["role"] != "reviewer":
+                raise ValueError("只能解除审核员登录限流")
+            db.run("UPDATE tc_users SET failures=0,blocked_until=0 WHERE id=?", (uid,))
 
     def set_active(self, actor, uid, active):
         with self.transaction(write=True) as db:

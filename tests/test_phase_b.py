@@ -128,6 +128,36 @@ def test_cloud_sqlite_is_rejected():
         Store("https://invalid.example")
 
 
+def test_reviewer_login_copied_name_recovery_and_revocation(store):
+    admin, a, b = actors(store)
+    # Creation strips names: pasting the same surrounding whitespace at login
+    # must not turn an otherwise correct password into an authentication failure.
+    uid = store.create_user(admin, "  测试审核员  ", PASSWORD)
+    assert store.authenticate("  测试审核员  ", PASSWORD)["id"] == uid
+    before = store.user(uid)["revision"]
+    for _ in range(5):
+        assert store.authenticate("测试审核员", "incorrect") is None
+    assert store.authenticate("测试审核员", PASSWORD) is None
+    store.unlock_reviewer(admin, uid)
+    assert store.authenticate("测试审核员", PASSWORD)
+    new_password = "different-test-password-2026"
+    store.reset_reviewer_password(admin, uid, new_password)
+    assert store.authenticate("测试审核员", PASSWORD) is None
+    assert store.authenticate("测试审核员", new_password)["revision"] != before
+    for intruder in (a, b):
+        with pytest.raises(AccessDenied):
+            store.reset_reviewer_password(intruder, uid, PASSWORD)
+        with pytest.raises(AccessDenied):
+            store.unlock_reviewer(intruder, uid)
+    store.set_active(admin, uid, False)
+    store.reset_reviewer_password(admin, uid, PASSWORD)
+    store.unlock_reviewer(admin, uid)
+    assert store.authenticate("测试审核员", PASSWORD) is None
+    with pytest.raises(ValueError):
+        store.reset_reviewer_password(admin, admin, PASSWORD)
+    assert store.authenticate("admin", PASSWORD)
+
+
 def diagnostic_run():
     run = ReviewRun(load_case(DATA / "template_validation/regression/03-unfamiliar-invoice-columns"), "zh", "rules")
     run_rules(run)
@@ -242,6 +272,14 @@ def test_postgres_storage_when_service_available():
     assert store.list_tasks(b) == []
     with pytest.raises(AccessDenied):
         store.load(b, task, 1)
+    admin = store.authenticate("admin", PASSWORD)["id"]
+    before = store.user(b)["revision"]
+    store.reset_reviewer_password(admin, b, "new-postgres-test-password")
+    assert store.authenticate("reviewer-b", "new-postgres-test-password")["revision"] != before
+    assert store.authenticate("reviewer-b", PASSWORD) is None
+    store.unlock_reviewer(admin, b)
+    with pytest.raises(AccessDenied):
+        store.reset_reviewer_password(a, b, PASSWORD)
 
 
 def test_ui_saved_task_restores_after_new_login_and_other_account_cannot_see_it(tmp_path, monkeypatch):
@@ -256,12 +294,15 @@ def test_ui_saved_task_restores_after_new_login_and_other_account_cannot_see_it(
     def button(app, label):
         return next(b for b in app.button if b.label == label)
 
-    def login(username):
+    def login(username, password=PASSWORD):
         app = AppTest.from_file(path).run(timeout=30)
         app.text_input[0].set_value(username)
-        app.text_input[1].set_value(PASSWORD)
+        app.text_input[1].set_value(password)
         button(app, "登录").click().run(timeout=30)
         assert not app.exception
+        assert "_db_login" in app.session_state
+        assert app.session_state["_db_login"]["username"] == username
+        assert any(r.label == "执行模式" for r in app.radio)
         return app
 
     app = login("admin")
@@ -270,6 +311,12 @@ def test_ui_saved_task_restores_after_new_login_and_other_account_cannot_see_it(
     next(t for t in app.text_input if t.label == "确认初始密码").set_value(PASSWORD)
     button(app, "创建审核员账号").click().run(timeout=30)
     assert not app.exception
+    new_password = "changed-password-ui-only"
+    next(t for t in app.text_input if t.label == "新密码（至少12位）").set_value(new_password)
+    next(t for t in app.text_input if t.label == "再次输入新密码").set_value(new_password)
+    button(app, "确认重置所选审核员密码").click().run(timeout=30)
+    assert not app.exception
+    assert any("密码已重置" in m.value for m in app.success)
     next(r for r in app.radio if r.label == "执行模式").set_value("rules").run()
     button(app, "一键加载演示案例").click().run(timeout=30)
     next(t for t in app.text_input if t.label == "任务名称").set_value("持久化验收任务")
@@ -287,7 +334,7 @@ def test_ui_saved_task_restores_after_new_login_and_other_account_cannot_see_it(
     assert app.session_state["task_id"] == task
     assert app.session_state["record"][0].result.counts == {"difference": 3, "contradiction": 1, "review": 0}
     button(app, "退出登录").click().run()
-    isolated = login("reviewer-ui")
+    isolated = login("reviewer-ui", new_password)
     assert not any(s.label == "历史任务" for s in isolated.selectbox)
     assert not any(t.label == "新账号" for t in isolated.text_input)
 

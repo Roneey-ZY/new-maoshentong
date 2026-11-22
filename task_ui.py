@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 
 from auth import get_store
 from core.storage import AccessDenied, Conflict, DatabaseUnavailable
@@ -65,17 +66,38 @@ def task_sidebar():
                             if password != confirm:
                                 raise ValueError("两次密码不一致")
                             store.create_user(actor, username, password)
-                            st.success("账号已创建，请通过安全方式告知使用者。")
+                            st.success(f"审核员账号“{username.strip()}”已创建并启用，请通过安全方式告知使用者。")
                         except ValueError as exc:
                             st.error(str(exc))
                 users = store.users(actor)
-                st.dataframe([{k: u[k] for k in ("username", "role", "active")} for u in users], hide_index=True)
+                st.dataframe([{"账号": u["username"], "角色": "管理员" if u["role"] == "admin" else "审核员",
+                               "状态": "已启用" if u["active"] else "已停用",
+                               "登录限流": "暂时锁定" if u["blocked_until"] > time.time() else "无"}
+                              for u in users], hide_index=True)
                 options = [u for u in users if u["id"] != actor]
                 if options:
                     selected = st.selectbox("管理账号", options, format_func=lambda u: u["username"])
-                    if st.button("切换账号启用状态"):
+                    st.caption(f"当前账号：{selected['username']}；{'已启用' if selected['active'] else '已停用'}。"
+                               "账号区分大小写；登录时会忽略账号两端空格，密码中的空格会保留。")
+                    if st.button("停用所选账号" if selected["active"] else "启用所选账号"):
                         store.set_active(actor, selected["id"], not selected["active"])
                         st.rerun()
+                    if selected["role"] == "reviewer":
+                        if st.button("解除所选账号登录限流"):
+                            store.unlock_reviewer(actor, selected["id"])
+                            st.success("已解除限流；停用账号仍需先启用。")
+                        with st.form(f"reset_reviewer_password_{selected['id']}", clear_on_submit=True):
+                            st.caption("仅点击确认按钮才会重置所选审核员密码，管理员密码不受影响。")
+                            new_password = st.text_input("新密码（至少12位）", type="password", max_chars=1024)
+                            confirmation = st.text_input("再次输入新密码", type="password", max_chars=1024)
+                            if st.form_submit_button("确认重置所选审核员密码"):
+                                try:
+                                    if new_password != confirmation:
+                                        raise ValueError("两次密码不一致")
+                                    store.reset_reviewer_password(actor, selected["id"], new_password)
+                                    st.success("审核员密码已重置并解除限流。该账号需重新登录；若已停用，仍需先启用。")
+                                except ValueError as exc:
+                                    st.error(str(exc))
     return store, actor
 
 
