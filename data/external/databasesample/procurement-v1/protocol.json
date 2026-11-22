@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "frozen_utc": "2026-11-22T09:20:40.718948+00:00",
+  "policy": "procurement-snapshot-v1",
+  "pilot_order_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "development_order_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "11",
+    "17",
+    "6",
+    "22",
+    "13",
+    "15",
+    "27"
+  ],
+  "holdout_order_ids": [
+    "10",
+    "7",
+    "19",
+    "20",
+    "18",
+    "32",
+    "23",
+    "34",
+    "21",
+    "35",
+    "29",
+    "26",
+    "14",
+    "36",
+    "28",
+    "16",
+    "31",
+    "25",
+    "12",
+    "30",
+    "8",
+    "9",
+    "24",
+    "33"
+  ],
+  "split_unit": "purchase_order_id_all_children_together",
+  "source_sha256": "03015d86c295dc1df0d1aa1eda24f07c00f907b3afafce08d1d78eb6c6856508",
+  "engine": {
+    "core/procurement.py": "99ebe0283d188efb29a5eed03f49d06fd86a66d61f81c59481d95cf2d42d4ae0",
+    "core/procurement_report.py": "1123c173f6f1d39195b283430c1410aa5be738fa597dd273e60e0ce29608cd92",
+    "scripts/procurement_reference.py": "d35fb508b39daad2d64d66273b4f5bf4aaaf1e3b2e18cf9202ea88f2b5c0594e",
+    "scripts/evaluate_procurement.py": "ec6d15c500a70ea0f4a4f2dfa2c362bebf78c00a48738554984edd8e85946e62"
+  },
+  "warning": "External synthetic business records, not external labels or real enterprise evidence; no LLM accuracy claim."
+}

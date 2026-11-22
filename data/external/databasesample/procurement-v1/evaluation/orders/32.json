@@ -1,0 +1,1313 @@
+{
+  "converted": {
+    "order_id": "32",
+    "po_number": "PO-63046",
+    "source_type": "third_party_public_synthetic_not_real_enterprise",
+    "policy": "procurement-snapshot-v1",
+    "scope": "all_records_snapshot_not_per_shipment_or_invoice_date",
+    "supplier": "Koch and Sons",
+    "buyer": "King Kutch",
+    "origins": {
+      "po_number": {
+        "file": "raw/purchase_orders.csv",
+        "row": 33,
+        "end_row": 33,
+        "record_id": "32",
+        "column": "po_number",
+        "raw": "PO-63046",
+        "method": "direct"
+      },
+      "supplier": {
+        "file": "raw/suppliers.csv",
+        "row": 2,
+        "end_row": 2,
+        "record_id": "1",
+        "column": "supplier_name",
+        "raw": "Koch and Sons",
+        "method": "master_lookup"
+      },
+      "buyer_first_name": {
+        "file": "raw/buyers.csv",
+        "row": 5,
+        "end_row": 5,
+        "record_id": "4",
+        "column": "first_name",
+        "raw": "King",
+        "method": "master_lookup"
+      },
+      "buyer_last_name": {
+        "file": "raw/buyers.csv",
+        "row": 5,
+        "end_row": 5,
+        "record_id": "4",
+        "column": "last_name",
+        "raw": "Kutch",
+        "method": "master_lookup"
+      }
+    },
+    "lines": [
+      {
+        "line_id": "43",
+        "item_id": "3",
+        "sku": "SK-33357",
+        "product": "Safety goggles",
+        "unit": "each",
+        "ordered_quantity": "85",
+        "po_unit_price": "6.28",
+        "receipts": [
+          {
+            "receipt_id": "4",
+            "received_quantity": "58",
+            "received_on": "2026-03-31",
+            "condition": "good",
+            "origins": {
+              "receipt_id": {
+                "file": "raw/goods_receipts.csv",
+                "row": 5,
+                "end_row": 5,
+                "record_id": "4",
+                "column": "id",
+                "raw": "4",
+                "method": "direct"
+              },
+              "received_quantity": {
+                "file": "raw/goods_receipts.csv",
+                "row": 5,
+                "end_row": 5,
+                "record_id": "4",
+                "column": "received_qty",
+                "raw": "58",
+                "method": "direct"
+              },
+              "received_on": {
+                "file": "raw/goods_receipts.csv",
+                "row": 5,
+                "end_row": 5,
+                "record_id": "4",
+                "column": "received_on",
+                "raw": "2026-03-31",
+                "method": "direct"
+              },
+              "condition": {
+                "file": "raw/goods_receipts.csv",
+                "row": 5,
+                "end_row": 5,
+                "record_id": "4",
+                "column": "condition",
+                "raw": "good",
+                "method": "direct"
+              },
+              "po_line_id": {
+                "file": "raw/goods_receipts.csv",
+                "row": 5,
+                "end_row": 5,
+                "record_id": "4",
+                "column": "po_line_id",
+                "raw": "43",
+                "method": "direct"
+              }
+            }
+          },
+          {
+            "receipt_id": "72",
+            "received_quantity": "85",
+            "received_on": "2026-04-15",
+            "condition": "good",
+            "origins": {
+              "receipt_id": {
+                "file": "raw/goods_receipts.csv",
+                "row": 73,
+                "end_row": 73,
+                "record_id": "72",
+                "column": "id",
+                "raw": "72",
+                "method": "direct"
+              },
+              "received_quantity": {
+                "file": "raw/goods_receipts.csv",
+                "row": 73,
+                "end_row": 73,
+                "record_id": "72",
+                "column": "received_qty",
+                "raw": "85",
+                "method": "direct"
+              },
+              "received_on": {
+                "file": "raw/goods_receipts.csv",
+                "row": 73,
+                "end_row": 73,
+                "record_id": "72",
+                "column": "received_on",
+                "raw": "2026-04-15",
+                "method": "direct"
+              },
+              "condition": {
+                "file": "raw/goods_receipts.csv",
+                "row": 73,
+                "end_row": 73,
+                "record_id": "72",
+                "column": "condition",
+                "raw": "good",
+                "method": "direct"
+              },
+              "po_line_id": {
+                "file": "raw/goods_receipts.csv",
+                "row": 73,
+                "end_row": 73,
+                "record_id": "72",
+                "column": "po_line_id",
+                "raw": "43",
+                "method": "direct"
+              }
+            }
+          }
+        ],
+        "invoices": [
+          {
+            "invoice_id": "64",
+            "invoice_number": "INV5285391",
+            "invoiced_quantity": "88",
+            "unit_price": "6.24",
+            "invoice_date": "2026-03-18",
+            "origins": {
+              "invoice_id": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 65,
+                "end_row": 65,
+                "record_id": "64",
+                "column": "id",
+                "raw": "64",
+                "method": "direct"
+              },
+              "invoice_number": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 65,
+                "end_row": 65,
+                "record_id": "64",
+                "column": "invoice_no",
+                "raw": "INV5285391",
+                "method": "direct"
+              },
+              "invoiced_quantity": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 65,
+                "end_row": 65,
+                "record_id": "64",
+                "column": "invoiced_qty",
+                "raw": "88",
+                "method": "direct"
+              },
+              "unit_price": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 65,
+                "end_row": 65,
+                "record_id": "64",
+                "column": "billed_unit_price",
+                "raw": "6.24",
+                "method": "direct"
+              },
+              "invoice_date": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 65,
+                "end_row": 65,
+                "record_id": "64",
+                "column": "invoice_date",
+                "raw": "2026-03-18",
+                "method": "direct"
+              },
+              "po_line_id": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 65,
+                "end_row": 65,
+                "record_id": "64",
+                "column": "po_line_id",
+                "raw": "43",
+                "method": "direct"
+              }
+            }
+          },
+          {
+            "invoice_id": "86",
+            "invoice_number": "INV2331933",
+            "invoiced_quantity": "87",
+            "unit_price": "6.39",
+            "invoice_date": "2026-03-24",
+            "origins": {
+              "invoice_id": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 87,
+                "end_row": 87,
+                "record_id": "86",
+                "column": "id",
+                "raw": "86",
+                "method": "direct"
+              },
+              "invoice_number": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 87,
+                "end_row": 87,
+                "record_id": "86",
+                "column": "invoice_no",
+                "raw": "INV2331933",
+                "method": "direct"
+              },
+              "invoiced_quantity": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 87,
+                "end_row": 87,
+                "record_id": "86",
+                "column": "invoiced_qty",
+                "raw": "87",
+                "method": "direct"
+              },
+              "unit_price": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 87,
+                "end_row": 87,
+                "record_id": "86",
+                "column": "billed_unit_price",
+                "raw": "6.39",
+                "method": "direct"
+              },
+              "invoice_date": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 87,
+                "end_row": 87,
+                "record_id": "86",
+                "column": "invoice_date",
+                "raw": "2026-03-24",
+                "method": "direct"
+              },
+              "po_line_id": {
+                "file": "raw/supplier_invoices.csv",
+                "row": 87,
+                "end_row": 87,
+                "record_id": "86",
+                "column": "po_line_id",
+                "raw": "43",
+                "method": "direct"
+              }
+            }
+          }
+        ],
+        "origins": {
+          "line_id": {
+            "file": "raw/po_lines.csv",
+            "row": 44,
+            "end_row": 44,
+            "record_id": "43",
+            "column": "id",
+            "raw": "43",
+            "method": "direct"
+          },
+          "purchase_order_id": {
+            "file": "raw/po_lines.csv",
+            "row": 44,
+            "end_row": 44,
+            "record_id": "43",
+            "column": "purchase_order_id",
+            "raw": "32",
+            "method": "direct"
+          },
+          "sku": {
+            "file": "raw/items.csv",
+            "row": 4,
+            "end_row": 4,
+            "record_id": "3",
+            "column": "sku",
+            "raw": "SK-33357",
+            "method": "master_lookup"
+          },
+          "product": {
+            "file": "raw/items.csv",
+            "row": 4,
+            "end_row": 4,
+            "record_id": "3",
+            "column": "item_label",
+            "raw": "Safety goggles",
+            "method": "master_lookup"
+          },
+          "unit": {
+            "file": "raw/items.csv",
+            "row": 4,
+            "end_row": 4,
+            "record_id": "3",
+            "column": "unit",
+            "raw": "each",
+            "method": "master_lookup"
+          },
+          "ordered_quantity": {
+            "file": "raw/po_lines.csv",
+            "row": 44,
+            "end_row": 44,
+            "record_id": "43",
+            "column": "quantity",
+            "raw": "85",
+            "method": "direct"
+          },
+          "po_unit_price": {
+            "file": "raw/po_lines.csv",
+            "row": 44,
+            "end_row": 44,
+            "record_id": "43",
+            "column": "unit_price",
+            "raw": "6.28",
+            "method": "direct"
+          }
+        }
+      },
+      {
+        "line_id": "57",
+        "item_id": "1",
+        "sku": "SK-04353",
+        "product": "Safety gloves, pair",
+        "unit": "pair",
+        "ordered_quantity": "5",
+        "po_unit_price": "3.00",
+        "receipts": [
+          {
+            "receipt_id": "40",
+            "received_quantity": "5",
+            "received_on": "2026-03-08",
+            "condition": "good",
+            "origins": {
+              "receipt_id": {
+                "file": "raw/goods_receipts.csv",
+                "row": 41,
+                "end_row": 41,
+                "record_id": "40",
+                "column": "id",
+                "raw": "40",
+                "method": "direct"
+              },
+              "received_quantity": {
+                "file": "raw/goods_receipts.csv",
+                "row": 41,
+                "end_row": 41,
+                "record_id": "40",
+                "column": "received_qty",
+                "raw": "5",
+                "method": "direct"
+              },
+              "received_on": {
+                "file": "raw/goods_receipts.csv",
+                "row": 41,
+                "end_row": 41,
+                "record_id": "40",
+                "column": "received_on",
+                "raw": "2026-03-08",
+                "method": "direct"
+              },
+              "condition": {
+                "file": "raw/goods_receipts.csv",
+                "row": 41,
+                "end_row": 41,
+                "record_id": "40",
+                "column": "condition",
+                "raw": "good",
+                "method": "direct"
+              },
+              "po_line_id": {
+                "file": "raw/goods_receipts.csv",
+                "row": 41,
+                "end_row": 41,
+                "record_id": "40",
+                "column": "po_line_id",
+                "raw": "57",
+                "method": "direct"
+              }
+            }
+          }
+        ],
+        "invoices": [],
+        "origins": {
+          "line_id": {
+            "file": "raw/po_lines.csv",
+            "row": 58,
+            "end_row": 58,
+            "record_id": "57",
+            "column": "id",
+            "raw": "57",
+            "method": "direct"
+          },
+          "purchase_order_id": {
+            "file": "raw/po_lines.csv",
+            "row": 58,
+            "end_row": 58,
+            "record_id": "57",
+            "column": "purchase_order_id",
+            "raw": "32",
+            "method": "direct"
+          },
+          "sku": {
+            "file": "raw/items.csv",
+            "row": 2,
+            "end_row": 2,
+            "record_id": "1",
+            "column": "sku",
+            "raw": "SK-04353",
+            "method": "master_lookup"
+          },
+          "product": {
+            "file": "raw/items.csv",
+            "row": 2,
+            "end_row": 2,
+            "record_id": "1",
+            "column": "item_label",
+            "raw": "Safety gloves, pair",
+            "method": "master_lookup"
+          },
+          "unit": {
+            "file": "raw/items.csv",
+            "row": 2,
+            "end_row": 2,
+            "record_id": "1",
+            "column": "unit",
+            "raw": "pair",
+            "method": "master_lookup"
+          },
+          "ordered_quantity": {
+            "file": "raw/po_lines.csv",
+            "row": 58,
+            "end_row": 58,
+            "record_id": "57",
+            "column": "quantity",
+            "raw": "5",
+            "method": "direct"
+          },
+          "po_unit_price": {
+            "file": "raw/po_lines.csv",
+            "row": 58,
+            "end_row": 58,
+            "record_id": "57",
+            "column": "unit_price",
+            "raw": "3.00",
+            "method": "direct"
+          }
+        }
+      },
+      {
+        "line_id": "68",
+        "item_id": "4",
+        "sku": "SK-88154",
+        "product": "Cable ties, pack of 100",
+        "unit": "pack",
+        "ordered_quantity": "147",
+        "po_unit_price": "4.78",
+        "receipts": [],
+        "invoices": [],
+        "origins": {
+          "line_id": {
+            "file": "raw/po_lines.csv",
+            "row": 69,
+            "end_row": 69,
+            "record_id": "68",
+            "column": "id",
+            "raw": "68",
+            "method": "direct"
+          },
+          "purchase_order_id": {
+            "file": "raw/po_lines.csv",
+            "row": 69,
+            "end_row": 69,
+            "record_id": "68",
+            "column": "purchase_order_id",
+            "raw": "32",
+            "method": "direct"
+          },
+          "sku": {
+            "file": "raw/items.csv",
+            "row": 5,
+            "end_row": 5,
+            "record_id": "4",
+            "column": "sku",
+            "raw": "SK-88154",
+            "method": "master_lookup"
+          },
+          "product": {
+            "file": "raw/items.csv",
+            "row": 5,
+            "end_row": 5,
+            "record_id": "4",
+            "column": "item_label",
+            "raw": "Cable ties, pack of 100",
+            "method": "master_lookup"
+          },
+          "unit": {
+            "file": "raw/items.csv",
+            "row": 5,
+            "end_row": 5,
+            "record_id": "4",
+            "column": "unit",
+            "raw": "pack",
+            "method": "master_lookup"
+          },
+          "ordered_quantity": {
+            "file": "raw/po_lines.csv",
+            "row": 69,
+            "end_row": 69,
+            "record_id": "68",
+            "column": "quantity",
+            "raw": "147",
+            "method": "direct"
+          },
+          "po_unit_price": {
+            "file": "raw/po_lines.csv",
+            "row": 69,
+            "end_row": 69,
+            "record_id": "68",
+            "column": "unit_price",
+            "raw": "4.78",
+            "method": "direct"
+          }
+        }
+      }
+    ]
+  },
+  "result": {
+    "order_id": "32",
+    "po_number": "PO-63046",
+    "policy": "procurement-snapshot-v1",
+    "scope": "all_records_snapshot_not_per_shipment_or_invoice_date",
+    "facts": [
+      {
+        "line_id": "43",
+        "sku": "SK-33357",
+        "unit": "each",
+        "ordered_quantity": "85",
+        "received_quantity": "143",
+        "invoiced_quantity": "175",
+        "receipt_records": 2,
+        "invoice_records": 2
+      },
+      {
+        "line_id": "57",
+        "sku": "SK-04353",
+        "unit": "pair",
+        "ordered_quantity": "5",
+        "received_quantity": "5",
+        "invoiced_quantity": null,
+        "receipt_records": 1,
+        "invoice_records": 0
+      },
+      {
+        "line_id": "68",
+        "sku": "SK-88154",
+        "unit": "pack",
+        "ordered_quantity": "147",
+        "received_quantity": null,
+        "invoiced_quantity": null,
+        "receipt_records": 0,
+        "invoice_records": 0
+      }
+    ],
+    "checks": [
+      {
+        "line_id": "43",
+        "sku": "SK-33357",
+        "rule": "RECEIPT_ORDER_QTY",
+        "status": "difference",
+        "record_id": "",
+        "detail": "全量记录累计 143，采购 85。 超过采购量，需核对补充订单或录入。",
+        "evidence": [
+          {
+            "file": "raw/po_lines.csv",
+            "row": 44,
+            "end_row": 44,
+            "record_id": "43",
+            "column": "quantity",
+            "raw": "85",
+            "method": "direct"
+          },
+          {
+            "file": "raw/goods_receipts.csv",
+            "row": 5,
+            "end_row": 5,
+            "record_id": "4",
+            "column": "received_qty",
+            "raw": "58",
+            "method": "direct"
+          },
+          {
+            "file": "raw/goods_receipts.csv",
+            "row": 73,
+            "end_row": 73,
+            "record_id": "72",
+            "column": "received_qty",
+            "raw": "85",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "43",
+        "sku": "SK-33357",
+        "rule": "INVOICE_ORDER_QTY",
+        "status": "difference",
+        "record_id": "",
+        "detail": "全量记录累计 175，采购 85。 超过采购量，需核对补充订单或录入。",
+        "evidence": [
+          {
+            "file": "raw/po_lines.csv",
+            "row": 44,
+            "end_row": 44,
+            "record_id": "43",
+            "column": "quantity",
+            "raw": "85",
+            "method": "direct"
+          },
+          {
+            "file": "raw/supplier_invoices.csv",
+            "row": 65,
+            "end_row": 65,
+            "record_id": "64",
+            "column": "invoiced_qty",
+            "raw": "88",
+            "method": "direct"
+          },
+          {
+            "file": "raw/supplier_invoices.csv",
+            "row": 87,
+            "end_row": 87,
+            "record_id": "86",
+            "column": "invoiced_qty",
+            "raw": "87",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "43",
+        "sku": "SK-33357",
+        "rule": "INVOICE_RECEIPT_QTY",
+        "status": "difference",
+        "record_id": "",
+        "detail": "快照累计开票 175，收货 143。未关联具体批次，不能据此判断开票当日是否已到货或认定违规。",
+        "evidence": [
+          {
+            "file": "raw/goods_receipts.csv",
+            "row": 5,
+            "end_row": 5,
+            "record_id": "4",
+            "column": "received_qty",
+            "raw": "58",
+            "method": "direct"
+          },
+          {
+            "file": "raw/goods_receipts.csv",
+            "row": 73,
+            "end_row": 73,
+            "record_id": "72",
+            "column": "received_qty",
+            "raw": "85",
+            "method": "direct"
+          },
+          {
+            "file": "raw/supplier_invoices.csv",
+            "row": 65,
+            "end_row": 65,
+            "record_id": "64",
+            "column": "invoiced_qty",
+            "raw": "88",
+            "method": "direct"
+          },
+          {
+            "file": "raw/supplier_invoices.csv",
+            "row": 87,
+            "end_row": 87,
+            "record_id": "86",
+            "column": "invoiced_qty",
+            "raw": "87",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "43",
+        "sku": "SK-33357",
+        "rule": "UNIT_PRICE",
+        "status": "difference",
+        "record_id": "64",
+        "detail": "采购单价 6.28，本张发票单价 6.24，按来源文档的 USD 口径比较；不同需核对调价依据。",
+        "evidence": [
+          {
+            "file": "raw/po_lines.csv",
+            "row": 44,
+            "end_row": 44,
+            "record_id": "43",
+            "column": "unit_price",
+            "raw": "6.28",
+            "method": "direct"
+          },
+          {
+            "file": "raw/supplier_invoices.csv",
+            "row": 65,
+            "end_row": 65,
+            "record_id": "64",
+            "column": "billed_unit_price",
+            "raw": "6.24",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "43",
+        "sku": "SK-33357",
+        "rule": "UNIT_PRICE",
+        "status": "difference",
+        "record_id": "86",
+        "detail": "采购单价 6.28，本张发票单价 6.39，按来源文档的 USD 口径比较；不同需核对调价依据。",
+        "evidence": [
+          {
+            "file": "raw/po_lines.csv",
+            "row": 44,
+            "end_row": 44,
+            "record_id": "43",
+            "column": "unit_price",
+            "raw": "6.28",
+            "method": "direct"
+          },
+          {
+            "file": "raw/supplier_invoices.csv",
+            "row": 87,
+            "end_row": 87,
+            "record_id": "86",
+            "column": "billed_unit_price",
+            "raw": "6.39",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "43",
+        "sku": "SK-33357",
+        "rule": "MULTIPLE_INVOICES",
+        "status": "info",
+        "record_id": "",
+        "detail": "同一采购行有多张不同编号发票；保留所有记录，并检查累计数量，不自动认定重复开票。",
+        "evidence": [
+          {
+            "file": "raw/supplier_invoices.csv",
+            "row": 65,
+            "end_row": 65,
+            "record_id": "64",
+            "column": "invoice_no",
+            "raw": "INV5285391",
+            "method": "direct"
+          },
+          {
+            "file": "raw/supplier_invoices.csv",
+            "row": 87,
+            "end_row": 87,
+            "record_id": "86",
+            "column": "invoice_no",
+            "raw": "INV2331933",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "43",
+        "sku": "SK-33357",
+        "rule": "RECEIPT_CONDITION",
+        "status": "consistent",
+        "record_id": "4",
+        "detail": "收货状态：good；没有合格验收数量，不能据此计算应付数量。",
+        "evidence": [
+          {
+            "file": "raw/goods_receipts.csv",
+            "row": 5,
+            "end_row": 5,
+            "record_id": "4",
+            "column": "condition",
+            "raw": "good",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "43",
+        "sku": "SK-33357",
+        "rule": "RECEIPT_CONDITION",
+        "status": "consistent",
+        "record_id": "72",
+        "detail": "收货状态：good；没有合格验收数量，不能据此计算应付数量。",
+        "evidence": [
+          {
+            "file": "raw/goods_receipts.csv",
+            "row": 73,
+            "end_row": 73,
+            "record_id": "72",
+            "column": "condition",
+            "raw": "good",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "57",
+        "sku": "SK-04353",
+        "rule": "RECEIPT_ORDER_QTY",
+        "status": "consistent",
+        "record_id": "",
+        "detail": "全量记录累计 5，采购 5。 数量相同。",
+        "evidence": [
+          {
+            "file": "raw/po_lines.csv",
+            "row": 58,
+            "end_row": 58,
+            "record_id": "57",
+            "column": "quantity",
+            "raw": "5",
+            "method": "direct"
+          },
+          {
+            "file": "raw/goods_receipts.csv",
+            "row": 41,
+            "end_row": 41,
+            "record_id": "40",
+            "column": "received_qty",
+            "raw": "5",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "57",
+        "sku": "SK-04353",
+        "rule": "INVOICE_ORDER_QTY",
+        "status": "review",
+        "record_id": "",
+        "detail": "缺少一侧记录，无法核验；不能把未提供的记录当作实际数量为零。",
+        "evidence": [
+          {
+            "file": "raw/po_lines.csv",
+            "row": 58,
+            "end_row": 58,
+            "record_id": "57",
+            "column": "quantity",
+            "raw": "5",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "57",
+        "sku": "SK-04353",
+        "rule": "INVOICE_RECEIPT_QTY",
+        "status": "review",
+        "record_id": "",
+        "detail": "收货或开票记录缺失，无法比较累计数量。",
+        "evidence": [
+          {
+            "file": "raw/goods_receipts.csv",
+            "row": 41,
+            "end_row": 41,
+            "record_id": "40",
+            "column": "received_qty",
+            "raw": "5",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "57",
+        "sku": "SK-04353",
+        "rule": "UNIT_PRICE",
+        "status": "review",
+        "record_id": "",
+        "detail": "没有发票单价，无法核验。",
+        "evidence": [
+          {
+            "file": "raw/po_lines.csv",
+            "row": 58,
+            "end_row": 58,
+            "record_id": "57",
+            "column": "unit_price",
+            "raw": "3.00",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "57",
+        "sku": "SK-04353",
+        "rule": "RECEIPT_CONDITION",
+        "status": "consistent",
+        "record_id": "40",
+        "detail": "收货状态：good；没有合格验收数量，不能据此计算应付数量。",
+        "evidence": [
+          {
+            "file": "raw/goods_receipts.csv",
+            "row": 41,
+            "end_row": 41,
+            "record_id": "40",
+            "column": "condition",
+            "raw": "good",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "68",
+        "sku": "SK-88154",
+        "rule": "RECEIPT_ORDER_QTY",
+        "status": "review",
+        "record_id": "",
+        "detail": "缺少一侧记录，无法核验；不能把未提供的记录当作实际数量为零。",
+        "evidence": [
+          {
+            "file": "raw/po_lines.csv",
+            "row": 69,
+            "end_row": 69,
+            "record_id": "68",
+            "column": "quantity",
+            "raw": "147",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "68",
+        "sku": "SK-88154",
+        "rule": "INVOICE_ORDER_QTY",
+        "status": "review",
+        "record_id": "",
+        "detail": "缺少一侧记录，无法核验；不能把未提供的记录当作实际数量为零。",
+        "evidence": [
+          {
+            "file": "raw/po_lines.csv",
+            "row": 69,
+            "end_row": 69,
+            "record_id": "68",
+            "column": "quantity",
+            "raw": "147",
+            "method": "direct"
+          }
+        ]
+      },
+      {
+        "line_id": "68",
+        "sku": "SK-88154",
+        "rule": "INVOICE_RECEIPT_QTY",
+        "status": "review",
+        "record_id": "",
+        "detail": "收货或开票记录缺失，无法比较累计数量。",
+        "evidence": []
+      },
+      {
+        "line_id": "68",
+        "sku": "SK-88154",
+        "rule": "UNIT_PRICE",
+        "status": "review",
+        "record_id": "",
+        "detail": "没有发票单价，无法核验。",
+        "evidence": [
+          {
+            "file": "raw/po_lines.csv",
+            "row": 69,
+            "end_row": 69,
+            "record_id": "68",
+            "column": "unit_price",
+            "raw": "4.78",
+            "method": "direct"
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "consistent": 4,
+      "difference": 5,
+      "review": 7,
+      "info": 1
+    },
+    "applicability": [
+      {
+        "rule": "采购与开票单价",
+        "status": "可核验",
+        "basis": "同一采购行；金额单位依来源文档的 USD 说明，不推断逐单币种"
+      },
+      {
+        "rule": "累计开票 / 采购数量",
+        "status": "可核验",
+        "basis": "全量记录快照，超过为业务差异，少于可为分批开票"
+      },
+      {
+        "rule": "累计收货 / 采购数量",
+        "status": "可核验",
+        "basis": "全量记录快照；无记录不能推断实际收货为零"
+      },
+      {
+        "rule": "累计开票 / 累计收货",
+        "status": "条件核验",
+        "basis": "仅两侧有记录时比较；无法判断某张发票对应某次收货或开票当日是否已到货"
+      },
+      {
+        "rule": "发票行金额或总金额算术",
+        "status": "不适用",
+        "basis": "来源没有独立记录金额，不能补出乘积再自证正确"
+      },
+      {
+        "rule": "装箱重量和包装件数",
+        "status": "不适用",
+        "basis": "收货记录不是装箱单，来源没有净重、毛重或包装件数"
+      },
+      {
+        "rule": "逐单币种一致性",
+        "status": "无法核验",
+        "basis": "来源说明价格为美元，但没有逐单币种字段"
+      },
+      {
+        "rule": "验收合格数量及付款条件",
+        "status": "无法核验",
+        "basis": "没有合格验收数量、付款金额或完整结算依据"
+      }
+    ],
+    "model_calls": 0,
+    "note": "这是第三方公开合成采购数据的确定性规则核对，不是企业实证、装箱单验证或模型准确率。"
+  },
+  "evaluation": {
+    "order_id": "32",
+    "po_number": "PO-63046",
+    "split": "holdout",
+    "reference_agreement": true,
+    "converted_fields": 47,
+    "field_differences": [],
+    "origins_checked": 52,
+    "origin_errors": [],
+    "expected_keys": [
+      [
+        "43",
+        "RECEIPT_ORDER_QTY",
+        "",
+        "difference"
+      ],
+      [
+        "43",
+        "INVOICE_ORDER_QTY",
+        "",
+        "difference"
+      ],
+      [
+        "43",
+        "INVOICE_RECEIPT_QTY",
+        "",
+        "difference"
+      ],
+      [
+        "43",
+        "UNIT_PRICE",
+        "64",
+        "difference"
+      ],
+      [
+        "43",
+        "UNIT_PRICE",
+        "86",
+        "difference"
+      ],
+      [
+        "43",
+        "MULTIPLE_INVOICES",
+        "",
+        "info"
+      ],
+      [
+        "43",
+        "RECEIPT_CONDITION",
+        "4",
+        "consistent"
+      ],
+      [
+        "43",
+        "RECEIPT_CONDITION",
+        "72",
+        "consistent"
+      ],
+      [
+        "57",
+        "RECEIPT_ORDER_QTY",
+        "",
+        "consistent"
+      ],
+      [
+        "57",
+        "INVOICE_ORDER_QTY",
+        "",
+        "review"
+      ],
+      [
+        "57",
+        "INVOICE_RECEIPT_QTY",
+        "",
+        "review"
+      ],
+      [
+        "57",
+        "UNIT_PRICE",
+        "",
+        "review"
+      ],
+      [
+        "57",
+        "RECEIPT_CONDITION",
+        "40",
+        "consistent"
+      ],
+      [
+        "68",
+        "RECEIPT_ORDER_QTY",
+        "",
+        "review"
+      ],
+      [
+        "68",
+        "INVOICE_ORDER_QTY",
+        "",
+        "review"
+      ],
+      [
+        "68",
+        "INVOICE_RECEIPT_QTY",
+        "",
+        "review"
+      ],
+      [
+        "68",
+        "UNIT_PRICE",
+        "",
+        "review"
+      ]
+    ],
+    "actual_keys": [
+      [
+        "43",
+        "RECEIPT_ORDER_QTY",
+        "",
+        "difference"
+      ],
+      [
+        "43",
+        "INVOICE_ORDER_QTY",
+        "",
+        "difference"
+      ],
+      [
+        "43",
+        "INVOICE_RECEIPT_QTY",
+        "",
+        "difference"
+      ],
+      [
+        "43",
+        "UNIT_PRICE",
+        "64",
+        "difference"
+      ],
+      [
+        "43",
+        "UNIT_PRICE",
+        "86",
+        "difference"
+      ],
+      [
+        "43",
+        "MULTIPLE_INVOICES",
+        "",
+        "info"
+      ],
+      [
+        "43",
+        "RECEIPT_CONDITION",
+        "4",
+        "consistent"
+      ],
+      [
+        "43",
+        "RECEIPT_CONDITION",
+        "72",
+        "consistent"
+      ],
+      [
+        "57",
+        "RECEIPT_ORDER_QTY",
+        "",
+        "consistent"
+      ],
+      [
+        "57",
+        "INVOICE_ORDER_QTY",
+        "",
+        "review"
+      ],
+      [
+        "57",
+        "INVOICE_RECEIPT_QTY",
+        "",
+        "review"
+      ],
+      [
+        "57",
+        "UNIT_PRICE",
+        "",
+        "review"
+      ],
+      [
+        "57",
+        "RECEIPT_CONDITION",
+        "40",
+        "consistent"
+      ],
+      [
+        "68",
+        "RECEIPT_ORDER_QTY",
+        "",
+        "review"
+      ],
+      [
+        "68",
+        "INVOICE_ORDER_QTY",
+        "",
+        "review"
+      ],
+      [
+        "68",
+        "INVOICE_RECEIPT_QTY",
+        "",
+        "review"
+      ],
+      [
+        "68",
+        "UNIT_PRICE",
+        "",
+        "review"
+      ]
+    ],
+    "missing_checks": [],
+    "extra_checks": [],
+    "difference": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "review": {
+      "tp": 7,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "counts": {
+      "consistent": 4,
+      "difference": 5,
+      "review": 7,
+      "info": 1
+    },
+    "elapsed_ms": 34.591,
+    "model_calls": 0,
+    "real_human_checks": 0,
+    "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+  }
+}

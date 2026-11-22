@@ -1,0 +1,7669 @@
+{
+  "schema": 1,
+  "phase": "frozen_external_synthetic_evaluation",
+  "created_utc": "2026-11-22T09:20:42.298448+00:00",
+  "policy": "procurement-snapshot-v1",
+  "source_sha256": "03015d86c295dc1df0d1aa1eda24f07c00f907b3afafce08d1d78eb6c6856508",
+  "data_nature": "third_party_public_synthetic_not_real_enterprise",
+  "engine": {
+    "core/procurement.py": "99ebe0283d188efb29a5eed03f49d06fd86a66d61f81c59481d95cf2d42d4ae0",
+    "core/procurement_report.py": "1123c173f6f1d39195b283430c1410aa5be738fa597dd273e60e0ce29608cd92",
+    "scripts/procurement_reference.py": "d35fb508b39daad2d64d66273b4f5bf4aaaf1e3b2e18cf9202ea88f2b5c0594e",
+    "scripts/evaluate_procurement.py": "ec6d15c500a70ea0f4a4f2dfa2c362bebf78c00a48738554984edd8e85946e62"
+  },
+  "evaluation_scope": "field_conversion_and_own_policy_reference_conformance_not_model_or_real_document_accuracy",
+  "summary": {
+    "orders": 36,
+    "reference_agreement_orders": 36,
+    "converted_fields_checked": 1572,
+    "conversion_field_differences": 0,
+    "origins_checked": 1748,
+    "origin_errors": 0,
+    "counts": {
+      "consistent": 111,
+      "difference": 177,
+      "review": 150,
+      "info": 71
+    },
+    "missing_reference_checks": 0,
+    "extra_checks": 0,
+    "mean_ms": 38.153,
+    "model_calls": 0,
+    "real_human_checks": 0,
+    "failed_orders": []
+  },
+  "by_split": {
+    "development": {
+      "orders": 12,
+      "reference_agreement_orders": 12,
+      "converted_fields_checked": 596,
+      "conversion_field_differences": 0,
+      "origins_checked": 667,
+      "origin_errors": 0,
+      "counts": {
+        "consistent": 47,
+        "difference": 67,
+        "review": 51,
+        "info": 29
+      },
+      "missing_reference_checks": 0,
+      "extra_checks": 0,
+      "mean_ms": 32.168,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "failed_orders": []
+    },
+    "holdout": {
+      "orders": 24,
+      "reference_agreement_orders": 24,
+      "converted_fields_checked": 976,
+      "conversion_field_differences": 0,
+      "origins_checked": 1081,
+      "origin_errors": 0,
+      "counts": {
+        "consistent": 64,
+        "difference": 110,
+        "review": 99,
+        "info": 42
+      },
+      "missing_reference_checks": 0,
+      "extra_checks": 0,
+      "mean_ms": 41.145,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "failed_orders": []
+    }
+  },
+  "records": [
+    {
+      "order_id": "1",
+      "po_number": "PO-80372",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 19,
+      "field_differences": [],
+      "origins_checked": 21,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "7",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "7",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "7",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "7",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "7",
+          "RECEIPT_CONDITION",
+          "3",
+          "consistent"
+        ],
+        [
+          "7",
+          "RECEIPT_CONDITION",
+          "64",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "7",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "7",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "7",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "7",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "7",
+          "RECEIPT_CONDITION",
+          "3",
+          "consistent"
+        ],
+        [
+          "7",
+          "RECEIPT_CONDITION",
+          "64",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 1,
+        "review": 3,
+        "info": 0
+      },
+      "elapsed_ms": 24.807,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "2",
+      "po_number": "PO-43365",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 25,
+      "field_differences": [],
+      "origins_checked": 28,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "62",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "62",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "62",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "62",
+          "UNIT_PRICE",
+          "75",
+          "consistent"
+        ],
+        [
+          "62",
+          "UNIT_PRICE",
+          "80",
+          "difference"
+        ],
+        [
+          "62",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "62",
+          "RECEIPT_CONDITION",
+          "34",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "62",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "62",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "62",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "62",
+          "UNIT_PRICE",
+          "75",
+          "consistent"
+        ],
+        [
+          "62",
+          "UNIT_PRICE",
+          "80",
+          "difference"
+        ],
+        [
+          "62",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "62",
+          "RECEIPT_CONDITION",
+          "34",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 3,
+        "review": 0,
+        "info": 2
+      },
+      "elapsed_ms": 25.567,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "3",
+      "po_number": "PO-11181",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 78,
+      "field_differences": [],
+      "origins_checked": 88,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "9",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "9",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "9",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "9",
+          "UNIT_PRICE",
+          "29",
+          "difference"
+        ],
+        [
+          "9",
+          "UNIT_PRICE",
+          "51",
+          "difference"
+        ],
+        [
+          "9",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "9",
+          "RECEIPT_CONDITION",
+          "44",
+          "consistent"
+        ],
+        [
+          "67",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "67",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "67",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "67",
+          "UNIT_PRICE",
+          "40",
+          "difference"
+        ],
+        [
+          "67",
+          "UNIT_PRICE",
+          "83",
+          "difference"
+        ],
+        [
+          "67",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "67",
+          "RECEIPT_CONDITION",
+          "28",
+          "consistent"
+        ],
+        [
+          "67",
+          "RECEIPT_CONDITION",
+          "69",
+          "consistent"
+        ],
+        [
+          "71",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "71",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "71",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "71",
+          "UNIT_PRICE",
+          "72",
+          "consistent"
+        ],
+        [
+          "71",
+          "RECEIPT_CONDITION",
+          "46",
+          "consistent"
+        ],
+        [
+          "79",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "79",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "79",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "79",
+          "UNIT_PRICE",
+          "54",
+          "difference"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "9",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "9",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "9",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "9",
+          "UNIT_PRICE",
+          "29",
+          "difference"
+        ],
+        [
+          "9",
+          "UNIT_PRICE",
+          "51",
+          "difference"
+        ],
+        [
+          "9",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "9",
+          "RECEIPT_CONDITION",
+          "44",
+          "consistent"
+        ],
+        [
+          "67",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "67",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "67",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "67",
+          "UNIT_PRICE",
+          "40",
+          "difference"
+        ],
+        [
+          "67",
+          "UNIT_PRICE",
+          "83",
+          "difference"
+        ],
+        [
+          "67",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "67",
+          "RECEIPT_CONDITION",
+          "28",
+          "consistent"
+        ],
+        [
+          "67",
+          "RECEIPT_CONDITION",
+          "69",
+          "consistent"
+        ],
+        [
+          "71",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "71",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "71",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "71",
+          "UNIT_PRICE",
+          "72",
+          "consistent"
+        ],
+        [
+          "71",
+          "RECEIPT_CONDITION",
+          "46",
+          "consistent"
+        ],
+        [
+          "79",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "79",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "79",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "79",
+          "UNIT_PRICE",
+          "54",
+          "difference"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 6,
+        "difference": 12,
+        "review": 2,
+        "info": 4
+      },
+      "elapsed_ms": 41.665,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "4",
+      "po_number": "PO-55579",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 40,
+      "field_differences": [],
+      "origins_checked": 45,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "17",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "17",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "17",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "17",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "17",
+          "RECEIPT_CONDITION",
+          "56",
+          "consistent"
+        ],
+        [
+          "88",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "88",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "88",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "88",
+          "UNIT_PRICE",
+          "21",
+          "difference"
+        ],
+        [
+          "88",
+          "UNIT_PRICE",
+          "71",
+          "difference"
+        ],
+        [
+          "88",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "88",
+          "RECEIPT_CONDITION",
+          "48",
+          "consistent"
+        ],
+        [
+          "88",
+          "RECEIPT_CONDITION",
+          "60",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "17",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "17",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "17",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "17",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "17",
+          "RECEIPT_CONDITION",
+          "56",
+          "consistent"
+        ],
+        [
+          "88",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "88",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "88",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "88",
+          "UNIT_PRICE",
+          "21",
+          "difference"
+        ],
+        [
+          "88",
+          "UNIT_PRICE",
+          "71",
+          "difference"
+        ],
+        [
+          "88",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "88",
+          "RECEIPT_CONDITION",
+          "48",
+          "consistent"
+        ],
+        [
+          "88",
+          "RECEIPT_CONDITION",
+          "60",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 5,
+        "difference": 4,
+        "review": 3,
+        "info": 1
+      },
+      "elapsed_ms": 29.514,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "5",
+      "po_number": "PO-71799",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 46,
+      "field_differences": [],
+      "origins_checked": 51,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "11",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "11",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "11",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "11",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "11",
+          "RECEIPT_CONDITION",
+          "5",
+          "consistent"
+        ],
+        [
+          "11",
+          "RECEIPT_CONDITION",
+          "84",
+          "consistent"
+        ],
+        [
+          "12",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "12",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "12",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "12",
+          "UNIT_PRICE",
+          "60",
+          "difference"
+        ],
+        [
+          "12",
+          "RECEIPT_CONDITION",
+          "18",
+          "consistent"
+        ],
+        [
+          "19",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "19",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "19",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "19",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "19",
+          "RECEIPT_CONDITION",
+          "38",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "11",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "11",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "11",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "11",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "11",
+          "RECEIPT_CONDITION",
+          "5",
+          "consistent"
+        ],
+        [
+          "11",
+          "RECEIPT_CONDITION",
+          "84",
+          "consistent"
+        ],
+        [
+          "12",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "12",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "12",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "12",
+          "UNIT_PRICE",
+          "60",
+          "difference"
+        ],
+        [
+          "12",
+          "RECEIPT_CONDITION",
+          "18",
+          "consistent"
+        ],
+        [
+          "19",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "19",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "19",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "19",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "19",
+          "RECEIPT_CONDITION",
+          "38",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 4,
+        "difference": 3,
+        "review": 6,
+        "info": 3
+      },
+      "elapsed_ms": 30.604,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "11",
+      "po_number": "PO-68676",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 56,
+      "field_differences": [],
+      "origins_checked": 63,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "26",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "26",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "26",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "26",
+          "UNIT_PRICE",
+          "87",
+          "difference"
+        ],
+        [
+          "59",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "59",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "59",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "59",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "59",
+          "RECEIPT_CONDITION",
+          "35",
+          "consistent"
+        ],
+        [
+          "59",
+          "RECEIPT_CONDITION",
+          "39",
+          "consistent"
+        ],
+        [
+          "76",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "76",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "76",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "76",
+          "UNIT_PRICE",
+          "9",
+          "difference"
+        ],
+        [
+          "76",
+          "UNIT_PRICE",
+          "42",
+          "difference"
+        ],
+        [
+          "76",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "76",
+          "RECEIPT_CONDITION",
+          "32",
+          "consistent"
+        ],
+        [
+          "76",
+          "RECEIPT_CONDITION",
+          "55",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "26",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "26",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "26",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "26",
+          "UNIT_PRICE",
+          "87",
+          "difference"
+        ],
+        [
+          "59",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "59",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "59",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "59",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "59",
+          "RECEIPT_CONDITION",
+          "35",
+          "consistent"
+        ],
+        [
+          "59",
+          "RECEIPT_CONDITION",
+          "39",
+          "consistent"
+        ],
+        [
+          "76",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "76",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "76",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "76",
+          "UNIT_PRICE",
+          "9",
+          "difference"
+        ],
+        [
+          "76",
+          "UNIT_PRICE",
+          "42",
+          "difference"
+        ],
+        [
+          "76",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "76",
+          "RECEIPT_CONDITION",
+          "32",
+          "consistent"
+        ],
+        [
+          "76",
+          "RECEIPT_CONDITION",
+          "55",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 6,
+        "difference": 6,
+        "review": 5,
+        "info": 1
+      },
+      "elapsed_ms": 33.372,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "17",
+      "po_number": "PO-40586",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 19,
+      "field_differences": [],
+      "origins_checked": 21,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "33",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "33",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "33",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "33",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "33",
+          "RECEIPT_CONDITION",
+          "12",
+          "consistent"
+        ],
+        [
+          "33",
+          "RECEIPT_CONDITION",
+          "23",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "33",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "33",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "33",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "33",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "33",
+          "RECEIPT_CONDITION",
+          "12",
+          "consistent"
+        ],
+        [
+          "33",
+          "RECEIPT_CONDITION",
+          "23",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 1,
+        "review": 3,
+        "info": 0
+      },
+      "elapsed_ms": 20.519,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "6",
+      "po_number": "PO-19750",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 82,
+      "field_differences": [],
+      "origins_checked": 93,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "25",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "25",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "25",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "25",
+          "UNIT_PRICE",
+          "33",
+          "difference"
+        ],
+        [
+          "25",
+          "UNIT_PRICE",
+          "37",
+          "difference"
+        ],
+        [
+          "25",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "27",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "27",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "27",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "27",
+          "UNIT_PRICE",
+          "30",
+          "difference"
+        ],
+        [
+          "27",
+          "UNIT_PRICE",
+          "57",
+          "difference"
+        ],
+        [
+          "27",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "27",
+          "RECEIPT_CONDITION",
+          "6",
+          "consistent"
+        ],
+        [
+          "72",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "72",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "72",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "72",
+          "UNIT_PRICE",
+          "34",
+          "difference"
+        ],
+        [
+          "72",
+          "RECEIPT_CONDITION",
+          "17",
+          "consistent"
+        ],
+        [
+          "72",
+          "RECEIPT_CONDITION",
+          "61",
+          "consistent"
+        ],
+        [
+          "89",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "89",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "89",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "89",
+          "UNIT_PRICE",
+          "56",
+          "difference"
+        ],
+        [
+          "89",
+          "RECEIPT_CONDITION",
+          "73",
+          "consistent"
+        ],
+        [
+          "89",
+          "RECEIPT_CONDITION",
+          "87",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "25",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "25",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "25",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "25",
+          "UNIT_PRICE",
+          "33",
+          "difference"
+        ],
+        [
+          "25",
+          "UNIT_PRICE",
+          "37",
+          "difference"
+        ],
+        [
+          "25",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "27",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "27",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "27",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "27",
+          "UNIT_PRICE",
+          "30",
+          "difference"
+        ],
+        [
+          "27",
+          "UNIT_PRICE",
+          "57",
+          "difference"
+        ],
+        [
+          "27",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "27",
+          "RECEIPT_CONDITION",
+          "6",
+          "consistent"
+        ],
+        [
+          "72",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "72",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "72",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "72",
+          "UNIT_PRICE",
+          "34",
+          "difference"
+        ],
+        [
+          "72",
+          "RECEIPT_CONDITION",
+          "17",
+          "consistent"
+        ],
+        [
+          "72",
+          "RECEIPT_CONDITION",
+          "61",
+          "consistent"
+        ],
+        [
+          "89",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "89",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "89",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "89",
+          "UNIT_PRICE",
+          "56",
+          "difference"
+        ],
+        [
+          "89",
+          "RECEIPT_CONDITION",
+          "73",
+          "consistent"
+        ],
+        [
+          "89",
+          "RECEIPT_CONDITION",
+          "87",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 6,
+        "difference": 11,
+        "review": 2,
+        "info": 6
+      },
+      "elapsed_ms": 39.76,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "22",
+      "po_number": "PO-84848",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 72,
+      "field_differences": [],
+      "origins_checked": 81,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "31",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "31",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "31",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "31",
+          "UNIT_PRICE",
+          "10",
+          "difference"
+        ],
+        [
+          "31",
+          "UNIT_PRICE",
+          "20",
+          "difference"
+        ],
+        [
+          "31",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "31",
+          "RECEIPT_CONDITION",
+          "83",
+          "consistent"
+        ],
+        [
+          "32",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "32",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "32",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "32",
+          "UNIT_PRICE",
+          "16",
+          "difference"
+        ],
+        [
+          "32",
+          "UNIT_PRICE",
+          "65",
+          "difference"
+        ],
+        [
+          "32",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "46",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "46",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "46",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "46",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "46",
+          "RECEIPT_CONDITION",
+          "71",
+          "consistent"
+        ],
+        [
+          "46",
+          "RECEIPT_CONDITION",
+          "75",
+          "consistent"
+        ],
+        [
+          "47",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "47",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "47",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "47",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "47",
+          "RECEIPT_CONDITION",
+          "24",
+          "consistent"
+        ],
+        [
+          "47",
+          "RECEIPT_CONDITION",
+          "74",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "31",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "31",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "31",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "31",
+          "UNIT_PRICE",
+          "10",
+          "difference"
+        ],
+        [
+          "31",
+          "UNIT_PRICE",
+          "20",
+          "difference"
+        ],
+        [
+          "31",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "31",
+          "RECEIPT_CONDITION",
+          "83",
+          "consistent"
+        ],
+        [
+          "32",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "32",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "32",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "32",
+          "UNIT_PRICE",
+          "16",
+          "difference"
+        ],
+        [
+          "32",
+          "UNIT_PRICE",
+          "65",
+          "difference"
+        ],
+        [
+          "32",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "46",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "46",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "46",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "46",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "46",
+          "RECEIPT_CONDITION",
+          "71",
+          "consistent"
+        ],
+        [
+          "46",
+          "RECEIPT_CONDITION",
+          "75",
+          "consistent"
+        ],
+        [
+          "47",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "47",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "47",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "47",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "47",
+          "RECEIPT_CONDITION",
+          "24",
+          "consistent"
+        ],
+        [
+          "47",
+          "RECEIPT_CONDITION",
+          "74",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 9,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 8,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 5,
+        "difference": 9,
+        "review": 8,
+        "info": 3
+      },
+      "elapsed_ms": 39.177,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "13",
+      "po_number": "PO-67625",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 69,
+      "field_differences": [],
+      "origins_checked": 77,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "8",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "8",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "8",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "8",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "30",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "30",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "30",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "30",
+          "UNIT_PRICE",
+          "14",
+          "difference"
+        ],
+        [
+          "30",
+          "UNIT_PRICE",
+          "26",
+          "difference"
+        ],
+        [
+          "30",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "30",
+          "RECEIPT_CONDITION",
+          "37",
+          "consistent"
+        ],
+        [
+          "73",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "73",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "73",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "73",
+          "UNIT_PRICE",
+          "12",
+          "difference"
+        ],
+        [
+          "73",
+          "UNIT_PRICE",
+          "47",
+          "difference"
+        ],
+        [
+          "73",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "73",
+          "RECEIPT_CONDITION",
+          "82",
+          "review"
+        ],
+        [
+          "90",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "90",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "90",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "90",
+          "UNIT_PRICE",
+          "18",
+          "difference"
+        ],
+        [
+          "90",
+          "RECEIPT_CONDITION",
+          "58",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "8",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "8",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "8",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "8",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "30",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "30",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "30",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "30",
+          "UNIT_PRICE",
+          "14",
+          "difference"
+        ],
+        [
+          "30",
+          "UNIT_PRICE",
+          "26",
+          "difference"
+        ],
+        [
+          "30",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "30",
+          "RECEIPT_CONDITION",
+          "37",
+          "consistent"
+        ],
+        [
+          "73",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "73",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "73",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "73",
+          "UNIT_PRICE",
+          "12",
+          "difference"
+        ],
+        [
+          "73",
+          "UNIT_PRICE",
+          "47",
+          "difference"
+        ],
+        [
+          "73",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "73",
+          "RECEIPT_CONDITION",
+          "82",
+          "review"
+        ],
+        [
+          "90",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "90",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "90",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "90",
+          "UNIT_PRICE",
+          "18",
+          "difference"
+        ],
+        [
+          "90",
+          "RECEIPT_CONDITION",
+          "58",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 10,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 4,
+        "difference": 10,
+        "review": 5,
+        "info": 4
+      },
+      "elapsed_ms": 39.295,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "15",
+      "po_number": "PO-02657",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 38,
+      "field_differences": [],
+      "origins_checked": 41,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "6",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "6",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "6",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "6",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "23",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "23",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "23",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "23",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "44",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "44",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "44",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "44",
+          "UNIT_PRICE",
+          "7",
+          "difference"
+        ],
+        [
+          "44",
+          "RECEIPT_CONDITION",
+          "1",
+          "consistent"
+        ],
+        [
+          "44",
+          "RECEIPT_CONDITION",
+          "41",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "6",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "6",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "6",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "6",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "23",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "23",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "23",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "23",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "44",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "44",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "44",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "44",
+          "UNIT_PRICE",
+          "7",
+          "difference"
+        ],
+        [
+          "44",
+          "RECEIPT_CONDITION",
+          "1",
+          "consistent"
+        ],
+        [
+          "44",
+          "RECEIPT_CONDITION",
+          "41",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 8,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 3,
+        "review": 8,
+        "info": 1
+      },
+      "elapsed_ms": 28.202,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "27",
+      "po_number": "PO-57140",
+      "split": "development",
+      "reference_agreement": true,
+      "converted_fields": 52,
+      "field_differences": [],
+      "origins_checked": 58,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "45",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "45",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "45",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "45",
+          "UNIT_PRICE",
+          "13",
+          "consistent"
+        ],
+        [
+          "45",
+          "RECEIPT_CONDITION",
+          "27",
+          "consistent"
+        ],
+        [
+          "45",
+          "RECEIPT_CONDITION",
+          "33",
+          "review"
+        ],
+        [
+          "69",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "69",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "69",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "69",
+          "UNIT_PRICE",
+          "41",
+          "difference"
+        ],
+        [
+          "69",
+          "UNIT_PRICE",
+          "81",
+          "difference"
+        ],
+        [
+          "69",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "77",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "77",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "77",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "77",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "77",
+          "RECEIPT_CONDITION",
+          "25",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "45",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "45",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "45",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "45",
+          "UNIT_PRICE",
+          "13",
+          "consistent"
+        ],
+        [
+          "45",
+          "RECEIPT_CONDITION",
+          "27",
+          "consistent"
+        ],
+        [
+          "45",
+          "RECEIPT_CONDITION",
+          "33",
+          "review"
+        ],
+        [
+          "69",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "69",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "69",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "69",
+          "UNIT_PRICE",
+          "41",
+          "difference"
+        ],
+        [
+          "69",
+          "UNIT_PRICE",
+          "81",
+          "difference"
+        ],
+        [
+          "69",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "77",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "77",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "77",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "77",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "77",
+          "RECEIPT_CONDITION",
+          "25",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 3,
+        "difference": 4,
+        "review": 6,
+        "info": 4
+      },
+      "elapsed_ms": 33.533,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "10",
+      "po_number": "PO-26917",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 74,
+      "field_differences": [],
+      "origins_checked": 85,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "16",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "16",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "16",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "16",
+          "UNIT_PRICE",
+          "46",
+          "difference"
+        ],
+        [
+          "16",
+          "UNIT_PRICE",
+          "70",
+          "difference"
+        ],
+        [
+          "16",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "16",
+          "RECEIPT_CONDITION",
+          "10",
+          "consistent"
+        ],
+        [
+          "16",
+          "RECEIPT_CONDITION",
+          "67",
+          "consistent"
+        ],
+        [
+          "64",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "64",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "64",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "64",
+          "UNIT_PRICE",
+          "4",
+          "difference"
+        ],
+        [
+          "64",
+          "RECEIPT_CONDITION",
+          "13",
+          "consistent"
+        ],
+        [
+          "64",
+          "RECEIPT_CONDITION",
+          "80",
+          "consistent"
+        ],
+        [
+          "80",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "80",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "80",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "80",
+          "UNIT_PRICE",
+          "15",
+          "difference"
+        ],
+        [
+          "80",
+          "UNIT_PRICE",
+          "24",
+          "difference"
+        ],
+        [
+          "80",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "80",
+          "RECEIPT_CONDITION",
+          "7",
+          "consistent"
+        ],
+        [
+          "80",
+          "RECEIPT_CONDITION",
+          "85",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "16",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "16",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "16",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "16",
+          "UNIT_PRICE",
+          "46",
+          "difference"
+        ],
+        [
+          "16",
+          "UNIT_PRICE",
+          "70",
+          "difference"
+        ],
+        [
+          "16",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "16",
+          "RECEIPT_CONDITION",
+          "10",
+          "consistent"
+        ],
+        [
+          "16",
+          "RECEIPT_CONDITION",
+          "67",
+          "consistent"
+        ],
+        [
+          "64",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "64",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "64",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "64",
+          "UNIT_PRICE",
+          "4",
+          "difference"
+        ],
+        [
+          "64",
+          "RECEIPT_CONDITION",
+          "13",
+          "consistent"
+        ],
+        [
+          "64",
+          "RECEIPT_CONDITION",
+          "80",
+          "consistent"
+        ],
+        [
+          "80",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "80",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "80",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "80",
+          "UNIT_PRICE",
+          "15",
+          "difference"
+        ],
+        [
+          "80",
+          "UNIT_PRICE",
+          "24",
+          "difference"
+        ],
+        [
+          "80",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "80",
+          "RECEIPT_CONDITION",
+          "7",
+          "consistent"
+        ],
+        [
+          "80",
+          "RECEIPT_CONDITION",
+          "85",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      "counts": {
+        "consistent": 6,
+        "difference": 12,
+        "review": 0,
+        "info": 4
+      },
+      "elapsed_ms": 71.657,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "7",
+      "po_number": "PO-58264",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 27,
+      "field_differences": [],
+      "origins_checked": 29,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "51",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "51",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "51",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "51",
+          "UNIT_PRICE",
+          "58",
+          "difference"
+        ],
+        [
+          "51",
+          "RECEIPT_CONDITION",
+          "79",
+          "review"
+        ],
+        [
+          "75",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "75",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "75",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "75",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "51",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "51",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "51",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "51",
+          "UNIT_PRICE",
+          "58",
+          "difference"
+        ],
+        [
+          "51",
+          "RECEIPT_CONDITION",
+          "79",
+          "review"
+        ],
+        [
+          "75",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "75",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "75",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "75",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 0,
+        "difference": 3,
+        "review": 5,
+        "info": 1
+      },
+      "elapsed_ms": 24.946,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "19",
+      "po_number": "PO-17361",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 20,
+      "field_differences": [],
+      "origins_checked": 22,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "35",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "35",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "35",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "35",
+          "UNIT_PRICE",
+          "78",
+          "difference"
+        ],
+        [
+          "35",
+          "RECEIPT_CONDITION",
+          "59",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "35",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "35",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "35",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "35",
+          "UNIT_PRICE",
+          "78",
+          "difference"
+        ],
+        [
+          "35",
+          "RECEIPT_CONDITION",
+          "59",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      "counts": {
+        "consistent": 1,
+        "difference": 3,
+        "review": 0,
+        "info": 1
+      },
+      "elapsed_ms": 22.165,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "20",
+      "po_number": "PO-39008",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 26,
+      "field_differences": [],
+      "origins_checked": 28,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "63",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "63",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "63",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "63",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "63",
+          "RECEIPT_CONDITION",
+          "51",
+          "consistent"
+        ],
+        [
+          "63",
+          "RECEIPT_CONDITION",
+          "76",
+          "consistent"
+        ],
+        [
+          "85",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "85",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "85",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "85",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "63",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "63",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "63",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "63",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "63",
+          "RECEIPT_CONDITION",
+          "51",
+          "consistent"
+        ],
+        [
+          "63",
+          "RECEIPT_CONDITION",
+          "76",
+          "consistent"
+        ],
+        [
+          "85",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "85",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "85",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "85",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 1,
+        "review": 7,
+        "info": 0
+      },
+      "elapsed_ms": 26.874,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "18",
+      "po_number": "PO-63180",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 21,
+      "field_differences": [],
+      "origins_checked": 23,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "52",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "52",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "52",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "52",
+          "UNIT_PRICE",
+          "28",
+          "difference"
+        ],
+        [
+          "52",
+          "UNIT_PRICE",
+          "67",
+          "consistent"
+        ],
+        [
+          "52",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "52",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "52",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "52",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "52",
+          "UNIT_PRICE",
+          "28",
+          "difference"
+        ],
+        [
+          "52",
+          "UNIT_PRICE",
+          "67",
+          "consistent"
+        ],
+        [
+          "52",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 1,
+        "difference": 2,
+        "review": 2,
+        "info": 1
+      },
+      "elapsed_ms": 22.602,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "32",
+      "po_number": "PO-63046",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 47,
+      "field_differences": [],
+      "origins_checked": 52,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "43",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "43",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "43",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "43",
+          "UNIT_PRICE",
+          "64",
+          "difference"
+        ],
+        [
+          "43",
+          "UNIT_PRICE",
+          "86",
+          "difference"
+        ],
+        [
+          "43",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "43",
+          "RECEIPT_CONDITION",
+          "4",
+          "consistent"
+        ],
+        [
+          "43",
+          "RECEIPT_CONDITION",
+          "72",
+          "consistent"
+        ],
+        [
+          "57",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "57",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "57",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "57",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "57",
+          "RECEIPT_CONDITION",
+          "40",
+          "consistent"
+        ],
+        [
+          "68",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "68",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "68",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "68",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "43",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "43",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "43",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "43",
+          "UNIT_PRICE",
+          "64",
+          "difference"
+        ],
+        [
+          "43",
+          "UNIT_PRICE",
+          "86",
+          "difference"
+        ],
+        [
+          "43",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "43",
+          "RECEIPT_CONDITION",
+          "4",
+          "consistent"
+        ],
+        [
+          "43",
+          "RECEIPT_CONDITION",
+          "72",
+          "consistent"
+        ],
+        [
+          "57",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "57",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "57",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "57",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "57",
+          "RECEIPT_CONDITION",
+          "40",
+          "consistent"
+        ],
+        [
+          "68",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "68",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "68",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "68",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 4,
+        "difference": 5,
+        "review": 7,
+        "info": 1
+      },
+      "elapsed_ms": 34.591,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "23",
+      "po_number": "PO-97806",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 46,
+      "field_differences": [],
+      "origins_checked": 49,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "1",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "1",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "1",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "1",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "53",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "53",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "53",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "53",
+          "UNIT_PRICE",
+          "73",
+          "difference"
+        ],
+        [
+          "53",
+          "RECEIPT_CONDITION",
+          "19",
+          "consistent"
+        ],
+        [
+          "56",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "56",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "56",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "56",
+          "UNIT_PRICE",
+          "38",
+          "difference"
+        ],
+        [
+          "78",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "78",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "78",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "78",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "1",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "1",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "1",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "1",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "53",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "53",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "53",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "53",
+          "UNIT_PRICE",
+          "73",
+          "difference"
+        ],
+        [
+          "53",
+          "RECEIPT_CONDITION",
+          "19",
+          "consistent"
+        ],
+        [
+          "56",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "56",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "56",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "56",
+          "UNIT_PRICE",
+          "38",
+          "difference"
+        ],
+        [
+          "78",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "78",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "78",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "78",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 10,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 4,
+        "difference": 2,
+        "review": 10,
+        "info": 1
+      },
+      "elapsed_ms": 32.898,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "34",
+      "po_number": "PO-21409",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 26,
+      "field_differences": [],
+      "origins_checked": 28,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "15",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "15",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "15",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "15",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "15",
+          "RECEIPT_CONDITION",
+          "9",
+          "consistent"
+        ],
+        [
+          "48",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "48",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "48",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "48",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "48",
+          "RECEIPT_CONDITION",
+          "20",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "15",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "15",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "15",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "15",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "15",
+          "RECEIPT_CONDITION",
+          "9",
+          "consistent"
+        ],
+        [
+          "48",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "48",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "48",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "48",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "48",
+          "RECEIPT_CONDITION",
+          "20",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      "review": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 0,
+        "review": 6,
+        "info": 2
+      },
+      "elapsed_ms": 29.296,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "21",
+      "po_number": "PO-78126",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 48,
+      "field_differences": [],
+      "origins_checked": 53,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "20",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "20",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "20",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "20",
+          "UNIT_PRICE",
+          "23",
+          "difference"
+        ],
+        [
+          "20",
+          "RECEIPT_CONDITION",
+          "14",
+          "consistent"
+        ],
+        [
+          "22",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "22",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "22",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "22",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "39",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "39",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "39",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "39",
+          "UNIT_PRICE",
+          "1",
+          "difference"
+        ],
+        [
+          "39",
+          "UNIT_PRICE",
+          "11",
+          "difference"
+        ],
+        [
+          "39",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "39",
+          "RECEIPT_CONDITION",
+          "78",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "20",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "20",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "20",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "20",
+          "UNIT_PRICE",
+          "23",
+          "difference"
+        ],
+        [
+          "20",
+          "RECEIPT_CONDITION",
+          "14",
+          "consistent"
+        ],
+        [
+          "22",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "22",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "22",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "22",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "39",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "39",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "39",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "39",
+          "UNIT_PRICE",
+          "1",
+          "difference"
+        ],
+        [
+          "39",
+          "UNIT_PRICE",
+          "11",
+          "difference"
+        ],
+        [
+          "39",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "39",
+          "RECEIPT_CONDITION",
+          "78",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 7,
+        "review": 4,
+        "info": 3
+      },
+      "elapsed_ms": 50.905,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "35",
+      "po_number": "PO-10040",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 62,
+      "field_differences": [],
+      "origins_checked": 69,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "3",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "3",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "3",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "3",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "3",
+          "RECEIPT_CONDITION",
+          "11",
+          "consistent"
+        ],
+        [
+          "21",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "21",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "21",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "21",
+          "UNIT_PRICE",
+          "2",
+          "difference"
+        ],
+        [
+          "29",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "29",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "29",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "29",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "29",
+          "RECEIPT_CONDITION",
+          "30",
+          "consistent"
+        ],
+        [
+          "29",
+          "RECEIPT_CONDITION",
+          "65",
+          "consistent"
+        ],
+        [
+          "58",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "58",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "58",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "58",
+          "UNIT_PRICE",
+          "49",
+          "difference"
+        ],
+        [
+          "58",
+          "RECEIPT_CONDITION",
+          "42",
+          "review"
+        ],
+        [
+          "58",
+          "RECEIPT_CONDITION",
+          "68",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "3",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "3",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "3",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "3",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "3",
+          "RECEIPT_CONDITION",
+          "11",
+          "consistent"
+        ],
+        [
+          "21",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "21",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "21",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "21",
+          "UNIT_PRICE",
+          "2",
+          "difference"
+        ],
+        [
+          "29",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "29",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "29",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "29",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "29",
+          "RECEIPT_CONDITION",
+          "30",
+          "consistent"
+        ],
+        [
+          "29",
+          "RECEIPT_CONDITION",
+          "65",
+          "consistent"
+        ],
+        [
+          "58",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "58",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "58",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "58",
+          "UNIT_PRICE",
+          "49",
+          "difference"
+        ],
+        [
+          "58",
+          "RECEIPT_CONDITION",
+          "42",
+          "review"
+        ],
+        [
+          "58",
+          "RECEIPT_CONDITION",
+          "68",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 9,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 4,
+        "difference": 6,
+        "review": 9,
+        "info": 2
+      },
+      "elapsed_ms": 73.419,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "29",
+      "po_number": "PO-58902",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 65,
+      "field_differences": [],
+      "origins_checked": 74,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "42",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "42",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "42",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "42",
+          "UNIT_PRICE",
+          "52",
+          "difference"
+        ],
+        [
+          "42",
+          "RECEIPT_CONDITION",
+          "8",
+          "consistent"
+        ],
+        [
+          "42",
+          "RECEIPT_CONDITION",
+          "22",
+          "consistent"
+        ],
+        [
+          "54",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "54",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "54",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "54",
+          "UNIT_PRICE",
+          "17",
+          "difference"
+        ],
+        [
+          "54",
+          "RECEIPT_CONDITION",
+          "54",
+          "consistent"
+        ],
+        [
+          "83",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "83",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "83",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "83",
+          "UNIT_PRICE",
+          "50",
+          "difference"
+        ],
+        [
+          "83",
+          "UNIT_PRICE",
+          "84",
+          "difference"
+        ],
+        [
+          "83",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "83",
+          "RECEIPT_CONDITION",
+          "21",
+          "consistent"
+        ],
+        [
+          "83",
+          "RECEIPT_CONDITION",
+          "70",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "42",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "42",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "42",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "42",
+          "UNIT_PRICE",
+          "52",
+          "difference"
+        ],
+        [
+          "42",
+          "RECEIPT_CONDITION",
+          "8",
+          "consistent"
+        ],
+        [
+          "42",
+          "RECEIPT_CONDITION",
+          "22",
+          "consistent"
+        ],
+        [
+          "54",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "54",
+          "INVOICE_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "54",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "54",
+          "UNIT_PRICE",
+          "17",
+          "difference"
+        ],
+        [
+          "54",
+          "RECEIPT_CONDITION",
+          "54",
+          "consistent"
+        ],
+        [
+          "83",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "83",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "83",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "83",
+          "UNIT_PRICE",
+          "50",
+          "difference"
+        ],
+        [
+          "83",
+          "UNIT_PRICE",
+          "84",
+          "difference"
+        ],
+        [
+          "83",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "83",
+          "RECEIPT_CONDITION",
+          "21",
+          "consistent"
+        ],
+        [
+          "83",
+          "RECEIPT_CONDITION",
+          "70",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 9,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      "counts": {
+        "consistent": 6,
+        "difference": 9,
+        "review": 0,
+        "info": 4
+      },
+      "elapsed_ms": 96.355,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "26",
+      "po_number": "PO-85688",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 25,
+      "field_differences": [],
+      "origins_checked": 28,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "40",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "40",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "40",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "40",
+          "UNIT_PRICE",
+          "27",
+          "difference"
+        ],
+        [
+          "40",
+          "UNIT_PRICE",
+          "69",
+          "difference"
+        ],
+        [
+          "40",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "40",
+          "RECEIPT_CONDITION",
+          "63",
+          "review"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "40",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "40",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "40",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "40",
+          "UNIT_PRICE",
+          "27",
+          "difference"
+        ],
+        [
+          "40",
+          "UNIT_PRICE",
+          "69",
+          "difference"
+        ],
+        [
+          "40",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "40",
+          "RECEIPT_CONDITION",
+          "63",
+          "review"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 0,
+        "difference": 4,
+        "review": 1,
+        "info": 2
+      },
+      "elapsed_ms": 76.02,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "14",
+      "po_number": "PO-30041",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 78,
+      "field_differences": [],
+      "origins_checked": 88,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "28",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "28",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "28",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "28",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "28",
+          "RECEIPT_CONDITION",
+          "89",
+          "consistent"
+        ],
+        [
+          "38",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "38",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "38",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "38",
+          "UNIT_PRICE",
+          "3",
+          "difference"
+        ],
+        [
+          "38",
+          "UNIT_PRICE",
+          "31",
+          "difference"
+        ],
+        [
+          "38",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "38",
+          "RECEIPT_CONDITION",
+          "52",
+          "consistent"
+        ],
+        [
+          "50",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "50",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "50",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "50",
+          "UNIT_PRICE",
+          "68",
+          "difference"
+        ],
+        [
+          "50",
+          "UNIT_PRICE",
+          "74",
+          "difference"
+        ],
+        [
+          "50",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "50",
+          "RECEIPT_CONDITION",
+          "43",
+          "consistent"
+        ],
+        [
+          "61",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "61",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "61",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "61",
+          "UNIT_PRICE",
+          "6",
+          "difference"
+        ],
+        [
+          "61",
+          "UNIT_PRICE",
+          "43",
+          "difference"
+        ],
+        [
+          "61",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "61",
+          "RECEIPT_CONDITION",
+          "57",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "28",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "28",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "28",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "28",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "28",
+          "RECEIPT_CONDITION",
+          "89",
+          "consistent"
+        ],
+        [
+          "38",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "38",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "38",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "38",
+          "UNIT_PRICE",
+          "3",
+          "difference"
+        ],
+        [
+          "38",
+          "UNIT_PRICE",
+          "31",
+          "difference"
+        ],
+        [
+          "38",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "38",
+          "RECEIPT_CONDITION",
+          "52",
+          "consistent"
+        ],
+        [
+          "50",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "50",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "50",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "50",
+          "UNIT_PRICE",
+          "68",
+          "difference"
+        ],
+        [
+          "50",
+          "UNIT_PRICE",
+          "74",
+          "difference"
+        ],
+        [
+          "50",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "50",
+          "RECEIPT_CONDITION",
+          "43",
+          "consistent"
+        ],
+        [
+          "61",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "61",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "61",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "61",
+          "UNIT_PRICE",
+          "6",
+          "difference"
+        ],
+        [
+          "61",
+          "UNIT_PRICE",
+          "43",
+          "difference"
+        ],
+        [
+          "61",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "61",
+          "RECEIPT_CONDITION",
+          "57",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 5,
+        "difference": 12,
+        "review": 3,
+        "info": 6
+      },
+      "elapsed_ms": 43.044,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "36",
+      "po_number": "PO-58820",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 16,
+      "field_differences": [],
+      "origins_checked": 17,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "2",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "2",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "2",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "2",
+          "UNIT_PRICE",
+          "8",
+          "difference"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "2",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "2",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "2",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "2",
+          "UNIT_PRICE",
+          "8",
+          "difference"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 1,
+        "difference": 1,
+        "review": 2,
+        "info": 0
+      },
+      "elapsed_ms": 21.983,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "28",
+      "po_number": "PO-99138",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 57,
+      "field_differences": [],
+      "origins_checked": 64,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "24",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "24",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "24",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "24",
+          "UNIT_PRICE",
+          "32",
+          "difference"
+        ],
+        [
+          "24",
+          "RECEIPT_CONDITION",
+          "53",
+          "consistent"
+        ],
+        [
+          "65",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "65",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "65",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "65",
+          "UNIT_PRICE",
+          "55",
+          "difference"
+        ],
+        [
+          "65",
+          "RECEIPT_CONDITION",
+          "26",
+          "consistent"
+        ],
+        [
+          "65",
+          "RECEIPT_CONDITION",
+          "45",
+          "consistent"
+        ],
+        [
+          "87",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "87",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "87",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "87",
+          "UNIT_PRICE",
+          "61",
+          "difference"
+        ],
+        [
+          "87",
+          "UNIT_PRICE",
+          "76",
+          "difference"
+        ],
+        [
+          "87",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "24",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "24",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "24",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "24",
+          "UNIT_PRICE",
+          "32",
+          "difference"
+        ],
+        [
+          "24",
+          "RECEIPT_CONDITION",
+          "53",
+          "consistent"
+        ],
+        [
+          "65",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "65",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "65",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "65",
+          "UNIT_PRICE",
+          "55",
+          "difference"
+        ],
+        [
+          "65",
+          "RECEIPT_CONDITION",
+          "26",
+          "consistent"
+        ],
+        [
+          "65",
+          "RECEIPT_CONDITION",
+          "45",
+          "consistent"
+        ],
+        [
+          "87",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "87",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "87",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "87",
+          "UNIT_PRICE",
+          "61",
+          "difference"
+        ],
+        [
+          "87",
+          "UNIT_PRICE",
+          "76",
+          "difference"
+        ],
+        [
+          "87",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 5,
+        "difference": 7,
+        "review": 2,
+        "info": 3
+      },
+      "elapsed_ms": 37.286,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "16",
+      "po_number": "PO-51506",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 48,
+      "field_differences": [],
+      "origins_checked": 53,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "10",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "10",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "10",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "10",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "10",
+          "RECEIPT_CONDITION",
+          "86",
+          "consistent"
+        ],
+        [
+          "14",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "14",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "14",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "14",
+          "UNIT_PRICE",
+          "53",
+          "difference"
+        ],
+        [
+          "14",
+          "UNIT_PRICE",
+          "82",
+          "difference"
+        ],
+        [
+          "14",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "14",
+          "RECEIPT_CONDITION",
+          "81",
+          "consistent"
+        ],
+        [
+          "84",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "84",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "84",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "84",
+          "UNIT_PRICE",
+          "63",
+          "difference"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "10",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "10",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "10",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "10",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "10",
+          "RECEIPT_CONDITION",
+          "86",
+          "consistent"
+        ],
+        [
+          "14",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "14",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "14",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "14",
+          "UNIT_PRICE",
+          "53",
+          "difference"
+        ],
+        [
+          "14",
+          "UNIT_PRICE",
+          "82",
+          "difference"
+        ],
+        [
+          "14",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "14",
+          "RECEIPT_CONDITION",
+          "81",
+          "consistent"
+        ],
+        [
+          "84",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "84",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "84",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "84",
+          "UNIT_PRICE",
+          "63",
+          "difference"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 3,
+        "difference": 5,
+        "review": 5,
+        "info": 3
+      },
+      "elapsed_ms": 37.009,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "31",
+      "po_number": "PO-76984",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 36,
+      "field_differences": [],
+      "origins_checked": 40,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "74",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "74",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "74",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "74",
+          "UNIT_PRICE",
+          "45",
+          "difference"
+        ],
+        [
+          "74",
+          "UNIT_PRICE",
+          "79",
+          "difference"
+        ],
+        [
+          "74",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "82",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "82",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "82",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "82",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "82",
+          "RECEIPT_CONDITION",
+          "50",
+          "consistent"
+        ],
+        [
+          "82",
+          "RECEIPT_CONDITION",
+          "66",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "74",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "74",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "74",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "74",
+          "UNIT_PRICE",
+          "45",
+          "difference"
+        ],
+        [
+          "74",
+          "UNIT_PRICE",
+          "79",
+          "difference"
+        ],
+        [
+          "74",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "82",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "82",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "82",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "82",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "82",
+          "RECEIPT_CONDITION",
+          "50",
+          "consistent"
+        ],
+        [
+          "82",
+          "RECEIPT_CONDITION",
+          "66",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 4,
+        "review": 5,
+        "info": 1
+      },
+      "elapsed_ms": 32.373,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "25",
+      "po_number": "PO-60875",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 15,
+      "field_differences": [],
+      "origins_checked": 16,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "34",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "34",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "34",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "34",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "34",
+          "RECEIPT_CONDITION",
+          "29",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "34",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "34",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "34",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "34",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "34",
+          "RECEIPT_CONDITION",
+          "29",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      "review": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 0,
+        "review": 3,
+        "info": 0
+      },
+      "elapsed_ms": 28.83,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "12",
+      "po_number": "PO-78123",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 36,
+      "field_differences": [],
+      "origins_checked": 40,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "5",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "5",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "5",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "5",
+          "UNIT_PRICE",
+          "62",
+          "difference"
+        ],
+        [
+          "5",
+          "RECEIPT_CONDITION",
+          "88",
+          "consistent"
+        ],
+        [
+          "86",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "86",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "86",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "86",
+          "UNIT_PRICE",
+          "66",
+          "difference"
+        ],
+        [
+          "86",
+          "RECEIPT_CONDITION",
+          "62",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "5",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "5",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "5",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "5",
+          "UNIT_PRICE",
+          "62",
+          "difference"
+        ],
+        [
+          "5",
+          "RECEIPT_CONDITION",
+          "88",
+          "consistent"
+        ],
+        [
+          "86",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "86",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "86",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "86",
+          "UNIT_PRICE",
+          "66",
+          "difference"
+        ],
+        [
+          "86",
+          "RECEIPT_CONDITION",
+          "62",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null
+      },
+      "counts": {
+        "consistent": 6,
+        "difference": 3,
+        "review": 0,
+        "info": 1
+      },
+      "elapsed_ms": 32.626,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "30",
+      "po_number": "PO-91947",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 56,
+      "field_differences": [],
+      "origins_checked": 63,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "41",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "41",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "41",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "41",
+          "UNIT_PRICE",
+          "44",
+          "difference"
+        ],
+        [
+          "41",
+          "RECEIPT_CONDITION",
+          "16",
+          "consistent"
+        ],
+        [
+          "41",
+          "RECEIPT_CONDITION",
+          "77",
+          "consistent"
+        ],
+        [
+          "66",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "66",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "66",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "66",
+          "UNIT_PRICE",
+          "5",
+          "difference"
+        ],
+        [
+          "66",
+          "UNIT_PRICE",
+          "35",
+          "difference"
+        ],
+        [
+          "66",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "91",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "91",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "91",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "91",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "91",
+          "RECEIPT_CONDITION",
+          "2",
+          "review"
+        ],
+        [
+          "91",
+          "RECEIPT_CONDITION",
+          "15",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "41",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "41",
+          "INVOICE_ORDER_QTY",
+          "",
+          "consistent"
+        ],
+        [
+          "41",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "41",
+          "UNIT_PRICE",
+          "44",
+          "difference"
+        ],
+        [
+          "41",
+          "RECEIPT_CONDITION",
+          "16",
+          "consistent"
+        ],
+        [
+          "41",
+          "RECEIPT_CONDITION",
+          "77",
+          "consistent"
+        ],
+        [
+          "66",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "66",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "66",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "66",
+          "UNIT_PRICE",
+          "5",
+          "difference"
+        ],
+        [
+          "66",
+          "UNIT_PRICE",
+          "35",
+          "difference"
+        ],
+        [
+          "66",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "91",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "91",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "91",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "91",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "91",
+          "RECEIPT_CONDITION",
+          "2",
+          "review"
+        ],
+        [
+          "91",
+          "RECEIPT_CONDITION",
+          "15",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 4,
+        "difference": 6,
+        "review": 6,
+        "info": 2
+      },
+      "elapsed_ms": 51.737,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "8",
+      "po_number": "PO-82344",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 23,
+      "field_differences": [],
+      "origins_checked": 24,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "36",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "36",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "36",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "36",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "70",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "70",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "70",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "70",
+          "UNIT_PRICE",
+          "25",
+          "difference"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "36",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "36",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "36",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "36",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "70",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "70",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "70",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "70",
+          "UNIT_PRICE",
+          "25",
+          "difference"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 0,
+        "difference": 2,
+        "review": 6,
+        "info": 0
+      },
+      "elapsed_ms": 31.144,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "9",
+      "po_number": "PO-74786",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 21,
+      "field_differences": [],
+      "origins_checked": 23,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "37",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "37",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "37",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "37",
+          "UNIT_PRICE",
+          "22",
+          "difference"
+        ],
+        [
+          "37",
+          "UNIT_PRICE",
+          "77",
+          "difference"
+        ],
+        [
+          "37",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "37",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "37",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "37",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "37",
+          "UNIT_PRICE",
+          "22",
+          "difference"
+        ],
+        [
+          "37",
+          "UNIT_PRICE",
+          "77",
+          "difference"
+        ],
+        [
+          "37",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 0,
+        "difference": 3,
+        "review": 2,
+        "info": 1
+      },
+      "elapsed_ms": 27.32,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "24",
+      "po_number": "PO-32235",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 48,
+      "field_differences": [],
+      "origins_checked": 53,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "49",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "49",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "49",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "49",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "55",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "55",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "55",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "55",
+          "UNIT_PRICE",
+          "59",
+          "difference"
+        ],
+        [
+          "81",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "81",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "81",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "81",
+          "UNIT_PRICE",
+          "39",
+          "difference"
+        ],
+        [
+          "81",
+          "UNIT_PRICE",
+          "85",
+          "difference"
+        ],
+        [
+          "81",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "81",
+          "RECEIPT_CONDITION",
+          "36",
+          "consistent"
+        ],
+        [
+          "81",
+          "RECEIPT_CONDITION",
+          "47",
+          "consistent"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "49",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "49",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "49",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "49",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ],
+        [
+          "55",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "55",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "55",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "55",
+          "UNIT_PRICE",
+          "59",
+          "difference"
+        ],
+        [
+          "81",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "info"
+        ],
+        [
+          "81",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "81",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "81",
+          "UNIT_PRICE",
+          "39",
+          "difference"
+        ],
+        [
+          "81",
+          "UNIT_PRICE",
+          "85",
+          "difference"
+        ],
+        [
+          "81",
+          "MULTIPLE_INVOICES",
+          "",
+          "info"
+        ],
+        [
+          "81",
+          "RECEIPT_CONDITION",
+          "36",
+          "consistent"
+        ],
+        [
+          "81",
+          "RECEIPT_CONDITION",
+          "47",
+          "consistent"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 6,
+        "review": 6,
+        "info": 2
+      },
+      "elapsed_ms": 39.39,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    },
+    {
+      "order_id": "33",
+      "po_number": "PO-64380",
+      "split": "holdout",
+      "reference_agreement": true,
+      "converted_fields": 55,
+      "field_differences": [],
+      "origins_checked": 60,
+      "origin_errors": [],
+      "expected_keys": [
+        [
+          "4",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "4",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "4",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "4",
+          "UNIT_PRICE",
+          "48",
+          "difference"
+        ],
+        [
+          "4",
+          "RECEIPT_CONDITION",
+          "31",
+          "consistent"
+        ],
+        [
+          "4",
+          "RECEIPT_CONDITION",
+          "49",
+          "consistent"
+        ],
+        [
+          "13",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "13",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "13",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "13",
+          "UNIT_PRICE",
+          "36",
+          "difference"
+        ],
+        [
+          "18",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "18",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "18",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "18",
+          "UNIT_PRICE",
+          "19",
+          "difference"
+        ],
+        [
+          "60",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "60",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "60",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "60",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ]
+      ],
+      "actual_keys": [
+        [
+          "4",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "4",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "4",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "info"
+        ],
+        [
+          "4",
+          "UNIT_PRICE",
+          "48",
+          "difference"
+        ],
+        [
+          "4",
+          "RECEIPT_CONDITION",
+          "31",
+          "consistent"
+        ],
+        [
+          "4",
+          "RECEIPT_CONDITION",
+          "49",
+          "consistent"
+        ],
+        [
+          "13",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "13",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "13",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "13",
+          "UNIT_PRICE",
+          "36",
+          "difference"
+        ],
+        [
+          "18",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "18",
+          "INVOICE_ORDER_QTY",
+          "",
+          "difference"
+        ],
+        [
+          "18",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "18",
+          "UNIT_PRICE",
+          "19",
+          "difference"
+        ],
+        [
+          "60",
+          "RECEIPT_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "60",
+          "INVOICE_ORDER_QTY",
+          "",
+          "review"
+        ],
+        [
+          "60",
+          "INVOICE_RECEIPT_QTY",
+          "",
+          "review"
+        ],
+        [
+          "60",
+          "UNIT_PRICE",
+          "",
+          "review"
+        ]
+      ],
+      "missing_checks": [],
+      "extra_checks": [],
+      "difference": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "review": {
+        "tp": 8,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "counts": {
+        "consistent": 2,
+        "difference": 7,
+        "review": 8,
+        "info": 1
+      },
+      "elapsed_ms": 43.019,
+      "model_calls": 0,
+      "real_human_checks": 0,
+      "ground_truth_source": "project_declared_snapshot_policy_independent_Fraction_reference_not_provider_labels"
+    }
+  ],
+  "applicability": [
+    {
+      "rule": "采购与开票单价",
+      "status": "可核验",
+      "basis": "同一采购行；金额单位依来源文档的 USD 说明，不推断逐单币种"
+    },
+    {
+      "rule": "累计开票 / 采购数量",
+      "status": "可核验",
+      "basis": "全量记录快照，超过为业务差异，少于可为分批开票"
+    },
+    {
+      "rule": "累计收货 / 采购数量",
+      "status": "可核验",
+      "basis": "全量记录快照；无记录不能推断实际收货为零"
+    },
+    {
+      "rule": "累计开票 / 累计收货",
+      "status": "条件核验",
+      "basis": "仅两侧有记录时比较；无法判断某张发票对应某次收货或开票当日是否已到货"
+    },
+    {
+      "rule": "发票行金额或总金额算术",
+      "status": "不适用",
+      "basis": "来源没有独立记录金额，不能补出乘积再自证正确"
+    },
+    {
+      "rule": "装箱重量和包装件数",
+      "status": "不适用",
+      "basis": "收货记录不是装箱单，来源没有净重、毛重或包装件数"
+    },
+    {
+      "rule": "逐单币种一致性",
+      "status": "无法核验",
+      "basis": "来源说明价格为美元，但没有逐单币种字段"
+    },
+    {
+      "rule": "验收合格数量及付款条件",
+      "status": "无法核验",
+      "basis": "没有合格验收数量、付款金额或完整结算依据"
+    }
+  ]
+}

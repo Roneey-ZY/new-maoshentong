@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "provider": "Database Sample",
+  "title": "Procurement purchase orders and receipts dataset",
+  "source_page": "https://databasesample.com/datasets/procurement-purchase-orders-and-receipts-dataset",
+  "source_version": 1,
+  "retrieved_utc": "2026-11-22T09:13:43.948076+00:00",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "data_nature": "third_party_public_synthetic_not_real_enterprise",
+  "published_rows_total": 492,
+  "tables": {
+    "buyers": {
+      "url": "https://database-sample-website.s3.eu-north-1.amazonaws.com/datasets/procurement-purchase-orders-and-receipts-dataset/v1/csv/buyers.csv",
+      "file": "raw/buyers.csv",
+      "sha256": "8420cef100a482b4f52daa70e25261355720974b937890b60a4c2deec5cb4948",
+      "rows": 5,
+      "columns": [
+        "id",
+        "first_name",
+        "last_name",
+        "email",
+        "team"
+      ]
+    },
+    "items": {
+      "url": "https://database-sample-website.s3.eu-north-1.amazonaws.com/datasets/procurement-purchase-orders-and-receipts-dataset/v1/csv/items.csv",
+      "file": "raw/items.csv",
+      "sha256": "98e30b4425a145073568a288d3cbe88d91454050f8e658c9d898d863a6391b04",
+      "rows": 20,
+      "columns": [
+        "id",
+        "sku",
+        "catalogue",
+        "item_label",
+        "unit",
+        "list_price"
+      ]
+    },
+    "requisitions": {
+      "url": "https://database-sample-website.s3.eu-north-1.amazonaws.com/datasets/procurement-purchase-orders-and-receipts-dataset/v1/csv/requisitions.csv",
+      "file": "raw/requisitions.csv",
+      "sha256": "6df96335a3ee7dd06f45e8695603b822c7b302e382777cf0647abe9c4a288957",
+      "rows": 150,
+      "columns": [
+        "id",
+        "requester_dept",
+        "item_id",
+        "quantity_requested",
+        "list_price",
+        "requested_on"
+      ]
+    },
+    "suppliers": {
+      "url": "https://database-sample-website.s3.eu-north-1.amazonaws.com/datasets/procurement-purchase-orders-and-receipts-dataset/v1/csv/suppliers.csv",
+      "file": "raw/suppliers.csv",
+      "sha256": "836e406be22d37ca5f994a4abed318d1be8f2e8cb119f9c3e34d7834ff0501a7",
+      "rows": 14,
+      "columns": [
+        "id",
+        "supplier_name",
+        "country",
+        "payment_terms"
+      ]
+    },
+    "purchase_orders": {
+      "url": "https://database-sample-website.s3.eu-north-1.amazonaws.com/datasets/procurement-purchase-orders-and-receipts-dataset/v1/csv/purchase_orders.csv",
+      "file": "raw/purchase_orders.csv",
+      "sha256": "02ca1737ad6c0bb59b817417af3101e38b95692d58e09a488406bd6a4124bf31",
+      "rows": 36,
+      "columns": [
+        "id",
+        "po_number",
+        "supplier_id",
+        "buyer_id",
+        "ordered_on",
+        "payment_terms"
+      ]
+    },
+    "po_lines": {
+      "url": "https://database-sample-website.s3.eu-north-1.amazonaws.com/datasets/procurement-purchase-orders-and-receipts-dataset/v1/csv/po_lines.csv",
+      "file": "raw/po_lines.csv",
+      "sha256": "4001adc7f93274b06b4031555cfe5d499899babeeb89c1bf6ebf26169266780d",
+      "rows": 91,
+      "columns": [
+        "id",
+        "purchase_order_id",
+        "requisition_id",
+        "item_id",
+        "quantity",
+        "ordered_on",
+        "negotiated_factor",
+        "unit_price"
+      ]
+    },
+    "goods_receipts": {
+      "url": "https://database-sample-website.s3.eu-north-1.amazonaws.com/datasets/procurement-purchase-orders-and-receipts-dataset/v1/csv/goods_receipts.csv",
+      "file": "raw/goods_receipts.csv",
+      "sha256": "545a2b77fc3bae949d7bc89b8fa897e77d7f56c484be0eced2720e75207a1a16",
+      "rows": 89,
+      "columns": [
+        "id",
+        "po_line_id",
+        "received_on",
+        "received_share",
+        "received_qty",
+        "condition"
+      ]
+    },
+    "supplier_invoices": {
+      "url": "https://database-sample-website.s3.eu-north-1.amazonaws.com/datasets/procurement-purchase-orders-and-receipts-dataset/v1/csv/supplier_invoices.csv",
+      "file": "raw/supplier_invoices.csv",
+      "sha256": "cda6d279a4ee88ae343534d9507e5403c7431d1458ffdc6bd2b9e5adacf3b461",
+      "rows": 87,
+      "columns": [
+        "id",
+        "po_line_id",
+        "invoice_no",
+        "invoice_date",
+        "qty_ratio",
+        "invoiced_qty",
+        "billing_drift",
+        "billed_unit_price",
+        "status",
+        "paid_on"
+      ]
+    }
+  },
+  "limitations": [
+    "Goods receipts are not packing lists.",
+    "An invoice is not tied to a particular receipt in the source model.",
+    "No per-document currency, recorded invoice amount, net/gross weight or accepted quantity fields.",
+    "No supplier-provided per-case discrepancy labels. Local policy/reference labels are not official answers."
+  ]
+}

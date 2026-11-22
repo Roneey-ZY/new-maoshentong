@@ -4,3 +4,4 @@ core/*.py -text
 scripts/*.py -text
 data/independent_validation/** -text
 data/independent_results/** -text
+data/external/** -text
