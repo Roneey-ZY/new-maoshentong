@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from collections import Counter
 from decimal import Decimal
 from time import perf_counter
 from typing import Callable
@@ -125,11 +126,19 @@ def revise_preview(run: ReviewRun, kind: Kind, line: int | None,
     return revision
 
 
+def anchor_overlaps_items(document: Document, anchor: TableAnchor) -> bool:
+    return any(item.anchor.row is not None and item.anchor.row <= anchor.row
+               and (item.anchor.sheet, item.anchor.page) == (anchor.sheet, anchor.page)
+               for item in document.items)
+
+
 def confirm_table_mapping(run: ReviewRun, kind: Kind, anchor: TableAnchor,
                           columns: dict[int, str]) -> ReviewRun:
     if run.documents is None or run.result is None:
         raise ValueError("请先运行首轮审核。")
     document = next(doc for doc in run.documents if doc.kind == kind)
+    if anchor_overlaps_items(document, anchor):
+        raise ParseError("所选表头位于已有商品数据中，不能将商品行作为表头。请对照原件重新选择。")
     if any(value.edited for fields in (document.header, *(item.fields for item in document.items))
            for value in fields.values()):
         raise ValueError("该单证已有预览修改。请先从原文件重新审核，再确认表头。")
@@ -147,6 +156,9 @@ def confirm_table_mapping(run: ReviewRun, kind: Kind, anchor: TableAnchor,
         mapped = parse_document(kind, selected.name, selected.data, mappings)
         if not mapped.items:
             raise ParseError("确认后未取得商品行。请重新核对表头及样例。")
+        positions = lambda doc: Counter((item.anchor.sheet, item.anchor.page, item.anchor.row) for item in doc.items)
+        if positions(document) - positions(mapped):
+            raise ParseError("表头确认后会丢失已有商品行，已拒绝应用。请核对原件，不能通过少读商品行消除异常。")
         target.documents = [mapped if doc.kind == kind else doc for doc in run.documents]
         return f"{len(mapped.items)} item rows, {len(columns)} confirmed columns"
 

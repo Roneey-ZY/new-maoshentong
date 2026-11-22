@@ -3,7 +3,7 @@ import streamlit as st
 
 from agent.main_agent import AgentRunError
 from agent.mapping_agent import known_mapping, mapping_prompt, suggest_mapping
-from agent.tools import confirm_table_mapping
+from agent.tools import confirm_table_mapping, anchor_overlaps_items
 from core.parser import ParseError, inspect_tables
 from core.reporter import FIELD_NAMES
 
@@ -28,6 +28,8 @@ def mapping_panel(run, revision, provider, key, model, types):
         if st.button("查看原始表头", key=f"map-scan-{revision}"):
             try:
                 previews = inspect_tables(file.name, file.data)
+                document = next(doc for doc in run.documents if doc.kind == kind)
+                previews = [table for table in previews if not anchor_overlaps_items(document, table.anchor)]
                 st.session_state["mapping_scan"] = (scan_id, previews, None)
             except Exception as exc:
                 reason = str(exc) if isinstance(exc, ParseError) else type(exc).__name__

@@ -30,7 +30,7 @@
 
 结果表明：在这批固定模板上，辅助建议增加了可完整处理的案例，但可靠性仍不够。不能将 17/24 描述成企业普遍成功率，不能用参考组 24/24 替代真实 Agent 成绩。模型组平均程序耗时更长，没有获得速度优势。
 
-模型组实际发出 61 次请求；API 成功返回用量，但其中 6 笔交易最终结构化结果不符合 SDK 要求（ModelBehaviorError）。这与网络请求失败不同。已知输入 104,557、输出 10,090 token，其中缓存输入 87,936 token。未取得供应商账单，实际收费留空。
+模型组实际发出 61 次请求；API 成功返回用量，但其中 6 笔交易未通过 SDK 的模型输出校验（ModelBehaviorError）。这与网络请求失败不同。已知输入 104,557、输出 10,090 token，其中缓存输入 87,936 token。未取得供应商账单，实际收费留空。
 
 ## 失败保留与发现
 
@@ -40,9 +40,11 @@
 
 ## 复现
 
-在与 `manifest.json` 引擎哈希一致的实验代码版本运行：
+首次实验的完整代码和原始字节归档在提交 **`f3f8161`**。当前版本已增加表头防丢行保护，不能将当前版本当作原实验引擎。请在独立工作目录检出原实验代码后复现：
 
 ```powershell
+git worktree add ../tradecheck-evaluation-v1 f3f8161
+cd ../tradecheck-evaluation-v1
 python -m pip install -r requirements-dev.txt
 python -m scripts.evaluate_independent --dataset data/independent_validation/v1 --output data/independent_results/repeat-offline
 # 服务端已经配置模型密钥时才执行真实模型组：
@@ -50,6 +52,16 @@ python -m scripts.evaluate_independent --dataset data/independent_validation/v1 
 ```
 
 输出目录必须是新的目录。实时模型组会产生模型调用消耗，不在网页刷新时自动执行。网页仅读取已发布的实验记录并提供下载。
+
+在当前代码目录可运行 `python -m scripts.verify_frozen_archive` 校验 Git 归档中所有原始样本和引擎文件的字节哈希，无需发出模型请求。Git 属性固定冻结输入和引擎源码的字节，避免 Windows/Linux 换行转换破坏哈希。
+
+## 已修复的防丢行问题
+
+当前版本不再向诊断模型提供位于已有商品行中的候选“表头”，也拒绝应用这样的确认。即使绕过候选筛选，重解析结果也必须保留原有商品行的位置和数量，不能通过少读商品行使异常消失。正常的字段预览修正和陌生表头确认仍受原有流程保护。
+
+对首次失败的原始错误建议进行回放：[安全回归记录](data/independent_results/postfix-safety-regression.json)。修复后拒绝该建议，保留全部 4 个单证商品行（其中发票 2 行）和重复 SKU 待复核提醒，没有新增模型调用。**这是已见失败的回归测试，不是新的独立样本成绩。**
+
+完整本地测试 64 通过、1 跳过，25.86 秒；[JUnit 原始记录](data/independent-step-test-results.xml)。真实 PostgreSQL 和 Linux 容器由 GitHub CI 另行验证。
 
 新一轮冻结样本可用 `python -m scripts.generate_independent_validation --output data/independent_validation/v2` 生成；若仍用相同固定种子和模板，则是重复实验，不应当声称换成了全新独立样本。
 

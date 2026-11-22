@@ -34,12 +34,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
       - run: python -m pip install -r requirements-dev.txt
+      - run: python -m scripts.verify_frozen_archive --commit f3f8161
       - run: python -m pytest -q --junitxml=phase-b-results.xml
+      - run: python -m scripts.replay_mapping_safety
       - run: python -m scripts.evaluate --mode rules --output phase-a-evaluation.json
       - uses: actions/upload-artifact@v4
         if: always()

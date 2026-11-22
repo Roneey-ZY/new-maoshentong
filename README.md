@@ -1,6 +1,6 @@
 # 贸审通 TradeCheck Agent
 
-当前为独立升级仓库 `new-maoshentong` 的 **B 阶段前三步**：在原文证据对照和业务复核基础上，增加任务及报告版本保存、多账号权限隔离、疑难处理 Agent。数据库配置与验收见 [B 阶段部署说明](B_SETUP.md)，实现范围与测试见 [B 阶段记录](PHASE_B.md)。原仓库 `Roneey-ZY/zmt` 保留。
+当前为独立升级仓库 `new-maoshentong` 的 **B 阶段**：任务历史、多账号和疑难 Agent 已接入；第四步新增 24 笔冻结合成模板对照、真实模型失败记录和表头防丢行保护。数据库配置见 [B 阶段部署说明](B_SETUP.md)，功能验收记录见 [PHASE_B.md](PHASE_B.md)，最新实验条件与限制见 [独立样本评估说明](INDEPENDENT_EVALUATION.md)。原仓库 `Roneey-ZY/zmt` 保留。
 
 未配置 `DATABASE_URL` 时保留原有单账号会话模式；配置外部 PostgreSQL 后才启用跨登录历史和多账号。未点击保存的改动仍只在会话中，退出后清空。疑难 Agent 的建议需逐项对照原件确认后才会复审。
 

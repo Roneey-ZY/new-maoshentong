@@ -14,7 +14,7 @@ from pydantic import BaseModel
 
 from agent.main_agent import AgentRunError, model_client, model_settings, public_api_error
 from agent.mapping_agent import ProposalList, validate_proposals, mapping_prompt
-from agent.tools import ReviewRun, confirm_table_mapping, run_rules
+from agent.tools import ReviewRun, confirm_table_mapping, run_rules, anchor_overlaps_items
 from core.parser import inspect_tables, checked_rows
 from core.schemas import Source, FieldValue
 
@@ -88,7 +88,10 @@ class Context:
 def inspect_candidate_tables(context):
     response = []
     for file in context.run.files:
+        document = next(doc for doc in context.run.documents if doc.kind == file.kind)
         for i, table in enumerate(inspect_tables(file.name, file.data)[:8]):
+            if anchor_overlaps_items(document, table.anchor):
+                continue
             table_id = f"{file.kind}:table:{i}"
             context.tables[table_id] = (file.kind, table)
             response.append({"id": table_id, **mapping_prompt(file.kind, table)})
@@ -210,6 +213,9 @@ def validated(context, output):
     for mapping in output.mappings[:10]:
         if mapping.table in context.tables:
             kind, table = context.tables[mapping.table]
+            document = next(doc for doc in context.run.documents if doc.kind == kind)
+            if anchor_overlaps_items(document, table.anchor):
+                continue
             columns = validate_proposals(table, mapping.columns)
             if columns:
                 proposals.append({"type": "mapping", "kind": kind, "anchor": table.anchor.__dict__,

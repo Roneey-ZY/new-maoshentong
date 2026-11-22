@@ -104,3 +104,41 @@ def test_published_evaluation_ui_exposes_limits_failures_and_downloads():
     next(s for s in app.selectbox if s.label == "查看处理方式").set_value("agent_test_confirmation").run()
     assert not app.exception
     assert (RESULTS / "comparison.json").read_bytes() == original
+
+
+def test_replay_actual_bad_model_mapping_preserves_duplicate_sku():
+    from agent.tools import ReviewRun, run_rules
+    from agent.diagnostic_agent import Context, inspect_candidate_tables, apply_proposal, revision_key
+    from core.demo import DATA, load_case
+    from core.parser import ParseError
+    results = json.loads((DATA / "independent_results/v1-live/comparison.json").read_text(encoding="utf-8"))
+    failed = next(row for row in results["arms"]["agent_test_confirmation"]["records"]
+                  if row["case"] == "21-manual-boundaries-duplicate")
+    # Observed failure, now a regression case; never labelled unseen testing again.
+    proposal = failed["confirmations"][0]["proposal"]
+    run = ReviewRun(load_case(DATA / "independent_validation/v1" / failed["case"]), "zh", "rules")
+    run_rules(run)
+    context = Context(run)
+    inspect_candidate_tables(context)
+    assert all(table.anchor.row < 2 for kind, table in context.tables.values())
+    original = [d.model_dump_json() for d in run.documents]
+    diagnosis = {"revision": revision_key(run), "proposals": [proposal]}
+    with pytest.raises(ParseError, match="商品行作为表头"):
+        apply_proposal(run, diagnosis, 0)
+    assert original == [d.model_dump_json() for d in run.documents]
+    assert any(f.rule == "SKU_DUPLICATE" for f in run.result.findings)
+
+
+def test_table_confirmation_rejects_loss_of_existing_row_positions(monkeypatch):
+    from agent import tools
+    from core.demo import DATA, load_case
+    from core.parser import TableAnchor, ParseError
+    run = tools.ReviewRun(load_case(DATA / "demo/B"), "zh", "rules")
+    tools.run_rules(run)
+    invoice = next(d for d in run.documents if d.kind == "CI")
+    corrupted = invoice.model_copy(deep=True)
+    corrupted.items[0].anchor.row = 999
+    monkeypatch.setattr(tools, "parse_document", lambda *args: corrupted)
+    with pytest.raises(ParseError, match="丢失已有商品行"):
+        tools.confirm_table_mapping(run, "CI", TableAnchor(1), {1: "sku", 2: "quantity"})
+    assert invoice.items[0].anchor.row != 999

@@ -1,0 +1,46 @@
+{
+  "type": "observed_failure_regression_not_holdout",
+  "case": "21-manual-boundaries-duplicate",
+  "new_model_requests": 0,
+  "previous_result_sha256": "f68cc3484ad048aaa5276f02629c14aedcfb8b656e31b10326127b32a0858a7a",
+  "previous_bad_proposal": {
+    "type": "mapping",
+    "kind": "CI",
+    "anchor": {
+      "row": 2,
+      "sheet": null,
+      "page": null
+    },
+    "columns": {
+      "1": "order_id",
+      "2": "invoice_id",
+      "3": "buyer",
+      "4": "seller",
+      "5": "currency",
+      "6": "sku",
+      "7": "product",
+      "8": "quantity",
+      "9": "unit",
+      "10": "unit_price",
+      "11": "line_amount"
+    },
+    "labels": [
+      "NX-7821",
+      "NXI-9821",
+      "Synthetic Harbor Buyer",
+      "Synthetic Ridge Seller",
+      "USD",
+      "XC-4521",
+      "Connector set",
+      "62",
+      "PCS",
+      "16.45",
+      "1019.90"
+    ]
+  },
+  "blocked_unsafe_mapping": true,
+  "item_rows_before": 4,
+  "item_rows_after": 4,
+  "result_unchanged": true,
+  "duplicate_review_preserved": true
+}
