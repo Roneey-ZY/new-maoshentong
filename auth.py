@@ -5,7 +5,7 @@ from time import monotonic
 import streamlit as st
 
 from core.authentication import LoginConfig, LoginLimiter, SESSION_SECONDS, valid_session
-from core.storage import Store, DatabaseUnavailable
+from core.storage import Store, DatabaseUnavailable, STORAGE_API_VERSION
 
 
 def setting(name):
@@ -24,7 +24,9 @@ def login_limiter(revision):
 
 
 @st.cache_resource(show_spinner=False)
-def _store(dsn, local):
+def _store(dsn, local, api_version):
+    # Streamlit caches instances across reruns. Imported class changes alone do
+    # not invalidate this factory; an explicit version prevents stale methods.
     store = Store(dsn, allow_local=local)
     try:
         bootstrap = LoginConfig.load(setting)
@@ -38,8 +40,8 @@ def get_store():
     dsn = setting("DATABASE_URL")
     local_path = os.environ.get("TRADECHECK_LOCAL_DB", "")
     if not dsn and local_path:
-        return _store("sqlite:///" + local_path, True)
-    return _store(dsn, False) if dsn else None
+        return _store("sqlite:///" + local_path, True, STORAGE_API_VERSION)
+    return _store(dsn, False, STORAGE_API_VERSION) if dsn else None
 
 
 def current_username():

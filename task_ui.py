@@ -8,6 +8,13 @@ from core.reporter import make_report
 from agent.tools import MODES
 
 
+def login_limit_label(user):
+    until = user.get("blocked_until")
+    if not isinstance(until, (int, float)):
+        return "状态未加载，请重启应用"
+    return "暂时锁定" if until > time.time() else "无"
+
+
 def _clear_work():
     for key in list(st.session_state):
         if key not in {"_db_login", "_login"}:
@@ -72,7 +79,7 @@ def task_sidebar():
                 users = store.users(actor)
                 st.dataframe([{"账号": u["username"], "角色": "管理员" if u["role"] == "admin" else "审核员",
                                "状态": "已启用" if u["active"] else "已停用",
-                               "登录限流": "暂时锁定" if u["blocked_until"] > time.time() else "无"}
+                               "登录限流": login_limit_label(u)}
                               for u in users], hide_index=True)
                 options = [u for u in users if u["id"] != actor]
                 if options:
@@ -82,7 +89,10 @@ def task_sidebar():
                     if st.button("停用所选账号" if selected["active"] else "启用所选账号"):
                         store.set_active(actor, selected["id"], not selected["active"])
                         st.rerun()
-                    if selected["role"] == "reviewer":
+                    if selected["role"] == "reviewer" and not all(hasattr(store, name) for name in (
+                            "unlock_reviewer", "reset_reviewer_password")):
+                        st.warning("账号管理组件尚未更新，请在 Streamlit 管理面板 Reboot app 后再试。")
+                    elif selected["role"] == "reviewer":
                         if st.button("解除所选账号登录限流"):
                             store.unlock_reviewer(actor, selected["id"])
                             st.success("已解除限流；停用账号仍需先启用。")

@@ -14,6 +14,9 @@ from urllib.parse import urlparse
 
 from core.authentication import LoginConfig, make_config
 
+# Increment when cached Store instances need refreshing after a code deployment.
+STORAGE_API_VERSION = 2
+
 
 class AccessDenied(ValueError):
     pass
