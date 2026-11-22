@@ -44,4 +44,4 @@
 
 ## 第五步：部署和恢复验证
 
-用户确认公开采购数据页面测试通过，授权继续第五步。增加相同内容保存去重、首次保存请求重试、断线重试入口和安全清理错误；存储接口版本3刷新旧缓存，不需要数据库迁移。81项本地测试通过、1项PostgreSQL专项跳过，包含保存回执丢失、并发、回滚、模拟API503规则回退和新进程恢复。CI将真实停止/重启隔离PostgreSQL及应用容器；结果和真实云端手动重启分别记录，未擅自操作用户Neon。完整说明见 [RECOVERY_VALIDATION.md](RECOVERY_VALIDATION.md)。
+用户确认公开采购数据页面测试通过，授权继续第五步。增加相同内容保存去重、首次保存请求重试、断线重试入口和安全清理错误；存储接口版本3刷新旧缓存，不需要数据库迁移。81项本地测试通过、1项PostgreSQL专项跳过，包含保存回执丢失、并发、回滚、模拟API503规则回退和新进程恢复。[提交971ab9c的CI](https://github.com/Roneey-ZY/new-maoshentong/actions/runs/45010691716)三任务成功，实际停止/重启隔离PostgreSQL并恢复报告，应用容器重启健康检查也成功；真实Streamlit＋Neon手动重启尚待用户验收，未操作用户Neon服务。完整说明见 [RECOVERY_VALIDATION.md](RECOVERY_VALIDATION.md)。

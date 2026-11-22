@@ -2,7 +2,7 @@
 
 ## 部署与恢复专项（最新）
 
-本地完整测试81通过、1跳过，38.46秒；[原始JUnit](data/recovery-test-results.xml)。新增保存回执丢失、并发、回滚、数据库不可用安全重试、SDK请求层模拟503后规则回退，以及新Python进程恢复两个版本。真实PostgreSQL与应用容器重启以本次CI实际记录为准，用户Neon和Streamlit云端重启尚待手动验收。没有新增模型识别准确率实验。见 [RECOVERY_VALIDATION.md](RECOVERY_VALIDATION.md)。
+本地完整测试81通过、1跳过，38.46秒；[原始JUnit](data/recovery-test-results.xml)。新增保存回执丢失、并发、回滚、数据库不可用安全重试、SDK请求层模拟503后规则回退，以及新Python进程恢复两个版本。[本次CI](https://github.com/Roneey-ZY/new-maoshentong/actions/runs/45010691716)三任务成功，实际停启PostgreSQL后恢复两版报告及账号隔离，应用容器重启也通过健康检查。用户Neon和Streamlit云端重启尚待手动验收。没有新增模型识别准确率实验。见 [RECOVERY_VALIDATION.md](RECOVERY_VALIDATION.md)。
 
 ## 第三方公开合成采购数据（最新补充）
 

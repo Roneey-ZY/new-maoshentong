@@ -40,7 +40,7 @@
 4. 真正重启该容器，在新的 Python 进程中验证账号、两版快照、原件 SHA256、报告字节 SHA256、Excel 内容、复核历史和跨账号权限。
 5. 另一个 CI 任务重启应用容器并再次检查 HTTP 健康响应。
 
-执行结论以本次提交的 GitHub Actions 为准。CI 数据库重启、应用容器健康重启和真实 Streamlit＋Neon 浏览器验收是三种不同证据，不能相互替代。恢复脚本仅接受专用测试变量及回环 PostgreSQL 地址，不读取生产 `DATABASE_URL`。
+提交 `971ab9c` 的 [GitHub Actions](https://github.com/Roneey-ZY/new-maoshentong/actions/runs/45010691716) 已完成且成功。postgres 任务中的创建隔离库、并发保存、停止数据库验证安全失败、重启恢复报告均成功；tests 和 container 任务也成功。CI 数据库重启、应用容器健康重启和真实 Streamlit＋Neon 浏览器验收是三种不同证据，不能相互替代。恢复脚本仅接受专用测试变量及回环 PostgreSQL 地址，不读取生产 `DATABASE_URL`。
 
 ## 用户云端验收（约5分钟，不含闲置测试）
 
