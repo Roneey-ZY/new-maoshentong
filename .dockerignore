@@ -10,3 +10,7 @@
 **/secrets.toml
 **/*.pem
 **/*.key
+**/*.sqlite3
+**/*.sqlite3-*
+**/*.db
+private

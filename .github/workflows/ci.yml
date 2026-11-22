@@ -5,6 +5,31 @@ on:
 permissions:
   contents: read
 jobs:
+  postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: tradecheck_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m pytest tests/test_phase_b.py::test_postgres_storage_when_service_available -q
+        env:
+          TEST_DATABASE_URL: postgresql://postgres:ci-only-password@127.0.0.1:5432/tradecheck_test?sslmode=disable
   tests:
     runs-on: ubuntu-latest
     steps:
@@ -14,14 +39,14 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: python -m pip install -r requirements-dev.txt
-      - run: python -m pytest -q --junitxml=phase-a-results.xml
+      - run: python -m pytest -q --junitxml=phase-b-results.xml
       - run: python -m scripts.evaluate --mode rules --output phase-a-evaluation.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-evidence
           path: |
-            phase-a-results.xml
+            phase-b-results.xml
             phase-a-evaluation.json
   container:
     runs-on: ubuntu-latest

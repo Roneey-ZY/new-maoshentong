@@ -5,6 +5,7 @@ from time import monotonic
 import streamlit as st
 
 from core.authentication import LoginConfig, LoginLimiter, SESSION_SECONDS, valid_session
+from core.storage import Store, DatabaseUnavailable
 
 
 def setting(name):
@@ -22,7 +23,66 @@ def login_limiter(revision):
     return LoginLimiter()
 
 
+@st.cache_resource(show_spinner=False)
+def _store(dsn, local):
+    store = Store(dsn, allow_local=local)
+    try:
+        bootstrap = LoginConfig.load(setting)
+    except ValueError:
+        bootstrap = None
+    store.initialize(bootstrap)
+    return store
+
+
+def get_store():
+    dsn = setting("DATABASE_URL")
+    local_path = os.environ.get("TRADECHECK_LOCAL_DB", "")
+    if not dsn and local_path:
+        return _store("sqlite:///" + local_path, True)
+    return _store(dsn, False) if dsn else None
+
+
+def current_username():
+    return st.session_state.get("_db_login", {}).get("username") or setting("LOGIN_USERNAME")
+
+
+def database_login(store):
+    session = st.session_state.get("_db_login", {})
+    user = store.user(session.get("id", "")) if session else None
+    if user and session.get("revision") == user["revision"] and monotonic() < session.get("until", 0):
+        with st.sidebar:
+            st.caption(f"当前账号：{user['username']} · {'管理员' if user['role'] == 'admin' else '审核员'}")
+            if st.button("退出登录", key="logout"):
+                st.session_state.clear()
+                st.rerun()
+        return user
+    if session or st.session_state.get("_login"):
+        st.session_state.clear()
+    st.title("贸审通 TradeCheck Agent")
+    st.caption("登录后查看属于自己的审核任务")
+    with st.form("database_login", clear_on_submit=True):
+        username = st.text_input("账号", max_chars=128)
+        password = st.text_input("密码", type="password", max_chars=1024)
+        submitted = st.form_submit_button("登录", type="primary")
+    if submitted:
+        user = store.authenticate(username, password)
+        if user:
+            st.session_state.clear()
+            st.session_state["_db_login"] = {**user, "until": monotonic() + SESSION_SECONDS}
+            st.rerun()
+        st.error("账号或密码错误、账号已停用，或尝试过于频繁。请稍后重试。")
+    st.caption("退出会清理浏览器会话，已经主动保存的历史任务仍可在重新登录后打开。")
+    st.stop()
+
+
 def require_login():
+    try:
+        store = get_store()
+        if store is not None:
+            return database_login(store)
+    except (DatabaseUnavailable, ValueError):
+        st.error("任务存储或账号服务暂时不可用，请联系管理员检查数据库配置。")
+        st.stop()
     try:
         config = LoginConfig.load(setting)
     except ValueError:

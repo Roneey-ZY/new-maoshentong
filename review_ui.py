@@ -1,14 +1,14 @@
 import streamlit as st
 
-from auth import setting
+from auth import current_username
 from core.review import REASONS, STATUSES, ReviewBook
 from core.reporter import describe
 
 
 def review_panel(run):
     book = st.session_state.setdefault("review_book", ReviewBook())
-    reviewer = setting("LOGIN_USERNAME")
-    st.caption("记录业务原因不会删除原始差异；修改数值后须重新运行规则。复核记录仅保存在当前登录会话。")
+    reviewer = current_username()
+    st.caption("记录业务原因不会删除原始差异；修改数值后须重新运行规则。需要保留历史时，请在任务管理中保存当前版本。")
     shipment_labels = {"unknown": "尚未确认", "whole": "本次为整单交付", "partial": "本次为分批交付"}
     with st.form("shipment_context"):
         shipment = st.selectbox("本次交付范围", list(shipment_labels),

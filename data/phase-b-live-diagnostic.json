@@ -1,0 +1,69 @@
+{
+  "revision": "80691827e72e681e691000e2a8e6b9557760406d1b5717b555d96678a03305ff",
+  "summary": "诊断结果：CI 表有 4 个未识别列，其中第 4 列“Catalog Reference”（样例为编码）疑似 SKU，第 6 列“Billed Units”疑似数量，第 8 列“Rate / pc”疑似单价，第 9 列“Extended Value”疑似行金额，均需人工确认后才能用于 SKU 关联和行金额核对。SKU_LINK 的候选对为空，无法自动建立唯一关联，SKU_MISSING 也无法判定，需人工复核。PL 与 PO 表列已全部识别，无需额外映射。未检查到缺失的订单号/发票号/币种报头证据，无字段建议可给出。所有建议仅供人工确认，未对任何文档做修改，不代表已完成纠正或合规判断。",
+  "proposals": [
+    {
+      "type": "mapping",
+      "kind": "CI",
+      "anchor": {
+        "row": 1,
+        "sheet": null,
+        "page": null
+      },
+      "columns": {
+        "4": "sku",
+        "6": "quantity",
+        "8": "unit_price",
+        "9": "line_amount"
+      },
+      "labels": [
+        "Purchase Order No",
+        "Invoice No",
+        "CCY",
+        "Catalog Reference",
+        "Description",
+        "Billed Units",
+        "UOM",
+        "Rate / pc",
+        "Extended Value"
+      ]
+    }
+  ],
+  "log": [
+    {
+      "order": 1,
+      "tool": "inspect_candidate_tables",
+      "status": "ok",
+      "summary": "Returned 923 characters",
+      "ms": 10.27
+    },
+    {
+      "order": 2,
+      "tool": "inspect_item_links",
+      "status": "ok",
+      "summary": "Returned 144 characters",
+      "ms": 0.2
+    },
+    {
+      "order": 3,
+      "tool": "inspect_missing_fields",
+      "status": "ok",
+      "summary": "Returned 105 characters",
+      "ms": 0.05
+    }
+  ],
+  "mode": "model_tools",
+  "elapsed_seconds": 6.513,
+  "case": "synthetic unfamiliar invoice columns, explicit test confirmation",
+  "model": "deepseek-flash",
+  "baseline_counts": {
+    "difference": 0,
+    "contradiction": 0,
+    "review": 4
+  },
+  "after_test_confirmation_counts": {
+    "difference": 2,
+    "contradiction": 0,
+    "review": 0
+  }
+}

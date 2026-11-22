@@ -14,6 +14,9 @@ from core.schemas import HEADER_FIELDS, ITEM_FIELDS
 from mapping_ui import mapping_panel
 from evidence_ui import evidence_panel
 from review_ui import review_panel
+from task_ui import task_sidebar, save_task_panel
+from diagnostic_ui import diagnostic_panel
+from core.storage import DatabaseUnavailable, AccessDenied
 
 st.set_page_config(page_title="贸审通 TradeCheck Agent", page_icon="📋", layout="wide")
 from auth import require_login
@@ -64,6 +67,8 @@ def launch(files, mode, lang, progress, focus):
     STATE.pop("mapping_scan", None)
     STATE.pop("review_book", None)
     STATE.pop("evidence_open", None)
+    for name in ("task_id", "task_version", "task_title", "task_owner", "diagnostics"):
+        STATE.pop(name, None)
     STATE["revision"] = STATE.get("revision", 0) + 1
     summary, error = None, None
     start = perf_counter()
@@ -111,7 +116,7 @@ def save_revision(run, revised, start):
     if book is not None:
         from datetime import datetime, timezone
         from core.review import file_digests
-        from auth import setting as login_setting
+        from auth import current_username
         changes = []
         for before, after in zip(run.documents, revised.documents):
             old_groups = [before.header, *(i.fields for i in before.items)]
@@ -124,19 +129,34 @@ def save_revision(run, revised, start):
                                         "before": old[field].raw if field in old else None,
                                         "after": value.raw, "source": value.source.model_dump()})
         book.events.append({"action": "reaudit", "time": datetime.now(timezone.utc).isoformat(),
-                            "reviewer": login_setting("LOGIN_USERNAME"), "mode": revised.mode,
+                            "reviewer": current_username(), "mode": revised.mode,
                             "before_count": len(run.result.findings), "after_count": len(revised.result.findings),
                             "changes": changes, "source_hashes": file_digests(run.files)})
     STATE.setdefault("baseline", run.result)
     STATE["record"] = (revised, None, None, perf_counter() - start)
     STATE["revision"] += 1
     STATE.pop("answer", None)
+    STATE.pop("diagnostics", None)
 
 
 def fingerprint(finding):
     return (finding.rule, finding.category, finding.sku,
             tuple((e.kind, e.field, e.source.display()) for e in finding.evidence))
 
+
+try:
+    task_store, task_actor = task_sidebar()
+except (DatabaseUnavailable, AccessDenied, ValueError):
+    st.error("任务暂时无法打开，请重新登录或检查存储服务。")
+    st.stop()
+
+if task_actor and STATE.get("task_owner") and STATE["task_owner"] != task_actor:
+    st.info("管理员只读查看其他账号的历史版本，不能修改或覆盖该任务。")
+    historical = STATE["record"][0]
+    show_findings(historical.result)
+    evidence_panel(historical)
+    st.download_button("下载只读历史报告", historical.report, "TradeCheck-history.xlsx")
+    st.stop()
 
 st.header("01 / 准备单证")
 input_mode = st.radio("单证来源", ["演示案例", "上传文件"], horizontal=True)
@@ -226,6 +246,11 @@ if record:
             st.rerun()
         show_findings(run.result)
         evidence_panel(run)
+        diagnosis_started = perf_counter()
+        helped = diagnostic_panel(run, key, model, provider)
+        if helped is not None:
+            save_revision(run, helped, diagnosis_started)
+            st.rerun()
         if summary is not None:
             with st.expander("模型解读 · 对照上述规则证据"):
                 st.text(summary.summary)
@@ -303,6 +328,8 @@ if record:
                                  review_book=review_book, files=run.files)
             st.download_button("下载 Excel 审核报告", report, f"TradeCheck-{lang}.xlsx",
                                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+
+        save_task_panel(task_store, task_actor)
 
 with st.expander("技术说明与审核范围"):
     st.markdown("""
