@@ -38,4 +38,4 @@
 
 第四步新增 24 笔锁定样本与标准答案的合成模板评估，分别记录 8 笔参照、16 笔留出及三组对照。真实 Agent 17/24 完整通过，原规则 12/24，预设正确映射模拟人工确认 24/24。不能以预设映射组替代模型成绩。保留 7 个未完整通过的模型案例、61 次真实请求及已知 token 用量，实际收费和真人耗时未统计。
 
-实验发现并修复商品数据行误选为表头后丢行的问题；原始错误建议已做防丢行回归，首次成绩不覆盖。网页新增“评估记录”入口，查看范围、失败和下载均不触发付费模型调用。完整说明见 [INDEPENDENT_EVALUATION.md](INDEPENDENT_EVALUATION.md)。本地 64 通过、1 PostgreSQL 专项跳过；公开页面更新及 GitHub CI 结果需另行确认。
+实验发现并修复商品数据行误选为表头后丢行的问题；原始错误建议已做防丢行回归，首次成绩不覆盖。网页新增“评估记录”入口，查看范围、失败和下载均不触发付费模型调用。完整说明见 [INDEPENDENT_EVALUATION.md](INDEPENDENT_EVALUATION.md)。本地 64 通过、1 PostgreSQL 专项跳过。提交 `0c08f6b` 的 [GitHub Actions](https://github.com/Roneey-ZY/new-maoshentong/actions/runs/45004032718) 已成功完成 PostgreSQL、Linux 完整测试、冻结归档哈希核对、防丢行回放和容器启动检查。新增公开页面仍需用户更新后验收，未将 CI 当作浏览器验收。

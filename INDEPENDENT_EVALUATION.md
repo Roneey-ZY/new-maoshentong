@@ -61,7 +61,7 @@ python -m scripts.evaluate_independent --dataset data/independent_validation/v1 
 
 对首次失败的原始错误建议进行回放：[安全回归记录](data/independent_results/postfix-safety-regression.json)。修复后拒绝该建议，保留全部 4 个单证商品行（其中发票 2 行）和重复 SKU 待复核提醒，没有新增模型调用。**这是已见失败的回归测试，不是新的独立样本成绩。**
 
-完整本地测试 64 通过、1 跳过，25.86 秒；[JUnit 原始记录](data/independent-step-test-results.xml)。真实 PostgreSQL 和 Linux 容器由 GitHub CI 另行验证。
+完整本地测试 64 通过、1 跳过，25.86 秒；[JUnit 原始记录](data/independent-step-test-results.xml)。提交 `0c08f6b` 的 [GitHub CI](https://github.com/Roneey-ZY/new-maoshentong/actions/runs/45004032718) 三个任务均成功，包括真实 PostgreSQL、Linux 测试与容器启动；Linux 流程也校验了归档文件哈希并执行失败建议回放。
 
 新一轮冻结样本可用 `python -m scripts.generate_independent_validation --output data/independent_validation/v2` 生成；若仍用相同固定种子和模板，则是重复实验，不应当声称换成了全新独立样本。
 
