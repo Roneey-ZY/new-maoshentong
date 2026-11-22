@@ -55,6 +55,8 @@
 
 本地完整测试 **73 通过、1 PostgreSQL 专项跳过，27.57 秒**；[原始 JUnit](data/external/databasesample/procurement-v1/test-results.xml)。覆盖校验失败阻断、外键错误、不丢失子记录、同 SKU 不同采购行、分批、缺失、累计开票、金额精度、独立参考发现错误实现、Excel 公式保护和 Streamlit 实际规则执行、四个下载入口。
 
+提交 `f48d194` 的 [GitHub Actions](https://github.com/Roneey-ZY/new-maoshentong/actions/runs/45008786437) 已成功完成 tests、postgres、container 三个任务；Linux 流程重新执行36笔采购验证并保存结果。该记录不代替新增公开页面的使用者验收。
+
 ## 页面验收
 
 登录新贸审通，展开底部“公开采购数据验证 · 订单、收货与开票”：
