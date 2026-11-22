@@ -1,7 +1,6 @@
-* text=auto eol=lf
-*.pdf binary
-*.xlsx binary
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.zip binary
+# Preserve byte-level frozen hashes across Windows and Linux checkouts.
+agent/*.py -text
+core/*.py -text
+scripts/*.py -text
+data/independent_validation/** -text
+data/independent_results/** -text
