@@ -1,0 +1,2 @@
+﻿order_id,invoice_id,buyer,seller,currency,sku,product,quantity,unit,unit_price,line_amount
+NX-7804,NXI-9804,Synthetic Harbor Buyer,Synthetic Ridge Seller,USD,XC-4504,Connector set,61,PCS,3.25,198.25

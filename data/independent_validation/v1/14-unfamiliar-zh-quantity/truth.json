@@ -1,0 +1,60 @@
+{
+  "documents": {
+    "PO": [
+      {
+        "order_id": "NX-7814",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4514",
+        "product": "Connector set",
+        "quantity": "70",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "24.10"
+      }
+    ],
+    "CI": [
+      {
+        "order_id": "NX-7814",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4514",
+        "product": "Connector set",
+        "quantity": "67",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "24.10",
+        "invoice_id": "NXI-9814",
+        "line_amount": "1614.70"
+      }
+    ],
+    "PL": [
+      {
+        "order_id": "NX-7814",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4514",
+        "product": "Connector set",
+        "quantity": "70",
+        "unit": "PCS",
+        "packages": "4",
+        "net_kg": "32.5",
+        "gross_kg": "37.0"
+      }
+    ]
+  },
+  "findings": [
+    [
+      "PO_CI_QTY",
+      "difference",
+      "XC-4514"
+    ],
+    [
+      "CI_PL_QTY",
+      "difference",
+      "XC-4514"
+    ]
+  ],
+  "source": "independently constructed synthetic; no real enterprise documents",
+  "answer_method": "declared by construction, no production parser or rules imported"
+}

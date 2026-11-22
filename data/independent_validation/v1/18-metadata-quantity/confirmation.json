@@ -1,0 +1,12 @@
+[
+  {
+    "type": "field",
+    "kind": "CI",
+    "field": "order_id",
+    "value": "NX-7818",
+    "source": {
+      "file": "CI.csv",
+      "row": 1
+    }
+  }
+]

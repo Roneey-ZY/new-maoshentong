@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "created_utc": "2026-11-22T08:29:26.785661+00:00",
+  "seed": 2026112204,
+  "source": "synthetic_only",
+  "cases": [
+    {
+      "id": "01-canonical-normal",
+      "family": "canonical",
+      "split": "development-reference",
+      "scenario": "normal"
+    },
+    {
+      "id": "02-canonical-quantity",
+      "family": "canonical",
+      "split": "development-reference",
+      "scenario": "quantity"
+    },
+    {
+      "id": "03-canonical-price",
+      "family": "canonical",
+      "split": "development-reference",
+      "scenario": "price"
+    },
+    {
+      "id": "04-canonical-weight",
+      "family": "canonical",
+      "split": "development-reference",
+      "scenario": "weight"
+    },
+    {
+      "id": "05-reordered-missing_weight",
+      "family": "reordered",
+      "split": "development-reference",
+      "scenario": "missing_weight"
+    },
+    {
+      "id": "06-reordered-amount",
+      "family": "reordered",
+      "split": "development-reference",
+      "scenario": "amount"
+    },
+    {
+      "id": "07-reordered-order_conflict",
+      "family": "reordered",
+      "split": "development-reference",
+      "scenario": "order_conflict"
+    },
+    {
+      "id": "08-reordered-normal",
+      "family": "reordered",
+      "split": "development-reference",
+      "scenario": "normal"
+    },
+    {
+      "id": "09-unfamiliar-en-quantity",
+      "family": "unfamiliar-en",
+      "split": "holdout",
+      "scenario": "quantity"
+    },
+    {
+      "id": "10-unfamiliar-en-price",
+      "family": "unfamiliar-en",
+      "split": "holdout",
+      "scenario": "price"
+    },
+    {
+      "id": "11-unfamiliar-en-amount",
+      "family": "unfamiliar-en",
+      "split": "holdout",
+      "scenario": "amount"
+    },
+    {
+      "id": "12-unfamiliar-en-missing_weight",
+      "family": "unfamiliar-en",
+      "split": "holdout",
+      "scenario": "missing_weight"
+    },
+    {
+      "id": "13-unfamiliar-zh-normal",
+      "family": "unfamiliar-zh",
+      "split": "holdout",
+      "scenario": "normal"
+    },
+    {
+      "id": "14-unfamiliar-zh-quantity",
+      "family": "unfamiliar-zh",
+      "split": "holdout",
+      "scenario": "quantity"
+    },
+    {
+      "id": "15-unfamiliar-zh-weight",
+      "family": "unfamiliar-zh",
+      "split": "holdout",
+      "scenario": "weight"
+    },
+    {
+      "id": "16-unfamiliar-zh-price",
+      "family": "unfamiliar-zh",
+      "split": "holdout",
+      "scenario": "price"
+    },
+    {
+      "id": "17-metadata-normal",
+      "family": "metadata",
+      "split": "holdout",
+      "scenario": "normal"
+    },
+    {
+      "id": "18-metadata-quantity",
+      "family": "metadata",
+      "split": "holdout",
+      "scenario": "quantity"
+    },
+    {
+      "id": "19-metadata-weight",
+      "family": "metadata",
+      "split": "holdout",
+      "scenario": "weight"
+    },
+    {
+      "id": "20-metadata-missing_weight",
+      "family": "metadata",
+      "split": "holdout",
+      "scenario": "missing_weight"
+    },
+    {
+      "id": "21-manual-boundaries-duplicate",
+      "family": "manual-boundaries",
+      "split": "holdout",
+      "scenario": "duplicate"
+    },
+    {
+      "id": "22-manual-boundaries-unit_unknown",
+      "family": "manual-boundaries",
+      "split": "holdout",
+      "scenario": "unit_unknown"
+    },
+    {
+      "id": "23-manual-boundaries-order_conflict",
+      "family": "manual-boundaries",
+      "split": "holdout",
+      "scenario": "order_conflict"
+    },
+    {
+      "id": "24-manual-boundaries-missing_weight",
+      "family": "manual-boundaries",
+      "split": "holdout",
+      "scenario": "missing_weight"
+    }
+  ],
+  "limits": [
+    "Same developer authored fixtures; this is not independent human assessment.",
+    "Holdout labels freeze templates before measurement; no parser tuning permitted during this run.",
+    "No actual human times, real-company samples or billable API amounts are inferred."
+  ],
+  "files": {
+    "01-canonical-normal/CI.csv": "76ebfeee14d2485b789690539b87cfa9e29cf4e814f48f5c98ff63f7536fd721",
+    "01-canonical-normal/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "01-canonical-normal/PL.pdf": "046183d81aa82abe157d99692be9fdbddd70b1d965cef521aadee259c9c4f161",
+    "01-canonical-normal/PO.xlsx": "8ee23cfd7b32cb32da37ea76f68b121f7c1c92df90ffd320cb3b47b6f97e793c",
+    "01-canonical-normal/truth.json": "ed36bd6a8a411fa15247aed80b7b2bfe2a4ef4236dcb2c8eac7175fbe58e3838",
+    "02-canonical-quantity/CI.csv": "2b69acc586118de742747c6618e9ba95056d400ab50483f91ff70266d57ca3aa",
+    "02-canonical-quantity/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "02-canonical-quantity/PL.pdf": "23e03f3cca375cd699b0c7d2c632e40c9ff9da1043d367f0a57667a79030409d",
+    "02-canonical-quantity/PO.xlsx": "4dc56ac2c08fc941a83a5e54bb29a71f605962f77b23e154b8bbc520d4eadb93",
+    "02-canonical-quantity/truth.json": "1937f0c0bd3a46895e3354870a5fcc8c879c31ca1abf336f07fd49327f6a137c",
+    "03-canonical-price/CI.csv": "9627ae0ab0db74311720e04b495e64392b6c9eea36ca6d29d6baf0f6248a3741",
+    "03-canonical-price/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "03-canonical-price/PL.pdf": "264929f846aa4bb2f0c9c26813525767cc37b6e5b65f12c1f92627f52464e4ab",
+    "03-canonical-price/PO.xlsx": "8280927734637b9a31aae6acd989bd1a1d415c07fdafa8740e9e17404d8f832e",
+    "03-canonical-price/truth.json": "23cd8e15a6902d42dddeaa53d78661ade21863b91681f2ff24f8f54253a71165",
+    "04-canonical-weight/CI.csv": "6a18a5c7f6d95c549e9a6932bb736fd3f381bc9c0970935ca7ca1eea42c27483",
+    "04-canonical-weight/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "04-canonical-weight/PL.pdf": "8f388945014cec24a3a4f57d96974724540b72fa994767892158ff0c11f02733",
+    "04-canonical-weight/PO.xlsx": "4640e3dd0ee6ca9573f07af3175e7dcbdf285c73b0bef7d8937c1011e6f6d6ba",
+    "04-canonical-weight/truth.json": "0d5d27733ce393775232dafca320319d371f95417fe6db5862b5a7242743ce0d",
+    "05-reordered-missing_weight/CI.csv": "9890e70bb73e669ef99b8fb956dfd57c8708ad4b4975ef215c98fa11a58064a6",
+    "05-reordered-missing_weight/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "05-reordered-missing_weight/PL.csv": "3673fabe9a6c9a3eb9131b1e0bbd4a2425623b56ed28cf80bf004d270c82148b",
+    "05-reordered-missing_weight/PO.xlsx": "69592b6575490257f008b0ca6c114521b8d762a17a1c691fad0d76210f9b50b5",
+    "05-reordered-missing_weight/truth.json": "75bc4f44e2b684065ba06421a8c8bedd5a4692a046996d1e32783ba352df0efa",
+    "06-reordered-amount/CI.csv": "fe0c54a65f2533ff1326de2a84973ba72fc37c209abe092e3dd149fcfd6fe21c",
+    "06-reordered-amount/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "06-reordered-amount/PL.csv": "7e777c2cef23de8d2d833a943a35cb61a030d854f9c237e1ae24c005ee7688be",
+    "06-reordered-amount/PO.xlsx": "43aff082ab5f4713eb6d54fec0b80cbfe2bfd122dd13032657fa60fce61f5e07",
+    "06-reordered-amount/truth.json": "ca651d450d2ac7785d51ba5f60eaf4c4d6a11241a6b6639824cb0d0d0f5058f7",
+    "07-reordered-order_conflict/CI.csv": "e1aef0677bcea440dd4581c22763e8d368a0030ecb3028dba95ad6a45dc3c4cb",
+    "07-reordered-order_conflict/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "07-reordered-order_conflict/PL.csv": "89c28550d00e298405adec849c476291bfd4ac8915d0dd82625b31461f6a6c81",
+    "07-reordered-order_conflict/PO.xlsx": "f28bfff28210e3e0f3006870be51a06fbc34c1c3d96da8ad3d6967f2d757cce3",
+    "07-reordered-order_conflict/truth.json": "0417bdbc1e59dcd866e153d1f00dc8ca5a1fb5a1249added16d41ab392e5842e",
+    "08-reordered-normal/CI.csv": "899a992491a4900b62bfa1115e176ced3b16be163493bdc92f34ec6cf7bba21f",
+    "08-reordered-normal/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "08-reordered-normal/PL.csv": "e3354b55bae85b5a6ae7d6b9df0ffca312e52b7d34457c7b043b642455c3015e",
+    "08-reordered-normal/PO.xlsx": "03cde6f150068b62a1553db60802400bb275d06e41828a7286b1c0aa630b3bc9",
+    "08-reordered-normal/truth.json": "4556f9192310f69d036b8a968fb42950e99333881fdfe5e4d5348fee6afc5e21",
+    "09-unfamiliar-en-quantity/CI.csv": "505610842c5728546b63b6a10832e3ae9decbec28b611b3ec0bc2b92f8c22e6a",
+    "09-unfamiliar-en-quantity/confirmation.json": "00bb5808c77def8e729453d749c614a778ae180c43dc7877c6b7ae5eaf7321f9",
+    "09-unfamiliar-en-quantity/PL.csv": "001e2cfaebcad1cb269db155666dc4b81dbd6a3c4af1202dc34086e56993c8af",
+    "09-unfamiliar-en-quantity/PO.csv": "82fdc6dc37941d47e966a05238bc852fcda9e1ea850cf633e11f11a05c3aba38",
+    "09-unfamiliar-en-quantity/truth.json": "611b9ec10d367b0f5bdd38e690ecdcaf8e272eba2d4dd4a3f50f8827c3c7e788",
+    "10-unfamiliar-en-price/CI.csv": "6660ff481884aec1fcd47c0c44c3155889b7829fe77f609e3d3f02ffb03ef9e6",
+    "10-unfamiliar-en-price/confirmation.json": "00bb5808c77def8e729453d749c614a778ae180c43dc7877c6b7ae5eaf7321f9",
+    "10-unfamiliar-en-price/PL.csv": "6ef1d2315c78e039aa8f411eb09102216729734383830addfa1dc1326dcd6b3f",
+    "10-unfamiliar-en-price/PO.csv": "c085b75f58568a2723527bc6aebacb5c90340c36354a43d0057ff2115084695f",
+    "10-unfamiliar-en-price/truth.json": "e7224175e4b59aefce5f8de79c8949d8ee61614bfc86d983e13962f438318f4e",
+    "11-unfamiliar-en-amount/CI.csv": "2444012cd0ef901c2bcd4221580dca82ccb0ed0fee14e9eeea83fa2b47b64df4",
+    "11-unfamiliar-en-amount/confirmation.json": "00bb5808c77def8e729453d749c614a778ae180c43dc7877c6b7ae5eaf7321f9",
+    "11-unfamiliar-en-amount/PL.csv": "d84f67be52f9ced70210c5f7fee9ef9ca4f6271eec3c308168ff936c73981628",
+    "11-unfamiliar-en-amount/PO.csv": "ef0d7da841cea4dc26527a5c0901ab0888d0997be4cea0c20863e7f6a0aeb6e2",
+    "11-unfamiliar-en-amount/truth.json": "1f8d2d0560c1528091fffcb7864d930cd08ccdb29652197bbfb10f2c721f20e4",
+    "12-unfamiliar-en-missing_weight/CI.csv": "feda6969528b45626168354ca72fa6c7199f76295529dc6e098e5525f7833d3e",
+    "12-unfamiliar-en-missing_weight/confirmation.json": "00bb5808c77def8e729453d749c614a778ae180c43dc7877c6b7ae5eaf7321f9",
+    "12-unfamiliar-en-missing_weight/PL.csv": "463778265030144dfa1781f3805b5a3f6dc12cf436dde8e818cda0a88f04c729",
+    "12-unfamiliar-en-missing_weight/PO.csv": "c2d9f98e05fcae66480ff93cf1c3c772f646b125a2aadf952da14dd488445295",
+    "12-unfamiliar-en-missing_weight/truth.json": "a053b731f669a6e5b321ee4bf53bc5f4d9eb1087576f2e6fd1e16ade1c4ee5d7",
+    "13-unfamiliar-zh-normal/CI.xlsx": "848bcff2e562fa6ea21d21370bfb2714a4d5c42ec7e1ce1639942a20aaf7fc14",
+    "13-unfamiliar-zh-normal/confirmation.json": "115dda476838408e1fdc0d339d31d687c999bfc8bdd9135bed62412ed69a8fd9",
+    "13-unfamiliar-zh-normal/PL.csv": "e8760eb45eeac79fc6d870fa22559033c133175b0c36c2057e0b989cec2fa33c",
+    "13-unfamiliar-zh-normal/PO.csv": "ec3379727b3f2068c7f8974d8c1213efbb7f62012409fa0ebf8593d8f6c4500f",
+    "13-unfamiliar-zh-normal/truth.json": "79d1dd279aab94f39e7ba86e8bb54672560e817e08059c194298768131c6d15e",
+    "14-unfamiliar-zh-quantity/CI.xlsx": "c8d6cf959a17e0b32fe275e628610c557a6224c16e832fd26d6b69bc7dafaf38",
+    "14-unfamiliar-zh-quantity/confirmation.json": "115dda476838408e1fdc0d339d31d687c999bfc8bdd9135bed62412ed69a8fd9",
+    "14-unfamiliar-zh-quantity/PL.csv": "8a62390781515f24c7e4f18bb876d1005c34a3efb970fa2f0a800499fe3b4ca0",
+    "14-unfamiliar-zh-quantity/PO.csv": "62e9300bc53aa9993fa1dc7f73fbd0062a82586b91e5051737b51e5de2a4759b",
+    "14-unfamiliar-zh-quantity/truth.json": "2e6b64394fe6cfc35ff01ac550b65bf58763073f5b51e7be8ddde1348243113c",
+    "15-unfamiliar-zh-weight/CI.xlsx": "babdb1c98186ae0337054babc397be2465e8e458da5a1db211f063e878b9dec6",
+    "15-unfamiliar-zh-weight/confirmation.json": "115dda476838408e1fdc0d339d31d687c999bfc8bdd9135bed62412ed69a8fd9",
+    "15-unfamiliar-zh-weight/PL.csv": "3fcedc0e55b3cecf7b0a08e990b9516faef9505a165be75fb7260ecf8108724c",
+    "15-unfamiliar-zh-weight/PO.csv": "ed17e1590e313f42208818eac57f9a5e1c27442d3e9e520aabcd74e82e360514",
+    "15-unfamiliar-zh-weight/truth.json": "511730f286ee0f2a27a968896fb6c6773dfc45bf8ebe70d8b5d9a45ed57ebd6f",
+    "16-unfamiliar-zh-price/CI.xlsx": "bb99b435bdd5b8df40ec01e409ad5326e7ea367ad3cbb3f884a4ea7523ec5956",
+    "16-unfamiliar-zh-price/confirmation.json": "115dda476838408e1fdc0d339d31d687c999bfc8bdd9135bed62412ed69a8fd9",
+    "16-unfamiliar-zh-price/PL.csv": "27b78f3a3ab6fd3bb7eeaf66e841b519590bd9a4901faf5c0214caeb157dbbce",
+    "16-unfamiliar-zh-price/PO.csv": "c5d200a567357d3c8a51f1d751e2e90b283128767d7338473f3d6eddf3e17d42",
+    "16-unfamiliar-zh-price/truth.json": "b477f1276fccaa0e46782f71024836c8401759a7dc44f575a87fbe6392118779",
+    "17-metadata-normal/CI.csv": "1ca53e9a5af6598854d2fca822cd95ec8d94c36b4ed32f7d97278e6ba588d18e",
+    "17-metadata-normal/confirmation.json": "ee8d659b91d21adbd58b8bf04b6e1c8a992ab8d24b0614f778f844f791d50a1d",
+    "17-metadata-normal/PL.csv": "7cf30913878d624b17803dad19f5a720b50466fa6b95d721d8cbf568358fe8f9",
+    "17-metadata-normal/PO.csv": "431b8cfb120730fcb2acc9ff339dbf0c3b450f0498184553974244df28fd1e97",
+    "17-metadata-normal/truth.json": "4e251761b04aaae9009b36fd83bf23777c945ced36beb465314eab7256e1c94a",
+    "18-metadata-quantity/CI.csv": "c11501c622f68eb592e8876f8c486af7e17f5f92f2d743c9fb3bf4af47a3341d",
+    "18-metadata-quantity/confirmation.json": "9176c9c8fe90ab4eca3dd9fb7d720fc37735016503876b54e232fa5a74425e4e",
+    "18-metadata-quantity/PL.csv": "ab0ee2ea9c427e90ef5b89fe3dc981b931af5f4a132e079f20ce1875edfb8b86",
+    "18-metadata-quantity/PO.csv": "e8ee185c690ce506a1e7c979b7e3c82a74d61738ac40f516c81539f372d9bf6a",
+    "18-metadata-quantity/truth.json": "df3ddbfcdbf4c7e0dfc8f5f1781f7d1a2c42df83c5ff11f643ffb7ee1c9dc392",
+    "19-metadata-weight/CI.csv": "d275cb1bc6d410f5021bdce6a4963d532814c642ee15096e22175779931dd4b1",
+    "19-metadata-weight/confirmation.json": "fdbdbf0ba577dd4098b16f8477d7d0d306021941ef10b7a61d863cb9c08aa504",
+    "19-metadata-weight/PL.csv": "f1f658f4dd2e3d5538edeb2165586deee7b21641a595da303a139f19f3fbb142",
+    "19-metadata-weight/PO.csv": "071462315bd8966016c36cb75426a477230c8304a147e5daf25690ebe470d9c1",
+    "19-metadata-weight/truth.json": "555fdd33c5317e4d160bd6b0f2fdc7376c4a861107e986568b8e061acdc3721b",
+    "20-metadata-missing_weight/CI.csv": "e1ebf7acd5206fb09f569e2b63d1fc527f562a8323364129b346028d07e9cabb",
+    "20-metadata-missing_weight/confirmation.json": "7d9c381d68bb15f07fad70e66ba7f1189ad914efd7f49417784c10864527758d",
+    "20-metadata-missing_weight/PL.csv": "c1b5d4aa5b2797efe918b95193a6c14a062a00b80d3aa99c605b8b11f9cd7150",
+    "20-metadata-missing_weight/PO.csv": "f0886f714c66ada9096425e5509ce475d58354dd7b4de039798cd90914cc4a9d",
+    "20-metadata-missing_weight/truth.json": "6f4f5713d250e1fbe5acbf64bf9bc9cea2f1527edbf98c487d18b026d295fe83",
+    "21-manual-boundaries-duplicate/CI.csv": "eb9ec5aa4028b9bf6aa6560fb392aee16f19c7def9e0a63ed6570fd0e3c60d93",
+    "21-manual-boundaries-duplicate/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "21-manual-boundaries-duplicate/PL.csv": "21761bf8ffaaef5e13a854895f51ae0da63b7e31baed37c7b03790553b7ad5bb",
+    "21-manual-boundaries-duplicate/PO.csv": "9054f0becc9ca8490377d6d4b419de96de127f0f92249cc412320b90cd4a8118",
+    "21-manual-boundaries-duplicate/truth.json": "54af54b196659048b4cf3691f0a4d5881c747eebdbaac48b98cbea9b62a03179",
+    "22-manual-boundaries-unit_unknown/CI.csv": "f0f23bfd48634699953ecb23bd0d6c794b101d0e0680be5d22083d41e6a6fc9d",
+    "22-manual-boundaries-unit_unknown/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "22-manual-boundaries-unit_unknown/PL.csv": "49672058842cedce7bf0757e729c1fd83243ef53ae2ad1b32c5f22998a2986aa",
+    "22-manual-boundaries-unit_unknown/PO.csv": "37db8914cace6197fe28c3b39d2581400902394dbe455353e4a793db392e3fda",
+    "22-manual-boundaries-unit_unknown/truth.json": "0684ebd7a0459b00bfc02868f83723faa79262b0d9e2dbb840c5240e62cba154",
+    "23-manual-boundaries-order_conflict/CI.csv": "f095659f8b43133e05927d77c3575bb5a1ad463e257d0a130c305a9a581b8b28",
+    "23-manual-boundaries-order_conflict/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "23-manual-boundaries-order_conflict/PL.csv": "703c0cdd204f2727cc7c529c98af0515d836467b486bd1cec10ef4aecfdafe65",
+    "23-manual-boundaries-order_conflict/PO.csv": "4dc0a916a319df1a6c69c3209c80e83782f9dccec26b7240fad4deb8fc11dfd8",
+    "23-manual-boundaries-order_conflict/truth.json": "183f4a58a98edb6f493a475c652de66d9819fd89b0caf127a26babccd14c0a7c",
+    "24-manual-boundaries-missing_weight/CI.csv": "ce8b075779702b72a45b243336b128f404ec7c8b4e7ee08cfeee55b91bef1bb4",
+    "24-manual-boundaries-missing_weight/confirmation.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "24-manual-boundaries-missing_weight/PL.csv": "c1467b4f18e8429a1232b197d8e4298415373fe293cbb52b393c69a1c0a851d9",
+    "24-manual-boundaries-missing_weight/PO.csv": "2ab7031ec5b7fa64454f8eb3203b350828b97e4652bd5e6e2a375769321d0aa8",
+    "24-manual-boundaries-missing_weight/truth.json": "974184d3c79c083824fe470136b2fadca0c3647a8f8d3f69ef753e7a0b00ea88"
+  },
+  "engine": {
+    "core/parser.py": "2a2ab534a6631fc69710a290adab2ad5b6d626e48fe6fb7aef3f3e66b1bc4dc5",
+    "core/pdf_columns.py": "438e6545a07e78a41094f936f88e947404002ab795906eedc9744a094dad4581",
+    "core/normalizer.py": "bcd479632039a7c2efc4fab1f674168da8bdc725ae637789b23a611402e0a999",
+    "core/audit_rules.py": "db0a6cfbb8cce508b88be2a12261239554b309502986c1fc20a4f7a987c3943c",
+    "agent/mapping_agent.py": "e81f7153f790d7f489535644f6e1a68505c556fc5ef6774eea3f3536bdb4b015",
+    "agent/diagnostic_agent.py": "2d1e19d6cfaca6f63c43adf3c5f29f32edbdc1436854958f1a0b6f0539606470",
+    "agent/usage_meter.py": "07e7ff5ede7c90dc285a79c289138afef1c8910d1a9e89c1d81669936f841765",
+    "agent/main_agent.py": "f57bc61f370fa895dbc2e1c31226a8211da988162b03f5530dd908aacdfa3df6",
+    "agent/tools.py": "ee654d8ed7c9197b24ccf6a1f8b5ccce2b4de7194a0b08094cbbd316d1883f63",
+    "core/schemas.py": "5eb70b2fb375c502e42ef7da5a2c50862dbd412b87b1ddcd2cef747a64e73287",
+    "core/reporter.py": "eacb5bb860fba017288386a576014e2b73f49c5ba53787564939c1186c5ac166",
+    "agent/prompts.py": "fa8ccce6b56f034652c5a58648ccb5921079dd159983efed841f2f86299a85e4",
+    "scripts/evaluate_independent.py": "70a6c1f4abf913a5dcbca0fa62af258b17aec183c5c19ef88ed75dcc834f025c",
+    "scripts/generate_independent_validation.py": "ca9931ae4c935e7605caef55012cfae4183d8f8b3c12089d9ef693a0bddc9ca3"
+  }
+}

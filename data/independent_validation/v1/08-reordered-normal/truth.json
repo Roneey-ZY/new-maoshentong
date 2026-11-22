@@ -1,0 +1,85 @@
+{
+  "documents": {
+    "PO": [
+      {
+        "order_id": "NX-7808",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4508",
+        "product": "Connector set",
+        "quantity": "17",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "16.45"
+      },
+      {
+        "order_id": "NX-7808",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4608",
+        "product": "Connector set",
+        "quantity": "45",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "7.80"
+      }
+    ],
+    "CI": [
+      {
+        "order_id": "NX-7808",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4608",
+        "product": "Connector set",
+        "quantity": "45",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "7.80",
+        "invoice_id": "NXI-9808",
+        "line_amount": "351.00"
+      },
+      {
+        "order_id": "NX-7808",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4508",
+        "product": "Connector set",
+        "quantity": "17",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "16.45",
+        "invoice_id": "NXI-9808",
+        "line_amount": "279.65"
+      }
+    ],
+    "PL": [
+      {
+        "order_id": "NX-7808",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4508",
+        "product": "Connector set",
+        "quantity": "17",
+        "unit": "PCS",
+        "packages": "4",
+        "net_kg": "32.5",
+        "gross_kg": "37.0"
+      },
+      {
+        "order_id": "NX-7808",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4608",
+        "product": "Connector set",
+        "quantity": "45",
+        "unit": "PCS",
+        "packages": "4",
+        "net_kg": "32.5",
+        "gross_kg": "37.0"
+      }
+    ]
+  },
+  "findings": [],
+  "source": "independently constructed synthetic; no real enterprise documents",
+  "answer_method": "declared by construction, no production parser or rules imported"
+}

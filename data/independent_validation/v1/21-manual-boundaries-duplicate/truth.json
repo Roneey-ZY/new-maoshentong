@@ -1,0 +1,68 @@
+{
+  "documents": {
+    "PO": [
+      {
+        "order_id": "NX-7821",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4521",
+        "product": "Connector set",
+        "quantity": "62",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "16.45"
+      }
+    ],
+    "CI": [
+      {
+        "order_id": "NX-7821",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4521",
+        "product": "Connector set",
+        "quantity": "62",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "16.45",
+        "invoice_id": "NXI-9821",
+        "line_amount": "1019.90"
+      },
+      {
+        "order_id": "NX-7821",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4521",
+        "product": "Connector set",
+        "quantity": "62",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "16.45",
+        "invoice_id": "NXI-9821",
+        "line_amount": "1019.90"
+      }
+    ],
+    "PL": [
+      {
+        "order_id": "NX-7821",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4521",
+        "product": "Connector set",
+        "quantity": "62",
+        "unit": "PCS",
+        "packages": "4",
+        "net_kg": "32.5",
+        "gross_kg": "37.0"
+      }
+    ]
+  },
+  "findings": [
+    [
+      "SKU_DUPLICATE",
+      "review",
+      "XC-4521"
+    ]
+  ],
+  "source": "independently constructed synthetic; no real enterprise documents",
+  "answer_method": "declared by construction, no production parser or rules imported"
+}

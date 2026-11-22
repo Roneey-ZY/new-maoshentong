@@ -68,6 +68,7 @@ class Context:
     snippets: dict = field(default_factory=dict)
     pairs: dict = field(default_factory=dict)
     log: list = field(default_factory=list)
+    model_requests: list = field(default_factory=list)
 
     def call(self, operation):
         start = perf_counter()
@@ -233,8 +234,10 @@ def validated(context, output):
 
 async def _diagnose(context, key, model_name, provider):
     from agents import OpenAIResponsesModel, RunConfig, Runner
+    from agent.usage_meter import metered_model
     async with model_client(key, provider) as client:
-        response = await Runner.run(make_diagnostic_agent(OpenAIResponsesModel(model=model_name, openai_client=client), provider),
+        model = metered_model(OpenAIResponsesModel(model=model_name, openai_client=client), context.model_requests)
+        response = await Runner.run(make_diagnostic_agent(model, provider),
             json.dumps(preflight(context.run), ensure_ascii=False), context=context, max_turns=7,
             run_config=RunConfig(tracing_disabled=True))
     return response.final_output
@@ -243,16 +246,18 @@ async def _diagnose(context, key, model_name, provider):
 def diagnose(run, key, model_name, provider):
     context = Context(run)
     if not preflight(run)["needs_help"]:
-        return {"revision": revision_key(run), "summary": "关键字段可核验，当前无需疑难处理。", "proposals": [], "log": [], "mode": "direct_rules"}
+        return {"revision": revision_key(run), "summary": "关键字段可核验，当前无需疑难处理。", "proposals": [], "log": [], "model_requests": [], "mode": "direct_rules"}
     if not key:
         raise AgentRunError("未配置模型凭据，请继续人工确认。")
     try:
         output = asyncio.run(_diagnose(context, key, model_name, provider))
         return {"revision": revision_key(run), "summary": output.summary,
-                "proposals": validated(context, output), "log": context.log, "mode": "model_tools"}
+                "proposals": validated(context, output), "log": context.log,
+                "model_requests": context.model_requests, "mode": "model_tools"}
     except Exception as exc:
         return {"revision": revision_key(run), "summary": "疑难检查未完成，请保留人工复核。", "proposals": [],
-                "log": context.log, "mode": "failed", "error": public_api_error(exc)}
+                "log": context.log, "model_requests": context.model_requests,
+                "mode": "failed", "error": public_api_error(exc)}
 
 
 def apply_proposal(run, diagnosis, index):

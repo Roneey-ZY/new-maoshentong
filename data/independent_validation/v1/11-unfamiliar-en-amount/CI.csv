@@ -1,0 +1,2 @@
+﻿order_id,invoice_id,buyer,seller,currency,Merchandise identity,product,Count billed this shipment,unit,Price charged per piece,Extended item value
+NX-7811,NXI-9811,Synthetic Harbor Buyer,Synthetic Ridge Seller,USD,XC-4511,Connector set,38,PCS,16.45,626.30

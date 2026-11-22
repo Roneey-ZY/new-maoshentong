@@ -16,6 +16,7 @@ from evidence_ui import evidence_panel
 from review_ui import review_panel
 from task_ui import task_sidebar, save_task_panel
 from diagnostic_ui import diagnostic_panel
+from evaluation_ui import evaluation_panel
 from core.storage import DatabaseUnavailable, AccessDenied
 
 st.set_page_config(page_title="贸审通 TradeCheck Agent", page_icon="📋", layout="wide")
@@ -330,6 +331,8 @@ if record:
                                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
         save_task_panel(task_store, task_actor)
+
+evaluation_panel()
 
 with st.expander("技术说明与审核范围"):
     st.markdown("""

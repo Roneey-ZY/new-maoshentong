@@ -1,0 +1,3 @@
+﻿order_id,invoice_id,buyer,seller,currency,sku,product,quantity,unit,unit_price,line_amount
+NX-7821,NXI-9821,Synthetic Harbor Buyer,Synthetic Ridge Seller,USD,XC-4521,Connector set,62,PCS,16.45,1019.90
+NX-7821,NXI-9821,Synthetic Harbor Buyer,Synthetic Ridge Seller,USD,XC-4521,Connector set,62,PCS,16.45,1019.90

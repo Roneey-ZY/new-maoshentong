@@ -1,0 +1,4 @@
+﻿Order reference,NX-7819
+
+invoice_id,buyer,seller,currency,sku,product,quantity,unit,unit_price,line_amount
+NXI-9819,Synthetic Harbor Buyer,Synthetic Ridge Seller,USD,XC-4519,Connector set,57,PCS,7.80,444.60
