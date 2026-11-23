@@ -1,0 +1,11 @@
+{
+  "name": "gsap",
+  "version": "3.14.2",
+  "source": "https://registry.npmjs.org/gsap/-/gsap-3.14.2.tgz",
+  "npm_integrity": "sha512-P8/mMxVLU7o4+55+1TCnQrPmgjPKnwkzkXOK1asnR9Jg2lna4tEY5qBJjMmAaOBDDZWtlRjBXjLa0w53G/uBLA==",
+  "files": {
+    "GSAP-README.md": "36224e521bdd9b79dc74ef262effc1a636d960b9be918bc2412ed69f9eee27b0",
+    "gsap.min.js": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+    "ScrollTrigger.min.js": "45327f639648f7e8ea20e3789b59723cb8f6d4fcbb0024648cf65978ca323926"
+  }
+}

@@ -21,28 +21,17 @@ from procurement_ui import procurement_panel
 from batch_ui import batch_panel
 from optimization_ui import optimization_panel
 from core.storage import DatabaseUnavailable, AccessDenied
+from design_system import apply_theme, render_header, render_footer, enable_motion
 
 st.set_page_config(page_title="贸审通 TradeCheck Agent", page_icon="📋", layout="wide")
 from auth import require_login
 
+apply_theme()
 require_login()
 
-st.markdown("""
-<style>
-.stMainBlockContainer {max-width: 1150px; padding-top: 2rem;}
-.tc-hero {background: #132B49; border-left: 5px solid #55B6CE; color: #F4F8FF;
-  padding: 2rem clamp(1rem, 4vw, 3rem); border-radius: 8px; margin: 0 0 1.5rem;}
-.tc-hero h1 {font-size: clamp(2rem, 5vw, 3.4rem); color: #fff; padding: .3rem 0 .55rem;}
-.tc-hero p {max-width: 42rem; margin-bottom: .45rem; color: #D4E2F2;}
-.tc-hero .tc-kicker {font: 600 .82rem ui-monospace, monospace; letter-spacing: .14em; color: #90DFED;}
-</style>
-<section class="tc-hero" aria-label="贸审通">
-<p class="tc-kicker">TRADECHECK AGENT / 单证审核工作台</p>
-<h1>贸审通 TradeCheck Agent</h1>
-<p>把采购订单、商业发票与装箱单放在一起审核。逐条查看字段差异、原始出处和复核建议。</p>
-<p>01 准备单证　　02 执行核验　　03 复核与导出</p>
-</section>
-""", unsafe_allow_html=True)
+previous_record = st.session_state.get("record")
+render_header(has_result=bool(previous_record and previous_record[0].result is not None and previous_record[2] is None))
+enable_motion()
 
 TYPES = {"PO": "采购订单", "CI": "商业发票", "PL": "装箱单"}
 CASES = {"A": "A · 正常单证", "B": "B · 四项典型异常", "C": "C · 缺值、重复与关联失败",
@@ -164,7 +153,7 @@ if task_actor and STATE.get("task_owner") and STATE["task_owner"] != task_actor:
     st.download_button("下载只读历史报告", historical.report, "TradeCheck-history.xlsx")
     st.stop()
 
-st.header("01 / 准备单证")
+st.header("01 / 准备单证", anchor="tc-prepare")
 input_mode = st.radio("单证来源", ["演示案例", "上传文件"], horizontal=True)
 files = []
 if input_mode == "演示案例":
@@ -183,7 +172,7 @@ else:
             files.append(InputFile(kind, uploaded.name, uploaded.getvalue()))
     st.caption("每类上传一份文件，每份最多 8 MiB。PDF 需包含可选中的文字。")
 
-st.header("02 / 执行审核")
+st.header("02 / 执行审核", anchor="tc-run")
 st.caption("AI 模式向模型发送有限的核验字段与填写的指令。请勿在指令里填写敏感信息。")
 left, right = st.columns(2)
 choice = left.radio("执行模式", ["rules", "ai"], index=int(bool(key)),
@@ -234,7 +223,7 @@ if record:
                       for d in run.documents], hide_index=True, width="stretch")
 
     if run.result is not None and error is None:
-        st.header("03 / 核验结果")
+        st.header("03 / 核验结果", anchor="tc-results")
         if run.mode == "mapping" and "baseline" in STATE:
             initial = STATE["baseline"]
             st.success(f"确认后已执行核验 {initial.compared} → {run.result.compared} 项，"
@@ -350,3 +339,5 @@ with st.expander("技术说明与审核范围"):
 - **支持范围**　常规入口一次关联一笔采购订单，支持XLSX、CSV、文本型PDF。分批交易入口采用独立CSV模板，按明确行编号核对多张发票与装箱记录。陌生表头可在确认后复审，模糊字段和重复记录进入人工复核。
 - **数据与边界**　预览数据存于当前会话。系统检查内容一致性。扫描件 OCR、汇率转换和海关法律合规判断超出审核范围。
     """)
+
+render_footer()

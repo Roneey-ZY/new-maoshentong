@@ -8,3 +8,6 @@ data/external/** -text
 data/optimization_validation/** -text
 data/optimization_results/** -text
 data/batch_demo/** -text
+assets/vendor/** -text
+assets/fonts/** -text
+assets/*.js -text

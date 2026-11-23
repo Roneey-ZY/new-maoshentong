@@ -6,6 +6,7 @@ import streamlit as st
 
 from core.authentication import LoginConfig, LoginLimiter, SESSION_SECONDS, valid_session
 from core.storage import Store, DatabaseUnavailable, STORAGE_API_VERSION
+from design_system import login_heading
 
 
 def setting(name):
@@ -60,9 +61,8 @@ def database_login(store):
         return user
     if session or st.session_state.get("_login"):
         st.session_state.clear()
-    st.title("贸审通 TradeCheck Agent")
-    st.caption("登录后查看属于自己的审核任务")
-    with st.form("database_login", clear_on_submit=True):
+    login_heading()
+    with st.container(key="tc_login_panel"), st.form("database_login", clear_on_submit=True):
         username = st.text_input("账号", max_chars=128)
         password = st.text_input("密码", type="password", max_chars=1024)
         submitted = st.form_submit_button("登录", type="primary")
@@ -106,9 +106,8 @@ def require_login():
     if session:
         st.session_state.clear()
 
-    st.title("贸审通 TradeCheck Agent")
-    st.caption("跨境贸易单证智能审核 · 请登录后进入工作台")
-    with st.form("login_form", clear_on_submit=True):
+    login_heading()
+    with st.container(key="tc_login_panel"), st.form("login_form", clear_on_submit=True):
         username = st.text_input("账号", max_chars=128)
         password = st.text_input("密码", type="password", max_chars=1024)
         submitted = st.form_submit_button("登录", type="primary")

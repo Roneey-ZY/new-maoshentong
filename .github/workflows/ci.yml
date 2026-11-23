@@ -73,6 +73,10 @@ jobs:
       - run: python -m scripts.verify_frozen_archive --commit f3f8161
       - run: python -m scripts.verify_frozen_archive --commit d539f3d --dataset data/optimization_validation/v2
       - run: python -m pytest -q --junitxml=phase-b-results.xml
+      - name: Verify local design assets and host-loader compatibility
+        run: |
+          python -m scripts.check_design_assets --output design-assets.json
+          node scripts/check_design_runtime.cjs design-assets.json
       - run: python -m scripts.replay_mapping_safety
       - run: python -m scripts.replay_csv_regression --output csv-regression-ci.json
       - run: python -m scripts.evaluate_procurement --phase evaluate --output procurement-ci-results

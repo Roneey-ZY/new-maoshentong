@@ -10,3 +10,5 @@ __pycache__/
 *.sqlite3-*
 *.db
 private/
+.taste-skill/*
+!.taste-skill/plan.md

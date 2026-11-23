@@ -1,0 +1,919 @@
+{
+ "start": "2026-11-23T04:28:42.238Z",
+ "round": 1,
+ "idle": 0,
+ "errors": 2,
+ "status": "fail",
+ "history": [
+  {
+   "at": "2026-11-23T04:45:30.022Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 25,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-23T04:53:05.341Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 22,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": null,
+  "url": "http://127.0.0.1:8510",
+  "root": null,
+  "kind": "software",
+  "category": "跨境贸易单证审核工作台",
+  "primary": "开始审核",
+  "rounds": 3,
+  "start": "2026-11-23T04:28:42.238Z",
+  "by": "gate.mjs --start"
+ },
+ "manual": true,
+ "roundKey": "2ea32a73edd957e7:da39a3ee",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "2ea32a73edd957e7",
+ "page": "http://127.0.0.1:8510",
+ "found": {
+  "fails": [
+   {
+    "check": "text-only",
+    "where": "main#stMain > div.stMainBlockContainer.block-container \"跨境贸易单证审核\"",
+    "msg": "the closing section is only text: no picture, icon, mock or effect in it",
+    "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-only"
+    ],
+    "wheres": [
+     "main#stMain > div.stMainBlockContainer.block-container \"跨境贸易单证审核\""
+    ]
+   },
+   {
+    "check": "heading-scale",
+    "where": "div.st-emotion-cache-0.e1cukady1 > div.st-emotion-cache-1cwwgji.e1cukady4 > div.stMarkdownEllipsis.st-emotion-cache-1dfv8nu > p \"3\"",
+    "msg": "the figure \"3\" is set at 36px, larger than the section headings (h2 22.4px); 3 more like it",
+    "fix": "set figures at the h2 size or under: a stat reads as data, not as the heading",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "heading-scale"
+    ],
+    "wheres": [
+     "div.st-emotion-cache-0.e1cukady1 > div.st-emotion-cache-1cwwgji.e1cukady4 > div.stMarkdownEllipsis.st-emotion-cache-1dfv8nu > p \"3\""
+    ]
+   },
+   {
+    "check": "off-grid",
+    "where": "label.st-emotion-cache-1acfc8b.ex50key2 > div.st-emotion-cache-19nzcwv.ex50key3 > div.st-emotion-cache-1mkvzop.e1yqkw3v0 > p \"演示案例\"",
+    "msg": "left edge at 380px, 24px off a common edge of its section at 356px (9 elements, like div.st-emotion-cache-xjrsnk.ex50key4)",
+    "fix": "move it onto the page margin, or the column edge its section uses",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "off-grid"
+    ],
+    "wheres": [
+     "label.st-emotion-cache-1acfc8b.ex50key2 > div.st-emotion-cache-19nzcwv.ex50key3 > div.st-emotion-cache-1mkvzop.e1yqkw3v0 > p \"演示案例\""
+    ]
+   },
+   {
+    "check": "text-contrast",
+    "where": "div.stMarkdown > div.st-emotion-cache-k2h9z6.ef3bkur2 > div.st-emotion-cache-1rs2vv.e1yqkw3v0 > p \"本地设计验收 · 合成案例 B\"",
+    "msg": "a caption, label or muted line in #94a0a4 on #edf1ed reads 2.36:1 (needs 4.5:1)",
+    "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "text-contrast"
+    ],
+    "wheres": [
+     "div.stMarkdown > div.st-emotion-cache-k2h9z6.ef3bkur2 > div.st-emotion-cache-1rs2vv.e1yqkw3v0 > p \"本地设计验收 · 合成案例 B\""
+    ]
+   },
+   {
+    "check": "field-label",
+    "where": "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-vlb559.equpb2c0 > input.st-emotion-cache-7yg6jm.equpb2c4",
+    "msg": "a input[type=text] without a label you can see: only a placeholder (\"Choose an option\") names it",
+    "fix": "put a <label for> with the field's name above it (references/system.md, Forms); a placeholder is no label",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "field-label"
+    ],
+    "wheres": [
+     "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-vlb559.equpb2c0 > input.st-emotion-cache-7yg6jm.equpb2c4"
+    ]
+   },
+   {
+    "check": "field-label",
+    "where": "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-5w5nh1.equpb2c0 > input.st-emotion-cache-7yg6jm.equpb2c4",
+    "msg": "a input[type=text] without a label you can see: only a placeholder (\"Choose an option\") names it",
+    "fix": "put a <label for> with the field's name above it (references/system.md, Forms); a placeholder is no label",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "field-label"
+    ],
+    "wheres": [
+     "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-5w5nh1.equpb2c0 > input.st-emotion-cache-7yg6jm.equpb2c4"
+    ]
+   },
+   {
+    "check": "focus-ring",
+    "where": "[tabindex=\"-1\"]:focus:not(:focus-visible)",
+    "msg": "\"[tabindex=\"-1\"]:focus:not(:focus-visible)\" in the page removes the focus outline and sets nothing in its place",
+    "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-ring"
+    ],
+    "wheres": [
+     "[tabindex=\"-1\"]:focus:not(:focus-visible)"
+    ]
+   },
+   {
+    "check": "focus-ring",
+    "where": ".st-emotion-cache-1f7ugbu:focus",
+    "msg": "\".st-emotion-cache-1f7ugbu:focus\" in the page removes the focus outline and sets nothing in its place",
+    "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-ring"
+    ],
+    "wheres": [
+     ".st-emotion-cache-1f7ugbu:focus"
+    ]
+   },
+   {
+    "check": "focus-ring",
+    "where": ".st-emotion-cache-1jtotlx:focus",
+    "msg": "\".st-emotion-cache-1jtotlx:focus\" in the page removes the focus outline and sets nothing in its place",
+    "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-ring"
+    ],
+    "wheres": [
+     ".st-emotion-cache-1jtotlx:focus"
+    ]
+   },
+   {
+    "check": "focus-ring",
+    "where": ".st-emotion-cache-1huh9x6:focus",
+    "msg": "\".st-emotion-cache-1huh9x6:focus\" in the page removes the focus outline and sets nothing in its place",
+    "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-ring"
+    ],
+    "wheres": [
+     ".st-emotion-cache-1huh9x6:focus"
+    ]
+   },
+   {
+    "check": "action-repeat",
+    "where": "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-vlb559.equpb2c0 > button.st-emotion-cache-158fjij.equpb2c5 \"open\"",
+    "msg": "\"open\" shows 3 times on the first screen at 1440px (page, page, hero): three copies of one action on a screen read as clutter",
+    "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "action-repeat"
+    ],
+    "wheres": [
+     "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-vlb559.equpb2c0 > button.st-emotion-cache-158fjij.equpb2c5 \"open\""
+    ]
+   },
+   {
+    "check": "moment-none",
+    "where": "(the page)",
+    "msg": "a software page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+    "fix": "deal one (moments.mjs pick --page software) and mount it in its own section",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "moment-none"
+    ],
+    "wheres": [
+     "(the page)"
+    ]
+   },
+   {
+    "check": "hero-screen",
+    "where": "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\"",
+    "msg": "the hero ends at 1827px on a 900px screen, 927px below the fold: it ends at the fold, 1px either way (SR-1)",
+    "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "hero-screen"
+    ],
+    "wheres": [
+     "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\""
+    ]
+   },
+   {
+    "check": "one-section",
+    "where": "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\"",
+    "msg": "a <div> sits directly in <main>: every part of <main> is a <section> (SR-4)",
+    "fix": "put every block of <main> in a <section>, and give a band its own section instead of a ground inside one",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-section"
+    ],
+    "wheres": [
+     "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\""
+    ]
+   },
+   {
+    "check": "one-heading",
+    "where": "h2#tc-prepare \"01 / 准备单证\"",
+    "msg": "the hero holds an h2 (3): its heading is the h1, and an h2 opens the next section (SR-5)",
+    "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "one-heading"
+    ],
+    "wheres": [
+     "h2#tc-prepare \"01 / 准备单证\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.stApp.stAppEmbeddingId-toxuovy89x29 > div.stAppViewContainer.appview-container > div.st-emotion-cache-w4hxur.eksftaj11 > header.stAppHeader.st-emotion-cache-hzj9hw \"Deploy\"",
+    "msg": "the nav's content runs 1326px from the left and 18px from the right (read from its outermost blocks: no .wrap): the page's container starts at 356px; 1326 and 18px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.stApp.stAppEmbeddingId-toxuovy89x29 > div.stAppViewContainer.appview-container > div.st-emotion-cache-w4hxur.eksftaj11 > header.stAppHeader.st-emotion-cache-hzj9hw \"Deploy\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\"",
+    "msg": "the content of section 1 runs 356px from the left and 56px from the right (read from its outermost blocks: no .wrap): 356 and 56px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+    "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "span#MainMenu > button.st-emotion-cache-1huh9x6.e1aouyeq15 \"Main menu\"",
+    "msg": "\"Main menu\" runs 1394-1422px, outside the container lines of the nav at 356-1384px: full width is for background layers and grounds only (SR-6)",
+    "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "span#MainMenu > button.st-emotion-cache-1huh9x6.e1aouyeq15 \"Main menu\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.st-emotion-cache-1j22a0y.e1919x4b4 > div.st-emotion-cache-scp8yw.e1919x4b6 > div.stAppDeployButton > button.st-emotion-cache-1jtotlx.e1aouyeq14 \"Deploy\"",
+    "msg": "\"Deploy\" runs 1326-1390px, outside the container lines of the nav at 356-1384px: full width is for background layers and grounds only (SR-6)",
+    "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.st-emotion-cache-1j22a0y.e1919x4b4 > div.st-emotion-cache-scp8yw.e1919x4b6 > div.stAppDeployButton > button.st-emotion-cache-1jtotlx.e1aouyeq14 \"Deploy\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "label.st-emotion-cache-1acfc8b.ex50key2 > div.st-emotion-cache-19nzcwv.ex50key3 > div.st-emotion-cache-1mkvzop.e1yqkw3v0 > p \"演示案例\"",
+    "msg": "1 text block starts on a left line at x 380, 24px from the container's left: text starts on the container's left, or on one split line (x 794, 882, 970) (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "label.st-emotion-cache-1acfc8b.ex50key2 > div.st-emotion-cache-19nzcwv.ex50key3 > div.st-emotion-cache-1mkvzop.e1yqkw3v0 > p \"演示案例\""
+    ]
+   },
+   {
+    "check": "split-pair",
+    "where": "div.stElementContainer.element-container:nth-of-type(1) > div.stHtml.st-emotion-cache-718ru0 > div.tc-shell > section.tc-intro \"贸审通 TradeCheck Agent跨境贸易单证审核 把订单、发票和装箱单放\"",
+    "msg": "the split's columns are off the page's one pair of lines: its right column starts at x 918, on none of the split lines 794 (k=5), 882 (k=6), 970 (k=7) (SR-8)",
+    "fix": "start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "split-pair"
+    ],
+    "wheres": [
+     "div.stElementContainer.element-container:nth-of-type(1) > div.stHtml.st-emotion-cache-718ru0 > div.tc-shell > section.tc-intro \"贸审通 TradeCheck Agent跨境贸易单证审核 把订单、发票和装箱单放\""
+    ]
+   },
+   {
+    "check": "container",
+    "where": "page",
+    "msg": "no .wrap",
+    "fix": "put the content in one .wrap",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "container"
+    ],
+    "wheres": [
+     "page"
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "copy-headline",
+    "where": "div.tc-shell > section.tc-intro > div:nth-of-type(1) > h1.tc-title \"跨境贸易单证审核\"",
+    "msg": "\"跨境贸易单证审核\": no category known to check it against (pass --category, or write the <title> as \"Name: what it is for whom\")",
+    "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "h2#tc-prepare > span.st-emotion-cache-1i6bcf7.e1yqkw3v4 > a.st-emotion-cache-10rfgh7.e1yqkw3v1 \"Link to heading\"",
+    "msg": "\"Link to heading\" goes to #tc-prepare, the block it already sits in",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "h2#tc-run > span.st-emotion-cache-1i6bcf7.e1yqkw3v4 > a.st-emotion-cache-10rfgh7.e1yqkw3v1 \"Link to heading\"",
+    "msg": "\"Link to heading\" goes to #tc-run, the block it already sits in",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "h2#tc-results > span.st-emotion-cache-1i6bcf7.e1yqkw3v4 > a.st-emotion-cache-10rfgh7.e1yqkw3v1 \"Link to heading\"",
+    "msg": "\"Link to heading\" goes to #tc-results, the block it already sits in",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "font-load",
+    "where": "div.tc-shell > section.tc-intro > div:nth-of-type(1) > h1.tc-title \"PingFang SC\"",
+    "msg": "\"PingFang SC\" is asked for by --font-text, the h1 and the body text but never loaded (no font link or @font-face loads it): it shows in its fallback",
+    "fix": "load every family the type asks for: name it in the font link as start.mjs prints it, spelt as Google Fonts spells it, or ask for a family the page loads",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "page-meta",
+    "where": "head \"贸审通 · 本地设计验收\"",
+    "msg": "no <meta name=\"description\">: a search result and a shared link show a scrap of the page instead",
+    "fix": "write a <title> \"Name: what it is for whom or where\" and a one-sentence description in other words (starter.html)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "share-meta",
+    "where": "head",
+    "msg": "the head lacks og:title, og:description, og:image, twitter:card, theme-color: a shared link shows no picture or title of its own",
+    "fix": "copy the head block of starter.html: og tags, twitter:card, the icon and theme-color (references/system.md, Head)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "hidden-content",
+    "where": "(the page)",
+    "msg": "partly measured: content hidden until a script reveals it (navigate: CDP timeout: Page.navigate)",
+    "fix": "run the check again on a quieter machine; if it keeps failing, the probe error line says what stopped it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "hero-fill",
+    "where": "(the page)",
+    "msg": "partly measured: the first screen (navigate: CDP timeout: Page.navigate)",
+    "fix": "run the check again on a quieter machine; if it keeps failing, the probe error line says what stopped it",
+    "widths": [
+     1152,
+     1024,
+     768
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav",
+    "where": "(the page)",
+    "msg": "partly measured: the first screen (navigate: CDP timeout: Page.navigate)",
+    "fix": "run the check again on a quieter machine; if it keeps failing, the probe error line says what stopped it",
+    "widths": [
+     1152,
+     1024,
+     768
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "spill",
+    "where": "(the page)",
+    "msg": "partly measured: the first screen (navigate: CDP timeout: Page.navigate)",
+    "fix": "run the check again on a quieter machine; if it keeps failing, the probe error line says what stopped it",
+    "widths": [
+     1152,
+     1024,
+     768
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "off-viewport",
+    "where": "(the page)",
+    "msg": "partly measured: the first screen (navigate: CDP timeout: Page.navigate)",
+    "fix": "run the check again on a quieter machine; if it keeps failing, the probe error line says what stopped it",
+    "widths": [
+     1152,
+     1024,
+     768
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "(the page)",
+    "msg": "partly measured: the first screen (navigate: CDP timeout: Page.navigate)",
+    "fix": "run the check again on a quieter machine; if it keeps failing, the probe error line says what stopped it",
+    "widths": [
+     1152,
+     1024,
+     768
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-stat-strip",
+    "msg": "stat strip x1",
+    "fix": "a strip only of figures the brief gives (a price, hours, a count); otherwise put each number in the sentence it proves, or leave it out (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy x1: \"3 / 1 / 0 / 8\"",
+    "exact": false
+   }
+  ],
+  "crashed": [
+   "consistency.mjs could not walk 390"
+  ],
+  "seconds": {
+   "consistency": 334,
+   "layout": 37
+  }
+ },
+ "open": [
+  {
+   "check": "text-only",
+   "where": "main#stMain > div.stMainBlockContainer.block-container \"跨境贸易单证审核\"",
+   "msg": "the closing section is only text: no picture, icon, mock or effect in it",
+   "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-only"
+   ],
+   "wheres": [
+    "main#stMain > div.stMainBlockContainer.block-container \"跨境贸易单证审核\""
+   ]
+  },
+  {
+   "check": "heading-scale",
+   "where": "div.st-emotion-cache-0.e1cukady1 > div.st-emotion-cache-1cwwgji.e1cukady4 > div.stMarkdownEllipsis.st-emotion-cache-1dfv8nu > p \"3\"",
+   "msg": "the figure \"3\" is set at 36px, larger than the section headings (h2 22.4px); 3 more like it",
+   "fix": "set figures at the h2 size or under: a stat reads as data, not as the heading",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "heading-scale"
+   ],
+   "wheres": [
+    "div.st-emotion-cache-0.e1cukady1 > div.st-emotion-cache-1cwwgji.e1cukady4 > div.stMarkdownEllipsis.st-emotion-cache-1dfv8nu > p \"3\""
+   ]
+  },
+  {
+   "check": "off-grid",
+   "where": "label.st-emotion-cache-1acfc8b.ex50key2 > div.st-emotion-cache-19nzcwv.ex50key3 > div.st-emotion-cache-1mkvzop.e1yqkw3v0 > p \"演示案例\"",
+   "msg": "left edge at 380px, 24px off a common edge of its section at 356px (9 elements, like div.st-emotion-cache-xjrsnk.ex50key4)",
+   "fix": "move it onto the page margin, or the column edge its section uses",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "off-grid"
+   ],
+   "wheres": [
+    "label.st-emotion-cache-1acfc8b.ex50key2 > div.st-emotion-cache-19nzcwv.ex50key3 > div.st-emotion-cache-1mkvzop.e1yqkw3v0 > p \"演示案例\""
+   ]
+  },
+  {
+   "check": "text-contrast",
+   "where": "div.stMarkdown > div.st-emotion-cache-k2h9z6.ef3bkur2 > div.st-emotion-cache-1rs2vv.e1yqkw3v0 > p \"本地设计验收 · 合成案例 B\"",
+   "msg": "a caption, label or muted line in #94a0a4 on #edf1ed reads 2.36:1 (needs 4.5:1)",
+   "fix": "body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "text-contrast"
+   ],
+   "wheres": [
+    "div.stMarkdown > div.st-emotion-cache-k2h9z6.ef3bkur2 > div.st-emotion-cache-1rs2vv.e1yqkw3v0 > p \"本地设计验收 · 合成案例 B\""
+   ]
+  },
+  {
+   "check": "field-label",
+   "where": "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-vlb559.equpb2c0 > input.st-emotion-cache-7yg6jm.equpb2c4",
+   "msg": "a input[type=text] without a label you can see: only a placeholder (\"Choose an option\") names it",
+   "fix": "put a <label for> with the field's name above it (references/system.md, Forms); a placeholder is no label",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "field-label"
+   ],
+   "wheres": [
+    "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-vlb559.equpb2c0 > input.st-emotion-cache-7yg6jm.equpb2c4"
+   ]
+  },
+  {
+   "check": "field-label",
+   "where": "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-5w5nh1.equpb2c0 > input.st-emotion-cache-7yg6jm.equpb2c4",
+   "msg": "a input[type=text] without a label you can see: only a placeholder (\"Choose an option\") names it",
+   "fix": "put a <label for> with the field's name above it (references/system.md, Forms); a placeholder is no label",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "field-label"
+   ],
+   "wheres": [
+    "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-5w5nh1.equpb2c0 > input.st-emotion-cache-7yg6jm.equpb2c4"
+   ]
+  },
+  {
+   "check": "focus-ring",
+   "where": "[tabindex=\"-1\"]:focus:not(:focus-visible)",
+   "msg": "\"[tabindex=\"-1\"]:focus:not(:focus-visible)\" in the page removes the focus outline and sets nothing in its place",
+   "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-ring"
+   ],
+   "wheres": [
+    "[tabindex=\"-1\"]:focus:not(:focus-visible)"
+   ]
+  },
+  {
+   "check": "focus-ring",
+   "where": ".st-emotion-cache-1f7ugbu:focus",
+   "msg": "\".st-emotion-cache-1f7ugbu:focus\" in the page removes the focus outline and sets nothing in its place",
+   "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-ring"
+   ],
+   "wheres": [
+    ".st-emotion-cache-1f7ugbu:focus"
+   ]
+  },
+  {
+   "check": "focus-ring",
+   "where": ".st-emotion-cache-1jtotlx:focus",
+   "msg": "\".st-emotion-cache-1jtotlx:focus\" in the page removes the focus outline and sets nothing in its place",
+   "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-ring"
+   ],
+   "wheres": [
+    ".st-emotion-cache-1jtotlx:focus"
+   ]
+  },
+  {
+   "check": "focus-ring",
+   "where": ".st-emotion-cache-1huh9x6:focus",
+   "msg": "\".st-emotion-cache-1huh9x6:focus\" in the page removes the focus outline and sets nothing in its place",
+   "fix": "keep the kit's :focus-visible ring, or put a change of the same strength (a 2px line in --action) in the rule that removes it",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-ring"
+   ],
+   "wheres": [
+    ".st-emotion-cache-1huh9x6:focus"
+   ]
+  },
+  {
+   "check": "action-repeat",
+   "where": "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-vlb559.equpb2c0 > button.st-emotion-cache-158fjij.equpb2c5 \"open\"",
+   "msg": "\"open\" shows 3 times on the first screen at 1440px (page, page, hero): three copies of one action on a screen read as clutter",
+   "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "action-repeat"
+   ],
+   "wheres": [
+    "div.stSelectbox > div.react-aria-ComboBox > div.st-emotion-cache-vlb559.equpb2c0 > button.st-emotion-cache-158fjij.equpb2c5 \"open\""
+   ]
+  },
+  {
+   "check": "moment-none",
+   "where": "(the page)",
+   "msg": "a software page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+   "fix": "deal one (moments.mjs pick --page software) and mount it in its own section",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "moment-none"
+   ],
+   "wheres": [
+    "(the page)"
+   ]
+  },
+  {
+   "check": "hero-screen",
+   "where": "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\"",
+   "msg": "the hero ends at 1827px on a 900px screen, 927px below the fold: it ends at the fold, 1px either way (SR-1)",
+   "fix": "make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "hero-screen"
+   ],
+   "wheres": [
+    "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\""
+   ]
+  },
+  {
+   "check": "one-section",
+   "where": "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\"",
+   "msg": "a <div> sits directly in <main>: every part of <main> is a <section> (SR-4)",
+   "fix": "put every block of <main> in a <section>, and give a band its own section instead of a ground inside one",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-section"
+   ],
+   "wheres": [
+    "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\""
+   ]
+  },
+  {
+   "check": "one-heading",
+   "where": "h2#tc-prepare \"01 / 准备单证\"",
+   "msg": "the hero holds an h2 (3): its heading is the h1, and an h2 opens the next section (SR-5)",
+   "fix": "give each section one h2, first in its .wrap, and the hero only its h1",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "one-heading"
+   ],
+   "wheres": [
+    "h2#tc-prepare \"01 / 准备单证\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.stApp.stAppEmbeddingId-toxuovy89x29 > div.stAppViewContainer.appview-container > div.st-emotion-cache-w4hxur.eksftaj11 > header.stAppHeader.st-emotion-cache-hzj9hw \"Deploy\"",
+   "msg": "the nav's content runs 1326px from the left and 18px from the right (read from its outermost blocks: no .wrap): the page's container starts at 356px; 1326 and 18px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.stApp.stAppEmbeddingId-toxuovy89x29 > div.stAppViewContainer.appview-container > div.st-emotion-cache-w4hxur.eksftaj11 > header.stAppHeader.st-emotion-cache-hzj9hw \"Deploy\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\"",
+   "msg": "the content of section 1 runs 356px from the left and 56px from the right (read from its outermost blocks: no .wrap): 356 and 56px are not one margin; the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)",
+   "fix": "use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "main#stMain > div.stMainBlockContainer.block-container \"TCtradecheck.贸审通 · 单证审核工作台 贸审通 TradeChec\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "span#MainMenu > button.st-emotion-cache-1huh9x6.e1aouyeq15 \"Main menu\"",
+   "msg": "\"Main menu\" runs 1394-1422px, outside the container lines of the nav at 356-1384px: full width is for background layers and grounds only (SR-6)",
+   "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "span#MainMenu > button.st-emotion-cache-1huh9x6.e1aouyeq15 \"Main menu\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.st-emotion-cache-1j22a0y.e1919x4b4 > div.st-emotion-cache-scp8yw.e1919x4b6 > div.stAppDeployButton > button.st-emotion-cache-1jtotlx.e1aouyeq14 \"Deploy\"",
+   "msg": "\"Deploy\" runs 1326-1390px, outside the container lines of the nav at 356-1384px: full width is for background layers and grounds only (SR-6)",
+   "fix": "keep it inside the container lines (.wrap): full width is for background layers and grounds only",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.st-emotion-cache-1j22a0y.e1919x4b4 > div.st-emotion-cache-scp8yw.e1919x4b6 > div.stAppDeployButton > button.st-emotion-cache-1jtotlx.e1aouyeq14 \"Deploy\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "label.st-emotion-cache-1acfc8b.ex50key2 > div.st-emotion-cache-19nzcwv.ex50key3 > div.st-emotion-cache-1mkvzop.e1yqkw3v0 > p \"演示案例\"",
+   "msg": "1 text block starts on a left line at x 380, 24px from the container's left: text starts on the container's left, or on one split line (x 794, 882, 970) (SR-6)",
+   "fix": "start the text on the container's left, or on the one split line every split shares",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "label.st-emotion-cache-1acfc8b.ex50key2 > div.st-emotion-cache-19nzcwv.ex50key3 > div.st-emotion-cache-1mkvzop.e1yqkw3v0 > p \"演示案例\""
+   ]
+  },
+  {
+   "check": "split-pair",
+   "where": "div.stElementContainer.element-container:nth-of-type(1) > div.stHtml.st-emotion-cache-718ru0 > div.tc-shell > section.tc-intro \"贸审通 TradeCheck Agent跨境贸易单证审核 把订单、发票和装箱单放\"",
+   "msg": "the split's columns are off the page's one pair of lines: its right column starts at x 918, on none of the split lines 794 (k=5), 882 (k=6), 970 (k=7) (SR-8)",
+   "fix": "start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "split-pair"
+   ],
+   "wheres": [
+    "div.stElementContainer.element-container:nth-of-type(1) > div.stHtml.st-emotion-cache-718ru0 > div.tc-shell > section.tc-intro \"贸审通 TradeCheck Agent跨境贸易单证审核 把订单、发票和装箱单放\""
+   ]
+  },
+  {
+   "check": "container",
+   "where": "page",
+   "msg": "no .wrap",
+   "fix": "put the content in one .wrap",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "container"
+   ],
+   "wheres": [
+    "page"
+   ]
+  }
+ ],
+ "waived": [],
+ "warnCount": 14,
+ "at": "2026-11-23T04:53:05.342Z"
+}
