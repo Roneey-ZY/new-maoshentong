@@ -1,0 +1,4 @@
+﻿Order reference for this invoice;NX-8112
+
+line_amount;unit_price;unit;quantity;product;sku;currency;seller;buyer;invoice_id
+210.60;7.80;PCS;27;Connector set;XC-4812;USD;Synthetic Ridge Seller;Synthetic Harbor Buyer;NXI-10112

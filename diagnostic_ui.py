@@ -2,6 +2,7 @@ import streamlit as st
 
 from agent.diagnostic_agent import diagnose, apply_proposal, preflight, revision_key
 from agent.main_agent import AgentRunError
+from core.diagnostic_presenter import proposal_card, preview_impact
 
 
 def diagnostic_panel(run, key, model, provider):
@@ -25,11 +26,33 @@ def diagnostic_panel(run, key, model, provider):
         st.text(diagnosis["summary"])
         if diagnosis.get("error"):
             st.error(diagnosis["error"])
+        if diagnosis.get("mode") == "repaired_output":
+            st.info("模型首次输出的格式有误，已完成一次格式重试。以下仍是待确认建议。")
+        elif diagnosis.get("mode") == "partial_output":
+            st.warning("模型未返回完整有效结果。这里只保留能单独校验的候选，其他疑难项仍需人工检查。")
+        if diagnosis.get("output_events"):
+            with st.expander("查看输出校验与格式重试记录"):
+                st.json(diagnosis["output_events"])
         if diagnosis["log"]:
             st.dataframe(diagnosis["log"], hide_index=True, width="stretch")
         for index, proposal in enumerate(diagnosis["proposals"]):
             st.markdown(f"**候选建议 {index+1}：{'表头对应' if proposal['type']=='mapping' else '缺失字段' if proposal['type']=='field' else '商品关联'}**")
-            st.json(proposal)
+            try:
+                card = proposal_card(run, proposal)
+                st.text(card["problem"])
+                st.caption("原始出处：" + card["source"])
+                if card.get("quote"):
+                    st.text("原文：" + card["quote"])
+                st.dataframe(card["rows"], hide_index=True, width="stretch")
+                st.text("确认后的影响：" + card["impact"])
+                if st.button("预览复审结果", key=f"preview_diagnosis_{diagnosis['revision']}_{index}"):
+                    st.dataframe(preview_impact(run, diagnosis, index), hide_index=True, width="stretch")
+                    st.caption("这是本地规则的试算，尚未应用或保存。待核验项减少不代表业务差异已经解决。")
+            except (ValueError, KeyError, StopIteration, IndexError):
+                st.warning("这条建议暂时无法安全预览，请重新获取建议或手动检查原件。")
+                continue
+            with st.expander("查看建议的技术明细"):
+                st.json(proposal)
             confirmed = st.checkbox("我已对照原件确认这条建议", key=f"confirm_diagnosis_{diagnosis['revision']}_{index}")
             if st.button("应用此建议并复审", key=f"apply_diagnosis_{index}", disabled=not confirmed):
                 try:

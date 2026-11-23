@@ -1,0 +1,55 @@
+{
+  "documents": {
+    "PO": [
+      {
+        "order_id": "NX-8107",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4807",
+        "product": "Connector set",
+        "quantity": "20",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "24.10"
+      }
+    ],
+    "CI": [
+      {
+        "order_id": "NX-8107",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4807",
+        "product": "Connector set",
+        "quantity": "20",
+        "unit": "PCS",
+        "currency": "USD",
+        "unit_price": "24.70",
+        "invoice_id": "NXI-10107",
+        "line_amount": "494.00"
+      }
+    ],
+    "PL": [
+      {
+        "order_id": "NX-8107",
+        "buyer": "Synthetic Harbor Buyer",
+        "seller": "Synthetic Ridge Seller",
+        "sku": "XC-4807",
+        "product": "Connector set",
+        "quantity": "20",
+        "unit": "PCS",
+        "packages": "4",
+        "net_kg": "32.5",
+        "gross_kg": "37.0"
+      }
+    ]
+  },
+  "findings": [
+    [
+      "UNIT_PRICE",
+      "difference",
+      "XC-4807"
+    ]
+  ],
+  "source": "project-authored synthetic; no real enterprise documents",
+  "answer_method": "declared_by_construction"
+}

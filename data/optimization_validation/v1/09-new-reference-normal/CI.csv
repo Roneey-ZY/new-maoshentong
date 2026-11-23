@@ -1,0 +1,4 @@
+﻿Order reference for this invoice;NX-8109
+
+line_amount;unit_price;unit;quantity;product;sku;currency;seller;buyer;invoice_id
+185.25;3.25;PCS;57;Connector set;XC-4809;USD;Synthetic Ridge Seller;Synthetic Harbor Buyer;NXI-10109

@@ -18,6 +18,7 @@ from task_ui import task_sidebar, save_task_panel
 from diagnostic_ui import diagnostic_panel
 from evaluation_ui import evaluation_panel
 from procurement_ui import procurement_panel
+from batch_ui import batch_panel
 from core.storage import DatabaseUnavailable, AccessDenied
 
 st.set_page_config(page_title="贸审通 TradeCheck Agent", page_icon="📋", layout="wide")
@@ -336,6 +337,7 @@ if record:
         save_task_panel(task_store, task_actor)
 
 procurement_panel()
+batch_panel()
 evaluation_panel()
 
 with st.expander("技术说明与审核范围"):
@@ -343,6 +345,6 @@ with st.expander("技术说明与审核范围"):
 - **审核链路**　文件解析 → 字段标准化 → 确定性规则 → Excel 证据报告。
 - **AI 智能体模式**　服务端的单一 Agent 使用 OpenAI Agents SDK 发起工具调用。页面记录实际执行事件。
 - **规则演示模式**　应用直接执行同一组 Python 工具。数量和金额规则在两种模式下采用相同口径。
-- **支持范围**　一次关联一笔采购订单。支持常见中英文字段别名、XLSX、CSV、带表格或分隔文本的 PDF。陌生表头和部分无边框文本 PDF 可在确认后复审。模糊字段和重复 SKU 进入人工复核。
+- **支持范围**　常规入口一次关联一笔采购订单，支持XLSX、CSV、文本型PDF。分批交易入口采用独立CSV模板，按明确行编号核对多张发票与装箱记录。陌生表头可在确认后复审，模糊字段和重复记录进入人工复核。
 - **数据与边界**　预览数据存于当前会话。系统检查内容一致性。扫描件 OCR、汇率转换和海关法律合规判断超出审核范围。
     """)

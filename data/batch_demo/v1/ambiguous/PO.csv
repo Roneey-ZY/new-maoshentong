@@ -1,0 +1,2 @@
+﻿order_id,order_line_id,sku,quantity,unit,currency,unit_price
+BPO-001,1,A-100,100,PCS,USD,20

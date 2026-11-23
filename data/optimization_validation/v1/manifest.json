@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "source": "project_authored_synthetic_only",
+  "seed": 2026112301,
+  "created_utc": "2026-11-23T04:08:17.299493+00:00",
+  "cases": [
+    {
+      "id": "01-new-en-normal",
+      "family": "new-en",
+      "split": "holdout",
+      "scenario": "normal"
+    },
+    {
+      "id": "02-new-en-quantity",
+      "family": "new-en",
+      "split": "holdout",
+      "scenario": "quantity"
+    },
+    {
+      "id": "03-new-en-price",
+      "family": "new-en",
+      "split": "holdout",
+      "scenario": "price"
+    },
+    {
+      "id": "04-new-en-weight",
+      "family": "new-en",
+      "split": "holdout",
+      "scenario": "weight"
+    },
+    {
+      "id": "05-new-zh-normal",
+      "family": "new-zh",
+      "split": "holdout",
+      "scenario": "normal"
+    },
+    {
+      "id": "06-new-zh-quantity",
+      "family": "new-zh",
+      "split": "holdout",
+      "scenario": "quantity"
+    },
+    {
+      "id": "07-new-zh-price",
+      "family": "new-zh",
+      "split": "holdout",
+      "scenario": "price"
+    },
+    {
+      "id": "08-new-zh-weight",
+      "family": "new-zh",
+      "split": "holdout",
+      "scenario": "weight"
+    },
+    {
+      "id": "09-new-reference-normal",
+      "family": "new-reference",
+      "split": "holdout",
+      "scenario": "normal"
+    },
+    {
+      "id": "10-new-reference-quantity",
+      "family": "new-reference",
+      "split": "holdout",
+      "scenario": "quantity"
+    },
+    {
+      "id": "11-new-reference-price",
+      "family": "new-reference",
+      "split": "holdout",
+      "scenario": "price"
+    },
+    {
+      "id": "12-new-reference-weight",
+      "family": "new-reference",
+      "split": "holdout",
+      "scenario": "weight"
+    }
+  ],
+  "limits": [
+    "Same developer authored these fixtures; not third-party human evidence.",
+    "New layout/name variants are not evidence of arbitrary-template generalization.",
+    "Model confirmations are program simulation; actual human timing remains pending."
+  ],
+  "files": {
+    "01-new-en-normal/CI.csv": "725a752c57a25777a6fed0c2880c64cd55b53959e608d1b8d1aefc0369976518",
+    "01-new-en-normal/confirmation.json": "f3c848c7a95075fecdc4419a43e1d8cba87b4e4ce1ed373bbae14f7b14cf5581",
+    "01-new-en-normal/PL.csv": "5f123699a89a5637ea304577cf5f87bc0a524110a57091cc0903e65116d3e80c",
+    "01-new-en-normal/PO.csv": "cc7ed605c2cd36dbc910c61617b880a6bfd2d20e4e0daef3aed99940e7cabd19",
+    "01-new-en-normal/truth.json": "e9a1c53b0eec93824b6fb34993fd26ac3abc4aa43c58c475d241a1f210d8b60f",
+    "02-new-en-quantity/CI.csv": "b8238ccc28582dd2643c209bc608522793329b48aed6a1b9a3c58c9f3ab4d194",
+    "02-new-en-quantity/confirmation.json": "f3c848c7a95075fecdc4419a43e1d8cba87b4e4ce1ed373bbae14f7b14cf5581",
+    "02-new-en-quantity/PL.csv": "b44e9115188505a558ad4c5c7f3cd07d9a3eb3d3e5945f0c61549eaecd20c5a4",
+    "02-new-en-quantity/PO.csv": "560bc8f8a46284f5bf5d412aa1194283b85b0b25da2a3d4593ace4dab9248843",
+    "02-new-en-quantity/truth.json": "da7eda4b8c507070468df13c4342e0e33a81d538c49ea4018652ce60c9cf7ea6",
+    "03-new-en-price/CI.csv": "5519838b88838d1ac107145622e1abb61a721a23f7e57e497b32806f34a63e3b",
+    "03-new-en-price/confirmation.json": "f3c848c7a95075fecdc4419a43e1d8cba87b4e4ce1ed373bbae14f7b14cf5581",
+    "03-new-en-price/PL.csv": "65ade78e92259fb85b2358913132f8a3bd5eac1539139c6ed6f1b2b415010b65",
+    "03-new-en-price/PO.csv": "919b1b9e1d2cbae17bd4ae730e9ec7e7aa08a3e7cd20bf95d79d56dd6efb5c73",
+    "03-new-en-price/truth.json": "4bc37c952905dafdfe63932a69931bafe7e281a9061e29f32bc083df79e2e75c",
+    "04-new-en-weight/CI.csv": "aa7bce7aed9ecb23ceda9e7c0f87e61a5d1006cd720b804ff8adf100ff59da28",
+    "04-new-en-weight/confirmation.json": "f3c848c7a95075fecdc4419a43e1d8cba87b4e4ce1ed373bbae14f7b14cf5581",
+    "04-new-en-weight/PL.csv": "3aefafb44cb65ecee723b428f17e5c45dca5a35ac6ffa61373b074015cad2da3",
+    "04-new-en-weight/PO.csv": "62b094c1d345ba53d2f5d45f0f998de88d91e6a76dae85c7a7ea284bbf882708",
+    "04-new-en-weight/truth.json": "39ca07aeb9b2c28523672c734f5ec6ff8f5a370ae3ac1440be438fa52f6aa371",
+    "05-new-zh-normal/CI.xlsx": "3d699fb882e863971a3932874989f76f758d611e0a1fe9ec23854b866a62c81d",
+    "05-new-zh-normal/confirmation.json": "6bdd27b411067606c4d4a6bcff5f06694fa12c5a312b07b0262ce44f2ae1a9aa",
+    "05-new-zh-normal/PL.csv": "d60485449bfc94ef45d41b238701f3ad4a2a014aaab904872103a544813192cd",
+    "05-new-zh-normal/PO.csv": "ffd38084dc1d039886ce74fd91403a82cd3d33079086e1cfec1288bb2784f7a1",
+    "05-new-zh-normal/truth.json": "a8416884bc73f0cc98907904e241c39098a529e75580f41092f8a59056db97fb",
+    "06-new-zh-quantity/CI.xlsx": "4bd3ee891fbcd2e4ea89978134e4d678dfec2436ba047fe519f428afaec14ec3",
+    "06-new-zh-quantity/confirmation.json": "6bdd27b411067606c4d4a6bcff5f06694fa12c5a312b07b0262ce44f2ae1a9aa",
+    "06-new-zh-quantity/PL.csv": "ded8019e5696618b7a2e7b5038bcb52f602ea275b04b682bc041dd9190d3ef71",
+    "06-new-zh-quantity/PO.csv": "0fbfb71d383cc9305855ab223df6454a865ca69d8fce3f10c7c0996984cb7ff1",
+    "06-new-zh-quantity/truth.json": "7527284d5e547ee0594bb34a17bbf364158aacc8949d0cca0e357fbfe4422ff1",
+    "07-new-zh-price/CI.xlsx": "d0cafaa515d4f6ae9a951aed8b873d6ea9a3e6b1696c7776927ea71e36aabcfc",
+    "07-new-zh-price/confirmation.json": "6bdd27b411067606c4d4a6bcff5f06694fa12c5a312b07b0262ce44f2ae1a9aa",
+    "07-new-zh-price/PL.csv": "93469921533a51638b9e918dd8022ab10cdfb47b60fbc4d2ac9b0d883bd3d6dd",
+    "07-new-zh-price/PO.csv": "6116f035be0b14fa1b236a3f4ee49a458e8a057f56fd2b339cf18928e9b79039",
+    "07-new-zh-price/truth.json": "863a8bd1e79175e3dfb7894c292615bc0f21b6104f75993b6763d4062bc00ff0",
+    "08-new-zh-weight/CI.xlsx": "27f7789a130a7a6a3cae6554120e73a44e611cf1ee7e9a0173c577e928758a90",
+    "08-new-zh-weight/confirmation.json": "6bdd27b411067606c4d4a6bcff5f06694fa12c5a312b07b0262ce44f2ae1a9aa",
+    "08-new-zh-weight/PL.csv": "1d850ee76a5363b19dea832986cd8f1d4647636e511680e5b711e3f831b151ca",
+    "08-new-zh-weight/PO.csv": "56b227c142dd50daff790a72559db490a573f59bb5b0b65a640fb3e37105eec4",
+    "08-new-zh-weight/truth.json": "f490d9d9356c8409728631e703c0b04c2532dc46ba07f44edefa61d5aff4d4b0",
+    "09-new-reference-normal/CI.csv": "758bb79f99a724207d77e01ef0e19fd4e99e3eb85f317fb3ced903e7195a6973",
+    "09-new-reference-normal/confirmation.json": "d8644bbcd9ecd5ddbbd94e79ed2deab53eb81aa6c3e9bb7d9ed7a4a2f7f47d5d",
+    "09-new-reference-normal/PL.csv": "34f21c6c2b1ef051128e208d00e8c2be3968cbf2de631a8c612940aa499e5218",
+    "09-new-reference-normal/PO.csv": "333e2fb0996c69d02ac74c926a6527fb21373796b49fff88d1749c573f80a9c0",
+    "09-new-reference-normal/truth.json": "2c843552655ddeb2f49ee9fe91ee36dc70bf1860ffed36dbb0f95e6a76be042b",
+    "10-new-reference-quantity/CI.csv": "423cf2e340396af73e2f4602557e35df5977939373135e6a670bbbccfcf1a31c",
+    "10-new-reference-quantity/confirmation.json": "92556a04cae22149e4b3c025e364c5efc225877dfbd4f40f88eab3f620c25acd",
+    "10-new-reference-quantity/PL.csv": "607cc52fe7df7beef2449d886f8fcc0e8e5bc79702da49f7a4d684cb7745f44e",
+    "10-new-reference-quantity/PO.csv": "f3796d4f4acb18e591671632c92451095a0fadb66a0c080901f740d955215db6",
+    "10-new-reference-quantity/truth.json": "42a822ec2a357e8c379be700087d4e4563046766185814df1525907f125791c8",
+    "11-new-reference-price/CI.csv": "43f6136401f74f0e692882a7fe05952669033ba6108f2dcf1e8ea71438f5cf43",
+    "11-new-reference-price/confirmation.json": "664ae97e2734955d0ebedcac4fe6084e1019da2e6f2d359933b1924f126ab7b0",
+    "11-new-reference-price/PL.csv": "f81da98dda718c732414031942a3dc7bec83745ca3a06e054778973ee2b93d4c",
+    "11-new-reference-price/PO.csv": "8cd190f1a1dbb0219a01468cc5ec10ddb7e612242bf808c2003ae3efde0f87d0",
+    "11-new-reference-price/truth.json": "8a32dd15223e85b520304b33bfc3d1a07f5bb322c347ff5e3d73e51fd8d88cb8",
+    "12-new-reference-weight/CI.csv": "3f928e056b08d5638437b2da6d6d03065b7b58c170522bd4285c9cd45cd9f042",
+    "12-new-reference-weight/confirmation.json": "34c7e3c49bb9027061aea1b9c5a370c68896570747e9b47c798a29e08bb5dc4e",
+    "12-new-reference-weight/PL.csv": "ca0cd180d4f8898734ba695ff4b4140ec26d1e1ab5f1a2605efabc1b6df51543",
+    "12-new-reference-weight/PO.csv": "15b7249905d5fe6543f3d59c75ee69ffaecfabefa64f95b803ab6a77bb569639",
+    "12-new-reference-weight/truth.json": "56d19741366b2ad22336cb9447d04b06135caee2a01176178c8f164fef139473"
+  },
+  "engine": {
+    "agent/diagnostic_agent.py": "63744a05752fc07df74d8bd8ff547ec15496f32e4791204e755ee399a0bcd324",
+    "agent/diagnostic_output.py": "6d0ec040742303fae82a0b4edc578c394a4716eef91d2885c6abc9487fd00427",
+    "agent/mapping_agent.py": "e81f7153f790d7f489535644f6e1a68505c556fc5ef6774eea3f3536bdb4b015",
+    "agent/usage_meter.py": "07e7ff5ede7c90dc285a79c289138afef1c8910d1a9e89c1d81669936f841765",
+    "agent/main_agent.py": "f57bc61f370fa895dbc2e1c31226a8211da988162b03f5530dd908aacdfa3df6",
+    "agent/tools.py": "6331fa95abdf52a10e4d0bf31b6717e16385a313c54c2cf42fd115c55baa53b7",
+    "core/parser.py": "2a2ab534a6631fc69710a290adab2ad5b6d626e48fe6fb7aef3f3e66b1bc4dc5",
+    "core/pdf_columns.py": "438e6545a07e78a41094f936f88e947404002ab795906eedc9744a094dad4581",
+    "core/normalizer.py": "bcd479632039a7c2efc4fab1f674168da8bdc725ae637789b23a611402e0a999",
+    "core/audit_rules.py": "db0a6cfbb8cce508b88be2a12261239554b309502986c1fc20a4f7a987c3943c",
+    "core/schemas.py": "5eb70b2fb375c502e42ef7da5a2c50862dbd412b87b1ddcd2cef747a64e73287",
+    "core/reporter.py": "eacb5bb860fba017288386a576014e2b73f49c5ba53787564939c1186c5ac166",
+    "agent/prompts.py": "fa8ccce6b56f034652c5a58648ccb5921079dd159983efed841f2f86299a85e4",
+    "scripts/evaluate.py": "7b62a167f9dbc81e6ac6cc7da9111cc909cf9c6a1a3c2c4881bdc45687a98e71",
+    "scripts/evaluate_independent.py": "70a6c1f4abf913a5dcbca0fa62af258b17aec183c5c19ef88ed75dcc834f025c",
+    "scripts/evaluate_optimization.py": "06dbc1ca43fa2f3f78185101dda969130287d9d387cda636f1c212492cb63c58",
+    "scripts/generate_optimization_holdout.py": "06dbcd29ac407669853b5b1f05e83b2095dab7cdee8ee294e8ec3b3f19f9ecf7"
+  }
+}

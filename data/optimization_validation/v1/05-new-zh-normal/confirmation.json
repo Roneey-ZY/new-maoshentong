@@ -1,0 +1,17 @@
+[
+  {
+    "type": "mapping",
+    "kind": "CI",
+    "anchor": {
+      "row": 4,
+      "sheet": "批次结算",
+      "page": null
+    },
+    "columns": {
+      "1": "line_amount",
+      "2": "unit_price",
+      "4": "quantity",
+      "6": "sku"
+    }
+  }
+]

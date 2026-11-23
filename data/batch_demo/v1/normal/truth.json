@@ -1,0 +1,10 @@
+{
+  "source": "project-authored synthetic",
+  "expected_nonconsistent_counts": {
+    "difference": 0,
+    "contradiction": 0,
+    "review": 0,
+    "info": 0
+  },
+  "method": "declared_by_construction_not_from_audit_output"
+}

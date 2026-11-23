@@ -1,0 +1,3171 @@
+{
+  "created_utc": "2026-11-23T04:08:17.337250+00:00",
+  "status": "completed",
+  "experiment_type": "known_failure_regression",
+  "dataset_manifest_sha256": "3d688e5de143f443f19ac91695bee65dc016831637f562259bc50115db0c5209",
+  "engine": {
+    "agent/diagnostic_agent.py": "63744a05752fc07df74d8bd8ff547ec15496f32e4791204e755ee399a0bcd324",
+    "agent/diagnostic_output.py": "6d0ec040742303fae82a0b4edc578c394a4716eef91d2885c6abc9487fd00427",
+    "agent/mapping_agent.py": "e81f7153f790d7f489535644f6e1a68505c556fc5ef6774eea3f3536bdb4b015",
+    "agent/usage_meter.py": "07e7ff5ede7c90dc285a79c289138afef1c8910d1a9e89c1d81669936f841765",
+    "agent/main_agent.py": "f57bc61f370fa895dbc2e1c31226a8211da988162b03f5530dd908aacdfa3df6",
+    "agent/tools.py": "6331fa95abdf52a10e4d0bf31b6717e16385a313c54c2cf42fd115c55baa53b7",
+    "core/parser.py": "2a2ab534a6631fc69710a290adab2ad5b6d626e48fe6fb7aef3f3e66b1bc4dc5",
+    "core/pdf_columns.py": "438e6545a07e78a41094f936f88e947404002ab795906eedc9744a094dad4581",
+    "core/normalizer.py": "bcd479632039a7c2efc4fab1f674168da8bdc725ae637789b23a611402e0a999",
+    "core/audit_rules.py": "db0a6cfbb8cce508b88be2a12261239554b309502986c1fc20a4f7a987c3943c",
+    "core/schemas.py": "5eb70b2fb375c502e42ef7da5a2c50862dbd412b87b1ddcd2cef747a64e73287",
+    "core/reporter.py": "eacb5bb860fba017288386a576014e2b73f49c5ba53787564939c1186c5ac166",
+    "agent/prompts.py": "fa8ccce6b56f034652c5a58648ccb5921079dd159983efed841f2f86299a85e4",
+    "scripts/evaluate.py": "7b62a167f9dbc81e6ac6cc7da9111cc909cf9c6a1a3c2c4881bdc45687a98e71",
+    "scripts/evaluate_independent.py": "70a6c1f4abf913a5dcbca0fa62af258b17aec183c5c19ef88ed75dcc834f025c",
+    "scripts/evaluate_optimization.py": "06dbc1ca43fa2f3f78185101dda969130287d9d387cda636f1c212492cb63c58"
+  },
+  "human_measurement": "none_program_simulation_only",
+  "actual_billed_cost": null,
+  "model": {
+    "provider": "deepseek",
+    "name": "deepseek-flash"
+  },
+  "arms": {
+    "baseline": {
+      "status": "completed",
+      "records": [
+        {
+          "case": "09-unfamiliar-en-quantity",
+          "elapsed_ms": 18.651,
+          "success": false,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4509"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4509"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "SKU_MISSING",
+              "review",
+              ""
+            ],
+            [
+              "SKU_LINK",
+              "review",
+              "XC-4509"
+            ],
+            [
+              "SKU_LINK",
+              "review",
+              "XC-4509"
+            ],
+            [
+              "LINE_AMOUNT",
+              "review",
+              ""
+            ]
+          ],
+          "field_differences": [
+            {
+              "field": [
+                "CI",
+                0,
+                "line_amount"
+              ],
+              "expected": "436.80",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "quantity"
+              ],
+              "expected": "56",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "sku"
+              ],
+              "expected": "XC-4509",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "unit_price"
+              ],
+              "expected": "7.80",
+              "actual": null
+            }
+          ],
+          "field_correct": 26,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 2
+          },
+          "review": {
+            "tp": 0,
+            "fp": 4,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 1.4,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.39,
+              "summary": "13 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.14,
+              "summary": "4 comparisons, {'difference': 0, 'contradiction': 0, 'review': 4}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 16.7,
+              "summary": "XLSX generated (10005 bytes)"
+            }
+          ],
+          "mode": "baseline",
+          "confirmation_method": "none",
+          "confirmations": [],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 4,
+          "checks_after": 4,
+          "unverifiable_count": 4,
+          "unverifiable_denominator": 8,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "unfamiliar-en",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "10-unfamiliar-en-price",
+          "elapsed_ms": 16.918,
+          "success": false,
+          "expected_findings": [
+            [
+              "UNIT_PRICE",
+              "difference",
+              "XC-4510"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "SKU_MISSING",
+              "review",
+              ""
+            ],
+            [
+              "SKU_LINK",
+              "review",
+              "XC-4510"
+            ],
+            [
+              "SKU_LINK",
+              "review",
+              "XC-4510"
+            ],
+            [
+              "LINE_AMOUNT",
+              "review",
+              ""
+            ]
+          ],
+          "field_differences": [
+            {
+              "field": [
+                "CI",
+                0,
+                "line_amount"
+              ],
+              "expected": "257.95",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "quantity"
+              ],
+              "expected": "67",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "sku"
+              ],
+              "expected": "XC-4510",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "unit_price"
+              ],
+              "expected": "3.85",
+              "actual": null
+            }
+          ],
+          "field_correct": 26,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 1
+          },
+          "review": {
+            "tp": 0,
+            "fp": 4,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.75,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.05,
+              "summary": "13 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.1,
+              "summary": "4 comparisons, {'difference': 0, 'contradiction': 0, 'review': 4}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 15.99,
+              "summary": "XLSX generated (10003 bytes)"
+            }
+          ],
+          "mode": "baseline",
+          "confirmation_method": "none",
+          "confirmations": [],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 4,
+          "checks_after": 4,
+          "unverifiable_count": 4,
+          "unverifiable_denominator": 8,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "unfamiliar-en",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "14-unfamiliar-zh-quantity",
+          "elapsed_ms": 21.078,
+          "success": false,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4514"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4514"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "SKU_MISSING",
+              "review",
+              ""
+            ],
+            [
+              "SKU_LINK",
+              "review",
+              "XC-4514"
+            ],
+            [
+              "SKU_LINK",
+              "review",
+              "XC-4514"
+            ],
+            [
+              "LINE_AMOUNT",
+              "review",
+              ""
+            ]
+          ],
+          "field_differences": [
+            {
+              "field": [
+                "CI",
+                0,
+                "line_amount"
+              ],
+              "expected": "1614.70",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "quantity"
+              ],
+              "expected": "67",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "sku"
+              ],
+              "expected": "XC-4514",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "unit_price"
+              ],
+              "expected": "24.10",
+              "actual": null
+            }
+          ],
+          "field_correct": 26,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 2
+          },
+          "review": {
+            "tp": 0,
+            "fp": 4,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 3.86,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.05,
+              "summary": "13 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.09,
+              "summary": "4 comparisons, {'difference': 0, 'contradiction': 0, 'review': 4}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 17.05,
+              "summary": "XLSX generated (10065 bytes)"
+            }
+          ],
+          "mode": "baseline",
+          "confirmation_method": "none",
+          "confirmations": [],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 4,
+          "checks_after": 4,
+          "unverifiable_count": 4,
+          "unverifiable_denominator": 8,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "unfamiliar-zh",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "18-metadata-quantity",
+          "elapsed_ms": 18.046,
+          "success": false,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4518"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4518"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "ORDER_LINK",
+              "review",
+              ""
+            ],
+            [
+              "ORDER_LINK",
+              "review",
+              ""
+            ]
+          ],
+          "field_differences": [
+            {
+              "field": [
+                "CI",
+                -1,
+                "order_id"
+              ],
+              "expected": "NX-7818",
+              "actual": null
+            }
+          ],
+          "field_correct": 29,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 2
+          },
+          "review": {
+            "tp": 0,
+            "fp": 2,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.86,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.07,
+              "summary": "15 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.08,
+              "summary": "2 comparisons, {'difference': 0, 'contradiction': 0, 'review': 2}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 17.03,
+              "summary": "XLSX generated (9668 bytes)"
+            }
+          ],
+          "mode": "baseline",
+          "confirmation_method": "none",
+          "confirmations": [],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 2,
+          "checks_after": 2,
+          "unverifiable_count": 2,
+          "unverifiable_denominator": 4,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "metadata",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "20-metadata-missing_weight",
+          "elapsed_ms": 19.207,
+          "success": false,
+          "expected_findings": [
+            [
+              "WEIGHT",
+              "review",
+              "XC-4520"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "ORDER_LINK",
+              "review",
+              ""
+            ],
+            [
+              "ORDER_LINK",
+              "review",
+              ""
+            ],
+            [
+              "WEIGHT",
+              "review",
+              "XC-4520"
+            ]
+          ],
+          "field_differences": [
+            {
+              "field": [
+                "CI",
+                -1,
+                "order_id"
+              ],
+              "expected": "NX-7820",
+              "actual": null
+            }
+          ],
+          "field_correct": 28,
+          "field_count": 29,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 1,
+            "fp": 2,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.79,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.05,
+              "summary": "13 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.08,
+              "summary": "1 comparisons, {'difference': 0, 'contradiction': 0, 'review': 3}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 18.26,
+              "summary": "XLSX generated (9869 bytes)"
+            }
+          ],
+          "mode": "baseline",
+          "confirmation_method": "none",
+          "confirmations": [],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 1,
+          "checks_after": 1,
+          "unverifiable_count": 3,
+          "unverifiable_denominator": 4,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "metadata",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "21-manual-boundaries-duplicate",
+          "elapsed_ms": 16.794,
+          "success": true,
+          "expected_findings": [
+            [
+              "SKU_DUPLICATE",
+              "review",
+              "XC-4521"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "SKU_DUPLICATE",
+              "review",
+              "XC-4521"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 36,
+          "field_count": 36,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.87,
+              "summary": "3 documents, 4 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.06,
+              "summary": "14 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.1,
+              "summary": "6 comparisons, {'difference': 0, 'contradiction': 0, 'review': 1}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 15.75,
+              "summary": "XLSX generated (9748 bytes)"
+            }
+          ],
+          "mode": "baseline",
+          "confirmation_method": "none",
+          "confirmations": [],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 6,
+          "checks_after": 6,
+          "unverifiable_count": 1,
+          "unverifiable_denominator": 7,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "manual-boundaries",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "22-manual-boundaries-unit_unknown",
+          "elapsed_ms": 19.251,
+          "success": true,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "UNIT_PRICE",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "CI_PL_QTY",
+              "review",
+              "XC-4522"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "PO_CI_QTY",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "UNIT_PRICE",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "CI_PL_QTY",
+              "review",
+              "XC-4522"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 30,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.79,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.06,
+              "summary": "15 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.11,
+              "summary": "5 comparisons, {'difference': 0, 'contradiction': 0, 'review': 3}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 18.27,
+              "summary": "XLSX generated (10112 bytes)"
+            }
+          ],
+          "mode": "baseline",
+          "confirmation_method": "none",
+          "confirmations": [],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 5,
+          "checks_after": 5,
+          "unverifiable_count": 3,
+          "unverifiable_denominator": 8,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "manual-boundaries",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        }
+      ],
+      "summary": {
+        "cases": 7,
+        "end_to_end_success_rate": 0.28571,
+        "field_accuracy": 0.93488,
+        "mean_ms": 18.564,
+        "median_ms": 18.651,
+        "anomaly": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 7,
+          "precision": null,
+          "recall": 0.0
+        },
+        "review": {
+          "tp": 5,
+          "fp": 16,
+          "fn": 0,
+          "precision": 0.2381,
+          "recall": 1.0
+        },
+        "successful_cases": 2,
+        "field_correct": 201,
+        "field_count": 215,
+        "unverifiable_count": 21,
+        "unverifiable_denominator": 47,
+        "unverifiable_fraction": 0.44680851063829785,
+        "simulated_confirmations": 0,
+        "real_human_confirmations": 0,
+        "real_human_seconds": null,
+        "model_attempts": 0,
+        "model_failed_attempts": 0,
+        "model_failed_cases": 0,
+        "tokens_complete": true,
+        "known_input_tokens": 0,
+        "known_output_tokens": 0,
+        "known_cached_input_tokens": 0,
+        "actual_billed_cost": null,
+        "failure_cases": [
+          "09-unfamiliar-en-quantity",
+          "10-unfamiliar-en-price",
+          "14-unfamiliar-zh-quantity",
+          "18-metadata-quantity",
+          "20-metadata-missing_weight"
+        ]
+      }
+    },
+    "agent_test_confirmation": {
+      "status": "completed",
+      "records": [
+        {
+          "case": "09-unfamiliar-en-quantity",
+          "elapsed_ms": 7277.048,
+          "success": false,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4509"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4509"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "SKU_MISSING",
+              "review",
+              ""
+            ],
+            [
+              "SKU_LINK",
+              "review",
+              "XC-4509"
+            ],
+            [
+              "SKU_LINK",
+              "review",
+              "XC-4509"
+            ],
+            [
+              "LINE_AMOUNT",
+              "review",
+              ""
+            ]
+          ],
+          "field_differences": [
+            {
+              "field": [
+                "CI",
+                0,
+                "line_amount"
+              ],
+              "expected": "436.80",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "quantity"
+              ],
+              "expected": "56",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "sku"
+              ],
+              "expected": "XC-4509",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "unit_price"
+              ],
+              "expected": "7.80",
+              "actual": null
+            }
+          ],
+          "field_correct": 26,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 2
+          },
+          "review": {
+            "tp": 0,
+            "fp": 4,
+            "fn": 0
+          },
+          "error": "调用未完成（ModelBehaviorError）",
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.8,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.06,
+              "summary": "13 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.1,
+              "summary": "4 comparisons, {'difference': 0, 'contradiction': 0, 'review': 4}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 17.92,
+              "summary": "XLSX generated (10005 bytes)"
+            }
+          ],
+          "mode": "agent_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [],
+          "diagnostic_rounds": [
+            {
+              "revision": "9d6ae6d576efc1283517829d53aaf206633a0ac27a4e0da6d56cb4fe875aed46",
+              "summary": "疑难检查未完成，请保留人工复核。",
+              "proposals": [],
+              "log": [
+                {
+                  "order": 1,
+                  "tool": "inspect_candidate_tables",
+                  "status": "ok",
+                  "summary": "Returned 1049 characters",
+                  "ms": 1.14
+                },
+                {
+                  "order": 2,
+                  "tool": "inspect_missing_fields",
+                  "status": "ok",
+                  "summary": "Returned 105 characters",
+                  "ms": 0.03
+                },
+                {
+                  "order": 3,
+                  "tool": "inspect_item_links",
+                  "status": "ok",
+                  "summary": "Returned 144 characters",
+                  "ms": 0.13
+                },
+                {
+                  "order": 4,
+                  "tool": "request_human_review",
+                  "status": "ok",
+                  "summary": "Returned 142 characters",
+                  "ms": 0.02
+                }
+              ],
+              "model_requests": [
+                {
+                  "attempt": 1,
+                  "status": "ok",
+                  "input_tokens": 1345,
+                  "output_tokens": 77,
+                  "cached_input_tokens": 0,
+                  "ms": 854.13
+                },
+                {
+                  "attempt": 2,
+                  "status": "ok",
+                  "input_tokens": 1871,
+                  "output_tokens": 919,
+                  "cached_input_tokens": 1408,
+                  "ms": 4054.83
+                },
+                {
+                  "attempt": 3,
+                  "status": "ok",
+                  "input_tokens": 2837,
+                  "output_tokens": 159,
+                  "cached_input_tokens": 2688,
+                  "ms": 1097.86
+                }
+              ],
+              "output_events": [
+                {
+                  "phase": "output_validation",
+                  "status": "failed",
+                  "issues": [
+                    {
+                      "loc": [],
+                      "type": "json_invalid"
+                    }
+                  ]
+                }
+              ],
+              "mode": "failed",
+              "error": "调用未完成（ModelBehaviorError）"
+            }
+          ],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 4,
+          "checks_after": 4,
+          "unverifiable_count": 4,
+          "unverifiable_denominator": 8,
+          "model_attempts": 3,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 6053,
+          "known_output_tokens": 1155,
+          "known_cached_input_tokens": 4096,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "unfamiliar-en",
+          "format_validation_failures": 1,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "10-unfamiliar-en-price",
+          "elapsed_ms": 2465.539,
+          "success": true,
+          "expected_findings": [
+            [
+              "UNIT_PRICE",
+              "difference",
+              "XC-4510"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "UNIT_PRICE",
+              "difference",
+              "XC-4510"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 30,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "apply_confirmed_table",
+              "status": "ok",
+              "ms": 0.41,
+              "summary": "1 item rows, 11 confirmed columns"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.07,
+              "summary": "15 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.15,
+              "summary": "8 comparisons, {'difference': 1, 'contradiction': 0, 'review': 0}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 20.37,
+              "summary": "XLSX generated (10831 bytes)"
+            }
+          ],
+          "mode": "agent_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [
+            {
+              "proposal": {
+                "type": "mapping",
+                "kind": "CI",
+                "anchor": {
+                  "row": 1,
+                  "sheet": null,
+                  "page": null
+                },
+                "columns": {
+                  "6": "sku",
+                  "8": "quantity",
+                  "10": "unit_price",
+                  "11": "line_amount"
+                },
+                "labels": [
+                  "order_id",
+                  "invoice_id",
+                  "buyer",
+                  "seller",
+                  "currency",
+                  "Merchandise identity",
+                  "product",
+                  "Count billed this shipment",
+                  "unit",
+                  "Price charged per piece",
+                  "Extended item value"
+                ]
+              },
+              "status": "applied_by_test_driver",
+              "error": null,
+              "ms": 21.631
+            }
+          ],
+          "diagnostic_rounds": [
+            {
+              "revision": "d41e6619cf2a0f85acc7f56dda07883fe776f45f77d965939a3160e8b0e67f76",
+              "summary": "诊断完成，未修改任何文档。CI 表 CI:table:0 有 4 个未知列：第6列「Merchandise identity」(code) 可提议映射为 sku，第8列「Count billed this shipment」(number) 可提议 quantity，第10列「Price charged per piece」(number) 可提议 unit_price，第11列「Extended item value」(number) 可提议 line_amount；这些仍需人工确认。PL:table:0 与 PO:table:0 表头已知，无需映射。缺失表头检查未返回任何来源行，无法给出 order_id/invoice_id/currency 的字段值建议。SKU 关联检查无候选，且 review_rules 含 SKU_LINK 与 SKU_MISSING，需人工核实 SKU 是否唯一对应。LINE_AMOUNT 方面无法执行算术校验，第11列是否为行金额请人工确认。",
+              "proposals": [
+                {
+                  "type": "mapping",
+                  "kind": "CI",
+                  "anchor": {
+                    "row": 1,
+                    "sheet": null,
+                    "page": null
+                  },
+                  "columns": {
+                    "6": "sku",
+                    "8": "quantity",
+                    "10": "unit_price",
+                    "11": "line_amount"
+                  },
+                  "labels": [
+                    "order_id",
+                    "invoice_id",
+                    "buyer",
+                    "seller",
+                    "currency",
+                    "Merchandise identity",
+                    "product",
+                    "Count billed this shipment",
+                    "unit",
+                    "Price charged per piece",
+                    "Extended item value"
+                  ]
+                }
+              ],
+              "log": [
+                {
+                  "order": 1,
+                  "tool": "inspect_candidate_tables",
+                  "status": "ok",
+                  "summary": "Returned 1049 characters",
+                  "ms": 1.04
+                },
+                {
+                  "order": 2,
+                  "tool": "inspect_missing_fields",
+                  "status": "ok",
+                  "summary": "Returned 105 characters",
+                  "ms": 0.03
+                },
+                {
+                  "order": 3,
+                  "tool": "inspect_item_links",
+                  "status": "ok",
+                  "summary": "Returned 144 characters",
+                  "ms": 0.05
+                }
+              ],
+              "model_requests": [
+                {
+                  "attempt": 1,
+                  "status": "ok",
+                  "input_tokens": 1345,
+                  "output_tokens": 85,
+                  "cached_input_tokens": 1152,
+                  "ms": 795.94
+                },
+                {
+                  "attempt": 2,
+                  "status": "ok",
+                  "input_tokens": 1879,
+                  "output_tokens": 312,
+                  "cached_input_tokens": 1408,
+                  "ms": 1608.76
+                }
+              ],
+              "output_events": [],
+              "mode": "model_tools"
+            }
+          ],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 1,
+          "checks_before": 4,
+          "checks_after": 8,
+          "unverifiable_count": 0,
+          "unverifiable_denominator": 8,
+          "model_attempts": 2,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 3224,
+          "known_output_tokens": 397,
+          "known_cached_input_tokens": 2560,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "unfamiliar-en",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "14-unfamiliar-zh-quantity",
+          "elapsed_ms": 7030.212,
+          "success": false,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4514"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4514"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "SKU_MISSING",
+              "review",
+              ""
+            ],
+            [
+              "SKU_LINK",
+              "review",
+              "XC-4514"
+            ],
+            [
+              "SKU_LINK",
+              "review",
+              "XC-4514"
+            ],
+            [
+              "LINE_AMOUNT",
+              "review",
+              ""
+            ]
+          ],
+          "field_differences": [
+            {
+              "field": [
+                "CI",
+                0,
+                "line_amount"
+              ],
+              "expected": "1614.70",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "quantity"
+              ],
+              "expected": "67",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "sku"
+              ],
+              "expected": "XC-4514",
+              "actual": null
+            },
+            {
+              "field": [
+                "CI",
+                0,
+                "unit_price"
+              ],
+              "expected": "24.10",
+              "actual": null
+            }
+          ],
+          "field_correct": 26,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 2
+          },
+          "review": {
+            "tp": 0,
+            "fp": 4,
+            "fn": 0
+          },
+          "error": "调用未完成（ModelBehaviorError）",
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 3.07,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.06,
+              "summary": "13 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.12,
+              "summary": "4 comparisons, {'difference': 0, 'contradiction': 0, 'review': 4}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 17.91,
+              "summary": "XLSX generated (10065 bytes)"
+            }
+          ],
+          "mode": "agent_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [],
+          "diagnostic_rounds": [
+            {
+              "revision": "f2fe3ecadb02d442b218461843dbdedaff34b8ea412d2f95c20e6b4000becc0d",
+              "summary": "疑难检查未完成，请保留人工复核。",
+              "proposals": [],
+              "log": [
+                {
+                  "order": 1,
+                  "tool": "inspect_candidate_tables",
+                  "status": "ok",
+                  "summary": "Returned 985 characters",
+                  "ms": 4.07
+                },
+                {
+                  "order": 2,
+                  "tool": "inspect_missing_fields",
+                  "status": "ok",
+                  "summary": "Returned 105 characters",
+                  "ms": 0.03
+                },
+                {
+                  "order": 3,
+                  "tool": "inspect_item_links",
+                  "status": "ok",
+                  "summary": "Returned 144 characters",
+                  "ms": 0.06
+                },
+                {
+                  "order": 4,
+                  "tool": "request_human_review",
+                  "status": "ok",
+                  "summary": "Returned 142 characters",
+                  "ms": 0.02
+                }
+              ],
+              "model_requests": [
+                {
+                  "attempt": 1,
+                  "status": "ok",
+                  "input_tokens": 1345,
+                  "output_tokens": 71,
+                  "cached_input_tokens": 1152,
+                  "ms": 706.08
+                },
+                {
+                  "attempt": 2,
+                  "status": "ok",
+                  "input_tokens": 1865,
+                  "output_tokens": 528,
+                  "cached_input_tokens": 1408,
+                  "ms": 3376.14
+                },
+                {
+                  "attempt": 3,
+                  "status": "ok",
+                  "input_tokens": 2440,
+                  "output_tokens": 501,
+                  "cached_input_tokens": 2304,
+                  "ms": 2906.95
+                }
+              ],
+              "output_events": [
+                {
+                  "phase": "output_validation",
+                  "status": "failed",
+                  "issues": [
+                    {
+                      "loc": [],
+                      "type": "json_invalid"
+                    }
+                  ]
+                }
+              ],
+              "mode": "failed",
+              "error": "调用未完成（ModelBehaviorError）"
+            }
+          ],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 4,
+          "checks_after": 4,
+          "unverifiable_count": 4,
+          "unverifiable_denominator": 8,
+          "model_attempts": 3,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 5650,
+          "known_output_tokens": 1100,
+          "known_cached_input_tokens": 4864,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "unfamiliar-zh",
+          "format_validation_failures": 1,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "18-metadata-quantity",
+          "elapsed_ms": 6468.638,
+          "success": false,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4518"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4518"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "ORDER_LINK",
+              "review",
+              ""
+            ],
+            [
+              "ORDER_LINK",
+              "review",
+              ""
+            ]
+          ],
+          "field_differences": [
+            {
+              "field": [
+                "CI",
+                -1,
+                "order_id"
+              ],
+              "expected": "NX-7818",
+              "actual": null
+            }
+          ],
+          "field_correct": 29,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 2
+          },
+          "review": {
+            "tp": 0,
+            "fp": 2,
+            "fn": 0
+          },
+          "error": "调用未完成（ModelBehaviorError）",
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.88,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.07,
+              "summary": "15 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.09,
+              "summary": "2 comparisons, {'difference': 0, 'contradiction': 0, 'review': 2}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 19.15,
+              "summary": "XLSX generated (9668 bytes)"
+            }
+          ],
+          "mode": "agent_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [],
+          "diagnostic_rounds": [
+            {
+              "revision": "fcfead0cd91b84c8add4e9753daa8d961d1158ca993bf9b76c6045bfbe4cd2c8",
+              "summary": "疑难检查未完成，请保留人工复核。",
+              "proposals": [],
+              "log": [
+                {
+                  "order": 1,
+                  "tool": "inspect_candidate_tables",
+                  "status": "ok",
+                  "summary": "Returned 1004 characters",
+                  "ms": 0.96
+                },
+                {
+                  "order": 2,
+                  "tool": "inspect_missing_fields",
+                  "status": "ok",
+                  "summary": "Returned 391 characters",
+                  "ms": 0.41
+                },
+                {
+                  "order": 3,
+                  "tool": "inspect_item_links",
+                  "status": "ok",
+                  "summary": "Returned 144 characters",
+                  "ms": 0.08
+                },
+                {
+                  "order": 4,
+                  "tool": "request_human_review",
+                  "status": "ok",
+                  "summary": "Returned 142 characters",
+                  "ms": 0.01
+                }
+              ],
+              "model_requests": [
+                {
+                  "attempt": 1,
+                  "status": "ok",
+                  "input_tokens": 1344,
+                  "output_tokens": 60,
+                  "cached_input_tokens": 1152,
+                  "ms": 886.3
+                },
+                {
+                  "attempt": 2,
+                  "status": "ok",
+                  "input_tokens": 1905,
+                  "output_tokens": 24,
+                  "cached_input_tokens": 1280,
+                  "ms": 1020.22
+                },
+                {
+                  "attempt": 3,
+                  "status": "ok",
+                  "input_tokens": 1971,
+                  "output_tokens": 24,
+                  "cached_input_tokens": 1792,
+                  "ms": 748.98
+                },
+                {
+                  "attempt": 4,
+                  "status": "ok",
+                  "input_tokens": 2042,
+                  "output_tokens": 731,
+                  "cached_input_tokens": 1792,
+                  "ms": 3774.11
+                }
+              ],
+              "output_events": [
+                {
+                  "phase": "output_validation",
+                  "status": "failed",
+                  "issues": [
+                    {
+                      "loc": [],
+                      "type": "json_invalid"
+                    }
+                  ]
+                }
+              ],
+              "mode": "failed",
+              "error": "调用未完成（ModelBehaviorError）"
+            }
+          ],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 2,
+          "checks_after": 2,
+          "unverifiable_count": 2,
+          "unverifiable_denominator": 4,
+          "model_attempts": 4,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 7262,
+          "known_output_tokens": 839,
+          "known_cached_input_tokens": 6016,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "metadata",
+          "format_validation_failures": 1,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "20-metadata-missing_weight",
+          "elapsed_ms": 8325.428,
+          "success": true,
+          "expected_findings": [
+            [
+              "WEIGHT",
+              "review",
+              "XC-4520"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "WEIGHT",
+              "review",
+              "XC-4520"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 29,
+          "field_count": 29,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.07,
+              "summary": "13 distinct field values normalized"
+            },
+            {
+              "order": 2,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.1,
+              "summary": "7 comparisons, {'difference': 0, 'contradiction': 0, 'review': 1}"
+            },
+            {
+              "order": 3,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 16.56,
+              "summary": "XLSX generated (9622 bytes)"
+            }
+          ],
+          "mode": "agent_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [
+            {
+              "proposal": {
+                "type": "field",
+                "source": {
+                  "file": "CI.csv",
+                  "page": null,
+                  "sheet": null,
+                  "row": 1,
+                  "column": null
+                },
+                "kind": "CI",
+                "field": "order_id",
+                "value": "NX-7820",
+                "quote": "Order reference | NX-7820"
+              },
+              "status": "applied_by_test_driver",
+              "error": null,
+              "ms": 17.01
+            }
+          ],
+          "diagnostic_rounds": [
+            {
+              "revision": "6ed97f763232838af854c42a07555c1643715db9674794e6f0a708525c394324",
+              "summary": "诊断完成（未修改任何文件）。CI 缺少 order_id 表头，原始行显示为「Order reference | NX-7820」，可作为候选值（NX-7820）由人工确认；CI 中该两行出现在 CI:table:1，但表头未知、需人工确认其是否为抬头键值对而非明细列。SKU 关联候选为空，无法提出唯一 SKU 链接建议；WEIGHT 规则仅能核对 PL 的重量列（packages/net_kg/gross_kg）映射，无法验证数值。已请求人工复核，所有提议均待确认。",
+              "proposals": [
+                {
+                  "type": "field",
+                  "source": {
+                    "file": "CI.csv",
+                    "page": null,
+                    "sheet": null,
+                    "row": 1,
+                    "column": null
+                  },
+                  "kind": "CI",
+                  "field": "order_id",
+                  "value": "NX-7820",
+                  "quote": "Order reference | NX-7820"
+                }
+              ],
+              "log": [
+                {
+                  "order": 1,
+                  "tool": "inspect_candidate_tables",
+                  "status": "ok",
+                  "summary": "Returned 1004 characters",
+                  "ms": 0.97
+                },
+                {
+                  "order": 2,
+                  "tool": "inspect_missing_fields",
+                  "status": "ok",
+                  "summary": "Returned 391 characters",
+                  "ms": 0.31
+                },
+                {
+                  "order": 3,
+                  "tool": "inspect_item_links",
+                  "status": "ok",
+                  "summary": "Returned 144 characters",
+                  "ms": 0.06
+                },
+                {
+                  "order": 4,
+                  "tool": "request_human_review",
+                  "status": "ok",
+                  "summary": "Returned 142 characters",
+                  "ms": 0.02
+                }
+              ],
+              "model_requests": [
+                {
+                  "attempt": 1,
+                  "status": "ok",
+                  "input_tokens": 1348,
+                  "output_tokens": 54,
+                  "cached_input_tokens": 1152,
+                  "ms": 731.18
+                },
+                {
+                  "attempt": 2,
+                  "status": "ok",
+                  "input_tokens": 1903,
+                  "output_tokens": 24,
+                  "cached_input_tokens": 1280,
+                  "ms": 437.42
+                },
+                {
+                  "attempt": 3,
+                  "status": "ok",
+                  "input_tokens": 1969,
+                  "output_tokens": 24,
+                  "cached_input_tokens": 1792,
+                  "ms": 428.24
+                },
+                {
+                  "attempt": 4,
+                  "status": "ok",
+                  "input_tokens": 2040,
+                  "output_tokens": 494,
+                  "cached_input_tokens": 1792,
+                  "ms": 1993.62
+                }
+              ],
+              "output_events": [],
+              "mode": "model_tools"
+            },
+            {
+              "revision": "1d891561945575bd7bcb2d1df9d9e32214a16fd9009c4d759676f2c2f38e07cd",
+              "summary": "本次针对 WEIGHT 规则的复查仅能确认文件结构（CI/PL/PO 各表头字段已由系统预识别），但缺少可用证据：inspect_missing_fields 未返回任何原始行文本，因此无法提出 order_id、invoice_id、currency 等字段取值；inspect_item_links 未返回任何 SKU 关联候选，因此无法提出品目配对；CI:table:1 为未识别表结构（表头疑似错位，列2表头显示为 NX-7820，列1为 Order reference），但其列对应字段无法从已检视证据中确定，故不给列映射建议。无法提出任何重量（net_kg / gross_kg / packages）相关的修改建议，也未做任何数值推断。已请求人工复核，未对文档做任何修改，请人工确认后再继续。",
+              "proposals": [],
+              "log": [
+                {
+                  "order": 1,
+                  "tool": "inspect_candidate_tables",
+                  "status": "ok",
+                  "summary": "Returned 1004 characters",
+                  "ms": 0.95
+                },
+                {
+                  "order": 2,
+                  "tool": "inspect_missing_fields",
+                  "status": "ok",
+                  "summary": "Returned 105 characters",
+                  "ms": 0.03
+                },
+                {
+                  "order": 3,
+                  "tool": "inspect_item_links",
+                  "status": "ok",
+                  "summary": "Returned 144 characters",
+                  "ms": 0.05
+                },
+                {
+                  "order": 4,
+                  "tool": "request_human_review",
+                  "status": "ok",
+                  "summary": "Returned 142 characters",
+                  "ms": 0.02
+                }
+              ],
+              "model_requests": [
+                {
+                  "attempt": 1,
+                  "status": "ok",
+                  "input_tokens": 1329,
+                  "output_tokens": 68,
+                  "cached_input_tokens": 1152,
+                  "ms": 1218.22
+                },
+                {
+                  "attempt": 2,
+                  "status": "ok",
+                  "input_tokens": 1846,
+                  "output_tokens": 59,
+                  "cached_input_tokens": 1280,
+                  "ms": 645.64
+                },
+                {
+                  "attempt": 3,
+                  "status": "ok",
+                  "input_tokens": 1952,
+                  "output_tokens": 690,
+                  "cached_input_tokens": 1792,
+                  "ms": 2795.64
+                }
+              ],
+              "output_events": [],
+              "mode": "model_tools"
+            }
+          ],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 1,
+          "checks_before": 1,
+          "checks_after": 7,
+          "unverifiable_count": 1,
+          "unverifiable_denominator": 8,
+          "model_attempts": 7,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 12387,
+          "known_output_tokens": 1413,
+          "known_cached_input_tokens": 10240,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "metadata",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "21-manual-boundaries-duplicate",
+          "elapsed_ms": 3761.906,
+          "success": true,
+          "expected_findings": [
+            [
+              "SKU_DUPLICATE",
+              "review",
+              "XC-4521"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "SKU_DUPLICATE",
+              "review",
+              "XC-4521"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 36,
+          "field_count": 36,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.99,
+              "summary": "3 documents, 4 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.07,
+              "summary": "14 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.13,
+              "summary": "6 comparisons, {'difference': 0, 'contradiction': 0, 'review': 1}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 109.27,
+              "summary": "XLSX generated (9748 bytes)"
+            }
+          ],
+          "mode": "agent_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [],
+          "diagnostic_rounds": [
+            {
+              "revision": "f62db1a5624fa84e43c57b7228f80f0b5a6480a3901056f029123e889f88eb93",
+              "summary": "本次为诊断模式：三张表（CI/PL/PO）的列头均可识别，无缺失表头，未生成缺字段建议。SKU_DUPLICATE 规则所需逐行明细未提供，且 SKU 关联候选为空，因此无法定位具体重复行或给出修复方案，也无法产出可确认的 SKU 链接配对。以下列映射仅为基于表头识别的建议，需人工确认；未对文档做任何修改。建议人工核对 CI、PL、PO 三表中 sku 列（CI 第6列、PL 第4列、PO 第5列）的重复情况。",
+              "proposals": [],
+              "log": [
+                {
+                  "order": 1,
+                  "tool": "inspect_candidate_tables",
+                  "status": "ok",
+                  "summary": "Returned 801 characters",
+                  "ms": 0.96
+                },
+                {
+                  "order": 2,
+                  "tool": "inspect_item_links",
+                  "status": "ok",
+                  "summary": "Returned 144 characters",
+                  "ms": 0.05
+                },
+                {
+                  "order": 3,
+                  "tool": "request_human_review",
+                  "status": "ok",
+                  "summary": "Returned 142 characters",
+                  "ms": 0.03
+                }
+              ],
+              "model_requests": [
+                {
+                  "attempt": 1,
+                  "status": "ok",
+                  "input_tokens": 1334,
+                  "output_tokens": 60,
+                  "cached_input_tokens": 1152,
+                  "ms": 633.06
+                },
+                {
+                  "attempt": 2,
+                  "status": "ok",
+                  "input_tokens": 1742,
+                  "output_tokens": 38,
+                  "cached_input_tokens": 1280,
+                  "ms": 580.1
+                },
+                {
+                  "attempt": 3,
+                  "status": "ok",
+                  "input_tokens": 1827,
+                  "output_tokens": 636,
+                  "cached_input_tokens": 1664,
+                  "ms": 2420.65
+                }
+              ],
+              "output_events": [],
+              "mode": "model_tools"
+            }
+          ],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 6,
+          "checks_after": 6,
+          "unverifiable_count": 1,
+          "unverifiable_denominator": 7,
+          "model_attempts": 3,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 4903,
+          "known_output_tokens": 734,
+          "known_cached_input_tokens": 4096,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "manual-boundaries",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "22-manual-boundaries-unit_unknown",
+          "elapsed_ms": 5213.425,
+          "success": false,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "UNIT_PRICE",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "CI_PL_QTY",
+              "review",
+              "XC-4522"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "PO_CI_QTY",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "UNIT_PRICE",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "CI_PL_QTY",
+              "review",
+              "XC-4522"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 30,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": "调用未完成（ModelBehaviorError）",
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.92,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.07,
+              "summary": "15 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.12,
+              "summary": "5 comparisons, {'difference': 0, 'contradiction': 0, 'review': 3}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 18.73,
+              "summary": "XLSX generated (10112 bytes)"
+            }
+          ],
+          "mode": "agent_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [],
+          "diagnostic_rounds": [
+            {
+              "revision": "0c283d7cb7be7f86c4bf50c5f3e130fd8621a0127ab6659442ea273da966c46b",
+              "summary": "疑难检查未完成，请保留人工复核。",
+              "proposals": [],
+              "log": [
+                {
+                  "order": 1,
+                  "tool": "inspect_candidate_tables",
+                  "status": "ok",
+                  "summary": "Returned 801 characters",
+                  "ms": 1.06
+                },
+                {
+                  "order": 2,
+                  "tool": "inspect_item_links",
+                  "status": "ok",
+                  "summary": "Returned 144 characters",
+                  "ms": 0.06
+                },
+                {
+                  "order": 3,
+                  "tool": "inspect_missing_fields",
+                  "status": "ok",
+                  "summary": "Returned 105 characters",
+                  "ms": 0.05
+                },
+                {
+                  "order": 4,
+                  "tool": "request_human_review",
+                  "status": "ok",
+                  "summary": "Returned 142 characters",
+                  "ms": 0.02
+                }
+              ],
+              "model_requests": [
+                {
+                  "attempt": 1,
+                  "status": "ok",
+                  "input_tokens": 1344,
+                  "output_tokens": 51,
+                  "cached_input_tokens": 1152,
+                  "ms": 525.89
+                },
+                {
+                  "attempt": 2,
+                  "status": "ok",
+                  "input_tokens": 1743,
+                  "output_tokens": 24,
+                  "cached_input_tokens": 1280,
+                  "ms": 400.81
+                },
+                {
+                  "attempt": 3,
+                  "status": "ok",
+                  "input_tokens": 1802,
+                  "output_tokens": 24,
+                  "cached_input_tokens": 1664,
+                  "ms": 521.21
+                },
+                {
+                  "attempt": 4,
+                  "status": "ok",
+                  "input_tokens": 1873,
+                  "output_tokens": 876,
+                  "cached_input_tokens": 1664,
+                  "ms": 3726.15
+                }
+              ],
+              "output_events": [
+                {
+                  "phase": "output_validation",
+                  "status": "failed",
+                  "issues": [
+                    {
+                      "loc": [],
+                      "type": "json_invalid"
+                    }
+                  ]
+                }
+              ],
+              "mode": "failed",
+              "error": "调用未完成（ModelBehaviorError）"
+            }
+          ],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 5,
+          "checks_after": 5,
+          "unverifiable_count": 3,
+          "unverifiable_denominator": 8,
+          "model_attempts": 4,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 6762,
+          "known_output_tokens": 975,
+          "known_cached_input_tokens": 5760,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "manual-boundaries",
+          "format_validation_failures": 1,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        }
+      ],
+      "summary": {
+        "cases": 7,
+        "end_to_end_success_rate": 0.42857,
+        "field_accuracy": 0.95814,
+        "mean_ms": 5791.742,
+        "median_ms": 6468.638,
+        "anomaly": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 6,
+          "precision": 1.0,
+          "recall": 0.14286
+        },
+        "review": {
+          "tp": 5,
+          "fp": 10,
+          "fn": 0,
+          "precision": 0.33333,
+          "recall": 1.0
+        },
+        "successful_cases": 3,
+        "field_correct": 206,
+        "field_count": 215,
+        "unverifiable_count": 15,
+        "unverifiable_denominator": 51,
+        "unverifiable_fraction": 0.29411764705882354,
+        "simulated_confirmations": 2,
+        "real_human_confirmations": 0,
+        "real_human_seconds": null,
+        "model_attempts": 26,
+        "model_failed_attempts": 0,
+        "model_failed_cases": 4,
+        "tokens_complete": true,
+        "known_input_tokens": 46241,
+        "known_output_tokens": 6613,
+        "known_cached_input_tokens": 37632,
+        "actual_billed_cost": null,
+        "failure_cases": [
+          "09-unfamiliar-en-quantity",
+          "14-unfamiliar-zh-quantity",
+          "18-metadata-quantity",
+          "22-manual-boundaries-unit_unknown"
+        ]
+      }
+    },
+    "oracle_test_confirmation": {
+      "status": "completed",
+      "records": [
+        {
+          "case": "09-unfamiliar-en-quantity",
+          "elapsed_ms": 41.848,
+          "success": true,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4509"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4509"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4509"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4509"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 30,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "apply_confirmed_table",
+              "status": "ok",
+              "ms": 0.38,
+              "summary": "1 item rows, 11 confirmed columns"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.07,
+              "summary": "15 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.1,
+              "summary": "8 comparisons, {'difference': 2, 'contradiction': 0, 'review': 0}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 19.62,
+              "summary": "XLSX generated (10998 bytes)"
+            }
+          ],
+          "mode": "oracle_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [
+            {
+              "proposal": {
+                "type": "mapping",
+                "kind": "CI",
+                "anchor": {
+                  "row": 1,
+                  "sheet": null,
+                  "page": null
+                },
+                "columns": {
+                  "6": "sku",
+                  "8": "quantity",
+                  "10": "unit_price",
+                  "11": "line_amount"
+                }
+              },
+              "status": "applied_by_test_driver",
+              "error": null,
+              "ms": 20.618
+            }
+          ],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 1,
+          "checks_before": 4,
+          "checks_after": 8,
+          "unverifiable_count": 0,
+          "unverifiable_denominator": 8,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "unfamiliar-en",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "10-unfamiliar-en-price",
+          "elapsed_ms": 39.397,
+          "success": true,
+          "expected_findings": [
+            [
+              "UNIT_PRICE",
+              "difference",
+              "XC-4510"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "UNIT_PRICE",
+              "difference",
+              "XC-4510"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 30,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "apply_confirmed_table",
+              "status": "ok",
+              "ms": 0.36,
+              "summary": "1 item rows, 11 confirmed columns"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.07,
+              "summary": "15 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.09,
+              "summary": "8 comparisons, {'difference': 1, 'contradiction': 0, 'review': 0}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 19.74,
+              "summary": "XLSX generated (10831 bytes)"
+            }
+          ],
+          "mode": "oracle_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [
+            {
+              "proposal": {
+                "type": "mapping",
+                "kind": "CI",
+                "anchor": {
+                  "row": 1,
+                  "sheet": null,
+                  "page": null
+                },
+                "columns": {
+                  "6": "sku",
+                  "8": "quantity",
+                  "10": "unit_price",
+                  "11": "line_amount"
+                }
+              },
+              "status": "applied_by_test_driver",
+              "error": null,
+              "ms": 20.709
+            }
+          ],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 1,
+          "checks_before": 4,
+          "checks_after": 8,
+          "unverifiable_count": 0,
+          "unverifiable_denominator": 8,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "unfamiliar-en",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "14-unfamiliar-zh-quantity",
+          "elapsed_ms": 47.599,
+          "success": true,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4514"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4514"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4514"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4514"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 30,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "apply_confirmed_table",
+              "status": "ok",
+              "ms": 2.13,
+              "summary": "1 item rows, 11 confirmed columns"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.07,
+              "summary": "15 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.1,
+              "summary": "8 comparisons, {'difference': 2, 'contradiction': 0, 'review': 0}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 19.76,
+              "summary": "XLSX generated (11098 bytes)"
+            }
+          ],
+          "mode": "oracle_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [
+            {
+              "proposal": {
+                "type": "mapping",
+                "kind": "CI",
+                "anchor": {
+                  "row": 3,
+                  "sheet": "结算明细",
+                  "page": null
+                },
+                "columns": {
+                  "6": "sku",
+                  "8": "quantity",
+                  "10": "unit_price",
+                  "11": "line_amount"
+                }
+              },
+              "status": "applied_by_test_driver",
+              "error": null,
+              "ms": 25.549
+            }
+          ],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 1,
+          "checks_before": 4,
+          "checks_after": 8,
+          "unverifiable_count": 0,
+          "unverifiable_denominator": 8,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "unfamiliar-zh",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "18-metadata-quantity",
+          "elapsed_ms": 35.487,
+          "success": true,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4518"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4518"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "PO_CI_QTY",
+              "difference",
+              "XC-4518"
+            ],
+            [
+              "CI_PL_QTY",
+              "difference",
+              "XC-4518"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 30,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 2,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.08,
+              "summary": "15 distinct field values normalized"
+            },
+            {
+              "order": 2,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.1,
+              "summary": "8 comparisons, {'difference': 2, 'contradiction': 0, 'review': 0}"
+            },
+            {
+              "order": 3,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 16.67,
+              "summary": "XLSX generated (9759 bytes)"
+            }
+          ],
+          "mode": "oracle_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [
+            {
+              "proposal": {
+                "type": "field",
+                "kind": "CI",
+                "field": "order_id",
+                "value": "NX-7818",
+                "source": {
+                  "file": "CI.csv",
+                  "page": null,
+                  "sheet": null,
+                  "row": 1,
+                  "column": null
+                }
+              },
+              "status": "applied_by_test_driver",
+              "error": null,
+              "ms": 17.123
+            }
+          ],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 1,
+          "checks_before": 2,
+          "checks_after": 8,
+          "unverifiable_count": 0,
+          "unverifiable_denominator": 8,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "metadata",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "20-metadata-missing_weight",
+          "elapsed_ms": 33.152,
+          "success": true,
+          "expected_findings": [
+            [
+              "WEIGHT",
+              "review",
+              "XC-4520"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "WEIGHT",
+              "review",
+              "XC-4520"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 29,
+          "field_count": 29,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.07,
+              "summary": "13 distinct field values normalized"
+            },
+            {
+              "order": 2,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.09,
+              "summary": "7 comparisons, {'difference': 0, 'contradiction': 0, 'review': 1}"
+            },
+            {
+              "order": 3,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 15.18,
+              "summary": "XLSX generated (9623 bytes)"
+            }
+          ],
+          "mode": "oracle_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [
+            {
+              "proposal": {
+                "type": "field",
+                "kind": "CI",
+                "field": "order_id",
+                "value": "NX-7820",
+                "source": {
+                  "file": "CI.csv",
+                  "page": null,
+                  "sheet": null,
+                  "row": 1,
+                  "column": null
+                }
+              },
+              "status": "applied_by_test_driver",
+              "error": null,
+              "ms": 15.586
+            }
+          ],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 1,
+          "checks_before": 1,
+          "checks_after": 7,
+          "unverifiable_count": 1,
+          "unverifiable_denominator": 8,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "metadata",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "21-manual-boundaries-duplicate",
+          "elapsed_ms": 18.538,
+          "success": true,
+          "expected_findings": [
+            [
+              "SKU_DUPLICATE",
+              "review",
+              "XC-4521"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "SKU_DUPLICATE",
+              "review",
+              "XC-4521"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 36,
+          "field_count": 36,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.88,
+              "summary": "3 documents, 4 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.06,
+              "summary": "14 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.1,
+              "summary": "6 comparisons, {'difference': 0, 'contradiction': 0, 'review': 1}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 17.12,
+              "summary": "XLSX generated (9748 bytes)"
+            }
+          ],
+          "mode": "oracle_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 6,
+          "checks_after": 6,
+          "unverifiable_count": 1,
+          "unverifiable_denominator": 7,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "manual-boundaries",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        },
+        {
+          "case": "22-manual-boundaries-unit_unknown",
+          "elapsed_ms": 19.844,
+          "success": true,
+          "expected_findings": [
+            [
+              "PO_CI_QTY",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "UNIT_PRICE",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "CI_PL_QTY",
+              "review",
+              "XC-4522"
+            ]
+          ],
+          "actual_findings": [
+            [
+              "PO_CI_QTY",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "UNIT_PRICE",
+              "review",
+              "XC-4522"
+            ],
+            [
+              "CI_PL_QTY",
+              "review",
+              "XC-4522"
+            ]
+          ],
+          "field_differences": [],
+          "field_correct": 30,
+          "field_count": 30,
+          "anomaly": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "review": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 0
+          },
+          "error": null,
+          "tools": [
+            {
+              "order": 1,
+              "tool": "extract_document_fields",
+              "status": "ok",
+              "ms": 0.92,
+              "summary": "3 documents, 3 item rows"
+            },
+            {
+              "order": 2,
+              "tool": "normalize_trade_data",
+              "status": "ok",
+              "ms": 0.06,
+              "summary": "15 distinct field values normalized"
+            },
+            {
+              "order": 3,
+              "tool": "audit_document_consistency",
+              "status": "ok",
+              "ms": 0.11,
+              "summary": "5 comparisons, {'difference': 0, 'contradiction': 0, 'review': 3}"
+            },
+            {
+              "order": 4,
+              "tool": "export_audit_report",
+              "status": "ok",
+              "ms": 18.36,
+              "summary": "XLSX generated (10112 bytes)"
+            }
+          ],
+          "mode": "oracle_test_confirmation",
+          "confirmation_method": "program_simulation_not_actual_human",
+          "confirmations": [],
+          "diagnostic_rounds": [],
+          "real_human_confirmations": 0,
+          "real_human_seconds": null,
+          "simulated_confirmations": 0,
+          "checks_before": 5,
+          "checks_after": 5,
+          "unverifiable_count": 3,
+          "unverifiable_denominator": 8,
+          "model_attempts": 0,
+          "model_failed_attempts": 0,
+          "tokens_complete": true,
+          "known_input_tokens": 0,
+          "known_output_tokens": 0,
+          "known_cached_input_tokens": 0,
+          "actual_billed_cost": null,
+          "cost_note": "No billing ledger available; token usage is not actual billed cost.",
+          "split": "regression",
+          "family": "manual-boundaries",
+          "format_validation_failures": 0,
+          "format_retry_attempts": 0,
+          "partial_rounds": 0
+        }
+      ],
+      "summary": {
+        "cases": 7,
+        "end_to_end_success_rate": 1.0,
+        "field_accuracy": 1.0,
+        "mean_ms": 33.695,
+        "median_ms": 35.487,
+        "anomaly": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "review": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "successful_cases": 7,
+        "field_correct": 215,
+        "field_count": 215,
+        "unverifiable_count": 5,
+        "unverifiable_denominator": 55,
+        "unverifiable_fraction": 0.09090909090909091,
+        "simulated_confirmations": 5,
+        "real_human_confirmations": 0,
+        "real_human_seconds": null,
+        "model_attempts": 0,
+        "model_failed_attempts": 0,
+        "model_failed_cases": 0,
+        "tokens_complete": true,
+        "known_input_tokens": 0,
+        "known_output_tokens": 0,
+        "known_cached_input_tokens": 0,
+        "actual_billed_cost": null,
+        "failure_cases": []
+      }
+    }
+  }
+}
