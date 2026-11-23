@@ -1,0 +1,169 @@
+{
+  "code_commit": "e285a105d7ec192eb99aad54d3efe600613ffda6",
+  "workflow_run_id": 45111321059,
+  "url": "https://github.com/Roneey-ZY/new-maoshentong/actions/runs/45111321059",
+  "evidence_type": "GitHub_Actions_not_public_browser_acceptance",
+  "jobs": [
+    {
+      "name": "container",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker build -t tradecheck-phase-a .",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check container startup",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "postgres",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Initialize containers",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pip install -r requirements-dev.txt",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pytest tests/test_phase_b.py::test_postgres_storage_when_service_available -q",
+          "conclusion": "success"
+        },
+        {
+          "name": "Create isolated recovery database",
+          "conclusion": "success"
+        },
+        {
+          "name": "Prepare saved versions in a fresh process",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stop isolated database and verify safe failure",
+          "conclusion": "success"
+        },
+        {
+          "name": "Restart isolated database and verify persisted reports",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stop containers",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "tests",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pip install -r requirements-dev.txt",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m scripts.verify_frozen_archive --commit f3f8161",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m scripts.verify_frozen_archive --commit d539f3d --dataset data/optimization_validation/v2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m pytest -q --junitxml=phase-b-results.xml",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m scripts.replay_mapping_safety",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m scripts.replay_csv_regression --output csv-regression-ci.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m scripts.evaluate_procurement --phase evaluate --output procurement-ci-results",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run python -m scripts.evaluate --mode rules --output phase-a-evaluation.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

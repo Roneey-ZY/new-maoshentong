@@ -69,3 +69,7 @@ GitHub main推送后等待Streamlit重新构建，现有账号、Neon和模型�
 5. “本轮优化验证”查看首次失败与当前专项回归说明，退出登录后不能继续访问私有工作台。
 
 本地AppTest及CI不是公开网页真人验收。最新云端页面仍需上述实际操作确认，不能仅凭容器health返回ok声称全部通过。真正的3—5人试用按[真人验证](HUMAN_VALIDATION.md)进行，尚未开展。
+
+## 本次持续集成结果
+
+功能提交`e285a105d7ec192eb99aad54d3efe600613ffda6`的[GitHub Actions检查](https://github.com/Roneey-ZY/new-maoshentong/actions/runs/45111321059)已完成：Linux完整测试、隔离PostgreSQL存储与停启恢复、容器构建及重启健康检查三个任务均成功。新旧实验归档字节校验、CSV回放及公开采购参考复核也包含在测试任务中。精简状态证据保存在`validation/optimization-ci.json`，不将其记为用户公开网页操作反馈。
