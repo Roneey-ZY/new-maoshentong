@@ -71,8 +71,10 @@ jobs:
           cache: pip
       - run: python -m pip install -r requirements-dev.txt
       - run: python -m scripts.verify_frozen_archive --commit f3f8161
+      - run: python -m scripts.verify_frozen_archive --commit d539f3d --dataset data/optimization_validation/v2
       - run: python -m pytest -q --junitxml=phase-b-results.xml
       - run: python -m scripts.replay_mapping_safety
+      - run: python -m scripts.replay_csv_regression --output csv-regression-ci.json
       - run: python -m scripts.evaluate_procurement --phase evaluate --output procurement-ci-results
       - run: python -m scripts.evaluate --mode rules --output phase-a-evaluation.json
       - uses: actions/upload-artifact@v4
@@ -82,6 +84,7 @@ jobs:
           path: |
             phase-b-results.xml
             phase-a-evaluation.json
+            csv-regression-ci.json
             procurement-ci-results/evaluation.json
             procurement-ci-results/REPORT.md
   container:

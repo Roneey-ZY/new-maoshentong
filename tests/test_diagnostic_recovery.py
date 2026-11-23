@@ -147,3 +147,37 @@ def test_confirmation_ui_previews_without_applying(monkeypatch):
     assert not app.exception and len(app.dataframe) >= 2
     assert next(b for b in app.button if b.label == "应用此建议并复审").disabled
     assert "order_id" not in next(d for d in run.documents if d.kind == "CI").header
+
+
+@pytest.mark.parametrize("fenced", [True, False])
+def test_real_sdk_transport_counts_unwrap_and_format_retry(monkeypatch, fenced):
+    import httpx2 as httpx
+    from openai import AsyncOpenAI
+    requests = []
+    valid = {"summary": "candidate", "mappings": [], "fields": [FIELD], "links": []}
+    def client(*args):
+        async def handler(request):
+            requests.append(json.loads(request.content))
+            value = dict(valid)
+            if not fenced and len(requests) == 1:
+                value.pop("mappings")
+            text = json.dumps(value)
+            if fenced:
+                text = "```json\n" + text + "\n```"
+            return httpx.Response(200, json={"id": "resp_fixture", "object": "response", "created_at": 1,
+                "status": "completed", "model": "fixture", "parallel_tool_calls": False,
+                "output": [{"id": "msg_fixture", "type": "message", "role": "assistant", "status": "completed",
+                            "content": [{"type": "output_text", "text": text, "annotations": []}]}],
+                "usage": {"input_tokens": 10, "output_tokens": 5, "total_tokens": 15}})
+        return AsyncOpenAI(api_key="fixture-not-real", max_retries=0,
+                           http_client=httpx.AsyncClient(transport=httpx.MockTransport(handler)))
+    monkeypatch.setattr(module, "model_client", client)
+    context = module.Context(run_case())
+    output = asyncio.run(module._diagnose(context, "fixture", "fixture", "openai"))
+    expected = 1 if fenced else 2
+    assert len(requests) == len(context.model_requests) == expected
+    assert sum(r["input_tokens"] for r in context.model_requests) == 10 * expected
+    assert context.completion_mode == ("unwrapped_output" if fenced else "repaired_output")
+    assert output.fields[0].value == "PO-123"
+    # No inspected source: even a structurally valid repaired field is rejected.
+    assert module.validated(context, output) == []

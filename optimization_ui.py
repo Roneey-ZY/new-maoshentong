@@ -12,6 +12,7 @@ NAMES = {"baseline": "原解析与规则", "agent_test_confirmation": "真实模
 def optimization_panel():
     with st.expander("本轮优化验证 · 旧失败复测与新模板"):
         st.info("以下模型建议由程序模拟确认，没有真人操作时间。旧失败复测与新模板分开统计；样本均为模拟数据。")
+        st.caption("以下v2成绩测于代码d539f3d所归档的版本。新模板发现的CSV读取问题已另作修复与回归，首次成绩保持原样。")
         for directory, title in [("regression-v2", "7个旧失败案例复测"), ("holdout-v2", "12个新合成模板留出")]:
             path = ROOT / directory / "comparison.json"
             if not path.exists():
@@ -40,3 +41,8 @@ def optimization_panel():
             st.download_button("下载逐笔记录 · " + title, path.read_bytes(), "TradeCheck-" + directory + ".json")
         st.caption("模型模式包含网络等待，并不比规则模式更快；当前价值在工具调度、字段建议和解释。程序耗时不含真人确认。实际收费未取得账单，未统计。")
         st.caption("首次失败与中断试验保留在源码data/optimization_results的v1目录；中断批次不能作为完整成绩。")
+        replay = ROOT / "csv-regression-v3.json"
+        if replay.exists():
+            current = json.loads(replay.read_text(encoding="utf-8"))
+            summary = current["summary"]
+            st.caption(f"CSV修复专项回归：{summary['successful_cases']}/{summary['cases']}通过；条件为预设正确映射模拟人工确认，无模型调用。这不是新增模型成绩。")

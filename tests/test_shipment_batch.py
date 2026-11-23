@@ -78,6 +78,8 @@ def test_batch_parser_rejects_duplicate_columns_unknown_fields_and_ambiguous_num
         read_batch_csv("PL", "GR.csv", b"receipt_id,quantity\na,5\n")
     row = read_batch_csv("PO", "PO.csv", b'order_id,order_line_id,quantity\np,1,"1,000"\n')[0]
     assert row["values"]["quantity"] is None
+    with pytest.raises(ValueError, match="引号"):
+        read_batch_csv("PO", "PO.csv", b'sku,quantity\n"unterminated,5')
 
 
 def test_batch_page_can_run_examples_and_download_reports():

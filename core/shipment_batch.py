@@ -22,13 +22,20 @@ SCOPE = "仅比较本次提供记录的累计数量；少于订单或发票可�
 
 
 def read_batch_csv(kind, filename, data):
+    try:
+        return _read_batch_csv(kind, filename, data)
+    except csv.Error:
+        raise ValueError("CSV引号、列结构或字段长度无法读取，请用模板重新导出。") from None
+
+
+def _read_batch_csv(kind, filename, data):
     if kind not in FIELDS or not filename.lower().endswith(".csv") or len(data) > 8 * 1024 * 1024:
         raise ValueError("批次入口只接收每份不超过8 MiB的CSV模板。")
     try:
         text = data.decode("utf-8-sig")
     except UnicodeDecodeError:
         raise ValueError("请将CSV保存为UTF-8编码。") from None
-    reader = csv.DictReader(io.StringIO(text))
+    reader = csv.DictReader(io.StringIO(text), strict=True)
     if not reader.fieldnames or len(set(reader.fieldnames)) != len(reader.fieldnames):
         raise ValueError("CSV须包含不重复的模板列名。")
     if set(reader.fieldnames) - set(FIELDS[kind]):

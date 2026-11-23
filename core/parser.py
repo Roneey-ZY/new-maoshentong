@@ -6,6 +6,7 @@ import zipfile
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
+from itertools import islice
 
 import openpyxl
 import pdfplumber
@@ -54,6 +55,34 @@ class ParseError(ValueError):
     pass
 
 
+def csv_dialect(content):
+    try:
+        return csv.Sniffer().sniff(content[:4096], delimiters=",;\t")
+    except csv.Error:
+        # A metadata line may have two cells while the item table has eleven.
+        # Sniffer then rejects the entire sample. Prefer an unambiguous header
+        # with >=2 recognized fields and a following row of the same width.
+        candidates = []
+        for delimiter in (",", ";", "\t"):
+            try:
+                rows = list(islice(csv.reader(io.StringIO(content), delimiter=delimiter, strict=True), 60))
+            except csv.Error:
+                continue
+            score = max((len({LABELS[label_key(v)] for v in row if label_key(v) in LABELS})
+                         for i, row in enumerate(rows) if len(row) >= 2 and any(len(other) == len(row) for other in rows[i+1:])), default=0)
+            if score >= 2:
+                candidates.append((score, delimiter))
+        if candidates:
+            highest = max(score for score, _ in candidates)
+            winners = [delimiter for score, delimiter in candidates if score == highest]
+            if len(winners) != 1:
+                raise ParseError("CSV分隔符存在歧义，请另存为UTF-8逗号分隔CSV后上传。")
+            dialect = csv.excel()
+            dialect.delimiter = winners[0]
+            return dialect
+        return "excel"
+
+
 @dataclass(frozen=True)
 class TableAnchor:
     row: int
@@ -90,10 +119,7 @@ def table_rows(data: bytes, ext: str):
             raise ParseError("CSV 编码无法识别，请使用 UTF-8 或 GB18030。")
         if "\x00" in content:
             raise ParseError("CSV 包含 NUL 字节，请重新导出为 UTF-8。")
-        try:
-            dialect = csv.Sniffer().sniff(content[:4096], delimiters=",;\t")
-        except csv.Error:
-            dialect = "excel"
+        dialect = csv_dialect(content)
         reader = csv.reader(io.StringIO(content), dialect)
         while True:
             row = reader.line_num + 1

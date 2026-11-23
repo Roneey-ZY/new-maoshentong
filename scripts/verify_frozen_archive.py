@@ -8,9 +8,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def verify(commit="f3f8161"):
-    manifest = json.loads((ROOT / "data/independent_validation/v1/manifest.json").read_text(encoding="utf-8"))
-    expected = {**manifest["engine"], **{"data/independent_validation/v1/" + key: value
+def verify(commit="f3f8161", dataset="data/independent_validation/v1"):
+    manifest = json.loads((ROOT / dataset / "manifest.json").read_text(encoding="utf-8"))
+    expected = {**manifest["engine"], **{dataset.rstrip("/") + "/" + key: value
                                        for key, value in manifest["files"].items()}}
     for name, digest in expected.items():
         contents = subprocess.check_output(["git", "show", f"{commit}:{name}"], cwd=ROOT)
@@ -22,4 +22,6 @@ def verify(commit="f3f8161"):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--commit", default="f3f8161")
-    verify(parser.parse_args().commit)
+    parser.add_argument("--dataset", default="data/independent_validation/v1")
+    args = parser.parse_args()
+    verify(args.commit, args.dataset)

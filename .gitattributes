@@ -5,3 +5,6 @@ scripts/*.py -text
 data/independent_validation/** -text
 data/independent_results/** -text
 data/external/** -text
+data/optimization_validation/** -text
+data/optimization_results/** -text
+data/batch_demo/** -text
