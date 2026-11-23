@@ -1,0 +1,166 @@
+{
+  "version": 2,
+  "source": "project_authored_synthetic_only",
+  "seed": 2026112302,
+  "created_utc": "2026-11-23T04:12:02.736352+00:00",
+  "cases": [
+    {
+      "id": "01-new-en-v2-normal",
+      "family": "new-en-v2",
+      "split": "holdout",
+      "scenario": "normal"
+    },
+    {
+      "id": "02-new-en-v2-quantity",
+      "family": "new-en-v2",
+      "split": "holdout",
+      "scenario": "quantity"
+    },
+    {
+      "id": "03-new-en-v2-price",
+      "family": "new-en-v2",
+      "split": "holdout",
+      "scenario": "price"
+    },
+    {
+      "id": "04-new-en-v2-weight",
+      "family": "new-en-v2",
+      "split": "holdout",
+      "scenario": "weight"
+    },
+    {
+      "id": "05-new-zh-v2-normal",
+      "family": "new-zh-v2",
+      "split": "holdout",
+      "scenario": "normal"
+    },
+    {
+      "id": "06-new-zh-v2-quantity",
+      "family": "new-zh-v2",
+      "split": "holdout",
+      "scenario": "quantity"
+    },
+    {
+      "id": "07-new-zh-v2-price",
+      "family": "new-zh-v2",
+      "split": "holdout",
+      "scenario": "price"
+    },
+    {
+      "id": "08-new-zh-v2-weight",
+      "family": "new-zh-v2",
+      "split": "holdout",
+      "scenario": "weight"
+    },
+    {
+      "id": "09-new-reference-v2-normal",
+      "family": "new-reference-v2",
+      "split": "holdout",
+      "scenario": "normal"
+    },
+    {
+      "id": "10-new-reference-v2-quantity",
+      "family": "new-reference-v2",
+      "split": "holdout",
+      "scenario": "quantity"
+    },
+    {
+      "id": "11-new-reference-v2-price",
+      "family": "new-reference-v2",
+      "split": "holdout",
+      "scenario": "price"
+    },
+    {
+      "id": "12-new-reference-v2-weight",
+      "family": "new-reference-v2",
+      "split": "holdout",
+      "scenario": "weight"
+    }
+  ],
+  "limits": [
+    "Same developer authored these fixtures; not third-party human evidence.",
+    "New layout/name variants are not evidence of arbitrary-template generalization.",
+    "Model confirmations are program simulation; actual human timing remains pending."
+  ],
+  "files": {
+    "01-new-en-v2-normal/CI.csv": "3814263306b8b87a2825c67e653f62d45eaf312211a3694a17a51ca48319a011",
+    "01-new-en-v2-normal/confirmation.json": "f3c848c7a95075fecdc4419a43e1d8cba87b4e4ce1ed373bbae14f7b14cf5581",
+    "01-new-en-v2-normal/PL.csv": "999c554bdb221ceef71880b8b9c1d0899c012acf6beaf6d01608968c4d51c6c3",
+    "01-new-en-v2-normal/PO.csv": "88fd4d2abf5d89f41a5685bc35bedc3275eb97e3955567cbdff49ffef629a29b",
+    "01-new-en-v2-normal/truth.json": "01e51d1d654f0223fd4f43cd6191f773b2cab8dcc0499b5459a0c37701877e3c",
+    "02-new-en-v2-quantity/CI.csv": "67448c753937a73a2ab1b85ec1c8ca4119344badef63aaa2cdfbf10b742fc2f1",
+    "02-new-en-v2-quantity/confirmation.json": "f3c848c7a95075fecdc4419a43e1d8cba87b4e4ce1ed373bbae14f7b14cf5581",
+    "02-new-en-v2-quantity/PL.csv": "5535ec0fca2357bbb7d7f6a6235f0d01239d98b5ec23b29a19c477b1fc64dda6",
+    "02-new-en-v2-quantity/PO.csv": "eda16e26e416052b93a8e1cc6dde73c76df6b39cc3e7572af47e466c226b883e",
+    "02-new-en-v2-quantity/truth.json": "0003c231ea804de093eb3e0a5a70693687934f674b2f6c9da23ee8128f8c72bb",
+    "03-new-en-v2-price/CI.csv": "ab028fa964c6d7f58145fd27f6f8bed308f0822989102a1831d48694408dc7a3",
+    "03-new-en-v2-price/confirmation.json": "f3c848c7a95075fecdc4419a43e1d8cba87b4e4ce1ed373bbae14f7b14cf5581",
+    "03-new-en-v2-price/PL.csv": "bcb6f185266b54bc30f0404f944a6ac8fd7d9d7e6adfa4e012a7411be3d63c39",
+    "03-new-en-v2-price/PO.csv": "d2c7e2cbe69c17d3549d2b9292eafa73c337c0baf94eb865904673b973ff65aa",
+    "03-new-en-v2-price/truth.json": "596b3a8fe6f764437a2d7d17e6645bb13cc15ed360ea1da7fb6f4b2c91300f33",
+    "04-new-en-v2-weight/CI.csv": "59edbbd6dadef1e25249574d411eabd52bc332974c51181c25c681bd442b5f72",
+    "04-new-en-v2-weight/confirmation.json": "f3c848c7a95075fecdc4419a43e1d8cba87b4e4ce1ed373bbae14f7b14cf5581",
+    "04-new-en-v2-weight/PL.csv": "3d5cb9f697dfc07bf9e4a5d2852badc625ea034c0c18ca3aef801d20d0ef1f82",
+    "04-new-en-v2-weight/PO.csv": "8fe2f5ac42d2e927b5609042e7f091f9794230a3fa95cdbb066171eb19da2d18",
+    "04-new-en-v2-weight/truth.json": "5a6845c80f5715da5b355dbb2b4f25ee6acd4755e0400a196a60b762e412e95d",
+    "05-new-zh-v2-normal/CI.xlsx": "ad4b648f580b8bb5a67fbb992c68459d260b89e0802b93b1ea5dde0cb3931a6a",
+    "05-new-zh-v2-normal/confirmation.json": "98830d520df88376a84eed3db7650e9200c3b499b17b555399af72754c03d90d",
+    "05-new-zh-v2-normal/PL.csv": "72912b8feb5251dac4ec3610d26afd65de809fa0050c12e9c55e8e85e9475d1e",
+    "05-new-zh-v2-normal/PO.csv": "77700de75a4fed76c48f10f5955d739a9d9938ad3436eca699356bf4f7999ffd",
+    "05-new-zh-v2-normal/truth.json": "583944fed82686b92d6145d0ab98e170060f870ad5cf20019e07b99790e762b0",
+    "06-new-zh-v2-quantity/CI.xlsx": "5f9ff56cbb6cbea59192032509f3e76f0999700ff7abfbc8d6bf6a9bcf70ac17",
+    "06-new-zh-v2-quantity/confirmation.json": "98830d520df88376a84eed3db7650e9200c3b499b17b555399af72754c03d90d",
+    "06-new-zh-v2-quantity/PL.csv": "783d5be972d63de579a40e4f6a535720c74a55d12a08ed0da431050f8f32d61c",
+    "06-new-zh-v2-quantity/PO.csv": "3856ff9704b12a3b02d239a693567101e5853e8e90f7b27b44ea37f0cfb6a913",
+    "06-new-zh-v2-quantity/truth.json": "e2b96755e641f957871bde271895f1e1a8360cce0adeaccafa5eb15d1d9b17d7",
+    "07-new-zh-v2-price/CI.xlsx": "eb105c1d38381e552988d10c95ad4fd3804b208acf0236a591bbeed47f5c159a",
+    "07-new-zh-v2-price/confirmation.json": "98830d520df88376a84eed3db7650e9200c3b499b17b555399af72754c03d90d",
+    "07-new-zh-v2-price/PL.csv": "749360a9327b3d9a3fd6d6767e56c5c5c8ec4199ccf645cd720f16ba5f3501a4",
+    "07-new-zh-v2-price/PO.csv": "363f8365c1beb7d9d084c65cd1becb16c68ab2bf66b3db8dbf43b470fdf49f60",
+    "07-new-zh-v2-price/truth.json": "c152cbaf594349cc8fee3fc7405375e426804d83874bdcd069471c9557dbfd18",
+    "08-new-zh-v2-weight/CI.xlsx": "93c3cabc2e33d30a75bdff0b0693c0c85045a0e27e74c6ced58ae8100876441f",
+    "08-new-zh-v2-weight/confirmation.json": "98830d520df88376a84eed3db7650e9200c3b499b17b555399af72754c03d90d",
+    "08-new-zh-v2-weight/PL.csv": "d313501583947516ee8dbaca945cb46b7943bc61f0ed8dacc3e1e484694b7d89",
+    "08-new-zh-v2-weight/PO.csv": "6f3796531010b673281c2a1f1389371471cb1c2a4fb4250a1d17cc575a007791",
+    "08-new-zh-v2-weight/truth.json": "4f426078d78eb79553dec2ee1239b9c837ec07f120a69aaa50d5e73a09870067",
+    "09-new-reference-v2-normal/CI.csv": "7a51ab545fdbd97b0d1baea7bdf0c2a4ae1f29e1ce4e8d5f54a97260197c2710",
+    "09-new-reference-v2-normal/confirmation.json": "8941a04560d068c4573cd06904e7a061f78ca65ebe31ad3987e813b27c08a0c6",
+    "09-new-reference-v2-normal/PL.csv": "03f6df34e83b56a573f050e3c6184c71b6f2546f1674092a5847c9bda4254143",
+    "09-new-reference-v2-normal/PO.csv": "d81880770168d112f67b553f7864856b835e5e667c419cee99f6930d6e28b773",
+    "09-new-reference-v2-normal/truth.json": "f1251a2ae3c79dcfd751987af796ed37d99a28813bbea46d0e1997057799a49e",
+    "10-new-reference-v2-quantity/CI.csv": "2e9202873e2ec1874a961220804184ee956286803fdf8bb825f8612bd056fd08",
+    "10-new-reference-v2-quantity/confirmation.json": "6841f8932404d86d4be69b6fa47f6ad5979a1107822040efe92c5d3f67eea741",
+    "10-new-reference-v2-quantity/PL.csv": "cc28d2de06dd9a57cbbc9335d447662854d566dd53b00ca883c77410d383e5b9",
+    "10-new-reference-v2-quantity/PO.csv": "35b19b584b5d6b1c06abcb7c817d525caf62b8803b290c60b9bed5ceb2677e36",
+    "10-new-reference-v2-quantity/truth.json": "b673ef68af403caec4109a7183d85443b54d835d0d20a9533632923acbf88dba",
+    "11-new-reference-v2-price/CI.csv": "c532e1abd3c74a20963a237eb9d5679f6c1ea2b6e5acd637d6d9632a58ea23e6",
+    "11-new-reference-v2-price/confirmation.json": "98d3c4107bfb32e50f08bf908778a2fd9e6253ac5da170286020ee85765889cc",
+    "11-new-reference-v2-price/PL.csv": "4b76c9361256710e5f75252385f970f38d0ec24c5af5bc2c4286a078212a829d",
+    "11-new-reference-v2-price/PO.csv": "cb25fd9f45cf345d06b0787c99c06fe3e24c20be77f695a0dda16adde2dffc01",
+    "11-new-reference-v2-price/truth.json": "8523668c607d3741ba9c32a3d89ca6380dec7a37a4b87255e8aa76822e01bca8",
+    "12-new-reference-v2-weight/CI.csv": "69ac4c2b6b4366be00817664a6ddca5b9d41752a7f540a845ae7934107c8a731",
+    "12-new-reference-v2-weight/confirmation.json": "1253f66d53963a8f9fe991f87085f82b6bc150b60621218b865ebbdfbe5b7233",
+    "12-new-reference-v2-weight/PL.csv": "0a4fd996088c7d3eaa737087ef798f98a67e2ae30d2b7d65b421e4395e8b837a",
+    "12-new-reference-v2-weight/PO.csv": "90dd53e29c15325b779c33b1a726f943409c7681a5476aeb3eae0727f3c10911",
+    "12-new-reference-v2-weight/truth.json": "fb50a0d75e9dfd1f12250af04ea410d1dc26fadb3a50228ec79fe3e238f0a9c2"
+  },
+  "engine": {
+    "agent/diagnostic_agent.py": "e1c275fcd463520d41a9d671449446628412468a28a73676db2a6853b4014477",
+    "agent/diagnostic_output.py": "673f50406e683fe779126575c576c3d9106060c8c6c17150aa33c9917a9fb0dd",
+    "agent/mapping_agent.py": "e81f7153f790d7f489535644f6e1a68505c556fc5ef6774eea3f3536bdb4b015",
+    "agent/usage_meter.py": "07e7ff5ede7c90dc285a79c289138afef1c8910d1a9e89c1d81669936f841765",
+    "agent/main_agent.py": "f57bc61f370fa895dbc2e1c31226a8211da988162b03f5530dd908aacdfa3df6",
+    "agent/tools.py": "6331fa95abdf52a10e4d0bf31b6717e16385a313c54c2cf42fd115c55baa53b7",
+    "core/parser.py": "2a2ab534a6631fc69710a290adab2ad5b6d626e48fe6fb7aef3f3e66b1bc4dc5",
+    "core/pdf_columns.py": "438e6545a07e78a41094f936f88e947404002ab795906eedc9744a094dad4581",
+    "core/normalizer.py": "bcd479632039a7c2efc4fab1f674168da8bdc725ae637789b23a611402e0a999",
+    "core/audit_rules.py": "db0a6cfbb8cce508b88be2a12261239554b309502986c1fc20a4f7a987c3943c",
+    "core/schemas.py": "5eb70b2fb375c502e42ef7da5a2c50862dbd412b87b1ddcd2cef747a64e73287",
+    "core/reporter.py": "eacb5bb860fba017288386a576014e2b73f49c5ba53787564939c1186c5ac166",
+    "agent/prompts.py": "fa8ccce6b56f034652c5a58648ccb5921079dd159983efed841f2f86299a85e4",
+    "scripts/evaluate.py": "7b62a167f9dbc81e6ac6cc7da9111cc909cf9c6a1a3c2c4881bdc45687a98e71",
+    "scripts/evaluate_independent.py": "70a6c1f4abf913a5dcbca0fa62af258b17aec183c5c19ef88ed75dcc834f025c",
+    "scripts/evaluate_optimization.py": "06dbc1ca43fa2f3f78185101dda969130287d9d387cda636f1c212492cb63c58",
+    "scripts/generate_optimization_holdout.py": "f206b0b11818795562e7500e351ef3a777122291cd533fd3b8d86a58ac3f52a7"
+  }
+}

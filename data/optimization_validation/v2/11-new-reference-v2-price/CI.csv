@@ -1,0 +1,4 @@
+﻿Purchase order reference cited on bill;NX-8411
+
+line_amount;unit_price;unit;quantity;product;sku;currency;seller;buyer;invoice_id
+123.20;3.85;PCS;32;Connector set;XC-5111;USD;Synthetic Ridge Seller;Synthetic Harbor Buyer;NXI-10411

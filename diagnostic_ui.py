@@ -26,7 +26,9 @@ def diagnostic_panel(run, key, model, provider):
         st.text(diagnosis["summary"])
         if diagnosis.get("error"):
             st.error(diagnosis["error"])
-        if diagnosis.get("mode") == "repaired_output":
+        if diagnosis.get("mode") == "unwrapped_output":
+            st.caption("模型返回了JSON代码框，已在本地去掉外层格式并通过结构校验，没有额外请求模型。")
+        elif diagnosis.get("mode") == "repaired_output":
             st.info("模型首次输出的格式有误，已完成一次格式重试。以下仍是待确认建议。")
         elif diagnosis.get("mode") == "partial_output":
             st.warning("模型未返回完整有效结果。这里只保留能单独校验的候选，其他疑难项仍需人工检查。")

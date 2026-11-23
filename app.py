@@ -19,6 +19,7 @@ from diagnostic_ui import diagnostic_panel
 from evaluation_ui import evaluation_panel
 from procurement_ui import procurement_panel
 from batch_ui import batch_panel
+from optimization_ui import optimization_panel
 from core.storage import DatabaseUnavailable, AccessDenied
 
 st.set_page_config(page_title="贸审通 TradeCheck Agent", page_icon="📋", layout="wide")
@@ -339,6 +340,7 @@ if record:
 procurement_panel()
 batch_panel()
 evaluation_panel()
+optimization_panel()
 
 with st.expander("技术说明与审核范围"):
     st.markdown("""

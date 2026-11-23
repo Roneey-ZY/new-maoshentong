@@ -1,5 +1,6 @@
 """Bounded structured-output recovery. Raw model text stays in memory only."""
 import json
+import re
 from collections import Counter
 
 from pydantic import ValidationError
@@ -9,6 +10,13 @@ def output_schema(output_type, state):
     from agents import AgentOutputSchema
     class CapturingSchema(AgentOutputSchema):
         def validate_json(self, text):
+            # Some compatible providers return valid JSON in Markdown despite
+            # the schema request. Unwrap exactly ONE explicit JSON fence only;
+            # never guess among multiple objects or accept a truncated object.
+            blocks = re.findall(r"```json[ \t]*\r?\n(.*?)```", text, re.S | re.I)
+            if len(blocks) == 1 and text.count("```") == 2:
+                text = blocks[0].strip()
+                state["unwrapped"] = True
             state["text"] = text[:24000]
             try:
                 result = super().validate_json(text)

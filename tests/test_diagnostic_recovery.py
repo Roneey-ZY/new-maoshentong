@@ -44,6 +44,32 @@ def test_salvage_preserves_pairs_and_never_invents_missing_values():
         constrain_repair(changed, recovered)
 
 
+def test_exactly_one_fenced_json_is_unwrapped_and_still_strictly_validated():
+    from agents import ModelBehaviorError
+    valid = json.dumps({"summary": "candidate", "mappings": [], "fields": [FIELD], "links": []})
+    text = "诊断结果\n```json\n" + valid + "\n```\n请人工确认。"
+    state = {}
+    result = output_schema(module.DiagnosticOutput, state).validate_json(text)
+    assert result.fields[0].value == "PO-123" and state["unwrapped"] and state["valid"]
+    for ambiguous in [text + "\n```json\n" + valid + "\n```", "```json\n{broken}\n```", valid + valid]:
+        with pytest.raises(ModelBehaviorError):
+            output_schema(module.DiagnosticOutput, {}).validate_json(ambiguous)
+
+
+def test_fenced_output_does_not_issue_an_additional_model_request(monkeypatch):
+    from agents import Runner
+    calls = []
+    async def fixture(agent, *args, **kwargs):
+        calls.append(1)
+        text = json.dumps({"summary": "candidate", "mappings": [], "fields": [], "links": []})
+        return SimpleNamespace(final_output=agent.output_type.validate_json("```json\n" + text + "\n```"))
+    monkeypatch.setattr(Runner, "run", fixture)
+    context = module.Context(run_case())
+    asyncio.run(module._diagnose(context, "fixture", "fixture", "openai"))
+    assert len(calls) == 1 and context.completion_mode == "unwrapped_output"
+    assert context.output_events[0]["additional_model_requests"] == 0
+
+
 @pytest.mark.parametrize("repair", ["valid", "invalid", "invented", "api_failure"])
 def test_one_bounded_format_retry_and_safe_partial_results(monkeypatch, repair):
     from agents import Runner

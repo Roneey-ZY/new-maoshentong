@@ -1,0 +1,17 @@
+[
+  {
+    "type": "mapping",
+    "kind": "CI",
+    "anchor": {
+      "row": 1,
+      "sheet": null,
+      "page": null
+    },
+    "columns": {
+      "1": "line_amount",
+      "2": "unit_price",
+      "4": "quantity",
+      "6": "sku"
+    }
+  }
+]
